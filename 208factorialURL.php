@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-        $num = 0;
+        $num = $_GET["num"];
         $resultado = 1;
         if ($num === 0) {
             $num  = 1;
@@ -22,4 +22,3 @@
     ?>
 </body>
 </html>
-

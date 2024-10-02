@@ -1,4 +1,6 @@
 document.addEventListener ('DOMContentLoaded', () => {
-    const saludo =  document.querySelector('p');
-    saludo.innerHTML = "Paga cabrón";
+    const body =  document.querySelector('body');
+    const parrafo = body.appendChild ('p')
+    parrafo.innerHTML = "Holaa"
+    
 })
