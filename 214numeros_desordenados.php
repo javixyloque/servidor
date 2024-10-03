@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="Javi" content="Javier Alvarez Centeno">
+    <title>214 - Numeros desordenados</title>
 </head>
 <body>
     <h1>Los numeros pares hasta el 50 en un array desordenado</h1>

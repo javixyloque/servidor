@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabla Pitagoras</title>
+    <meta name="Javi" content="Javier Alvarez Centeno">
+    <title>218 - Tabla Pitagoras</title>
 </head>
 <body>
 <table border="solid 2px" cellspacing="0px" min-width="30%">
@@ -23,15 +24,15 @@
                 
                 for ($j = 1; $j <= $num; $j++) {
                     if ($i === 1 && $j === 1) {
-                        echo "<td width='40px' height='40px' align='center'>x</td>";
+                        echo "<td width='40px' height='40px' align='center' bgcolor='87A2FF'>x</td>";
                         
                         
                     } else if ($i === 1) {       
-                        echo "<td width='40px' height='40px' align='center'>".($i)*($j-1)."</td>";
+                        echo "<td width='40px' height='40px' align='center' bgcolor='87A2FF'>".($i)*($j-1)."</td>";
                     }else if ($j ===1) {
-                        echo "<td width='40px' height='40px' align='center'>".($i-1)*($j)."</td>";
+                        echo "<td width='40px' height='40px' align='center' bgcolor='87A2FF'>".($i-1)*($j)."</td>";
                     }else {
-                        echo "<td width='40px' height='40px' align='center'>".($i-1)*($j-1)."</td>";
+                        echo "<td width='40px' height='40px' align='center' bgcolor='FFD7C4'>".($i-1)*($j-1)."</td>";
                     }
                     
                 }

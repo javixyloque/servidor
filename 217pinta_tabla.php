@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pinta tabla</title>
+    <meta name="Javi" content="Javier Alvarez Centeno">
+    <title>217 - Pinta tabla</title>
 </head>
 <body>
     <table border="solid 2px">

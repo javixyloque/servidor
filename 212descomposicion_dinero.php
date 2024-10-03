@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Javier" >
-    <title>Document</title>
+    <meta name="Javi" content="Javier Alvarez Centeno">
+    <title>212 - Descomposicion dinero</title>
 </head>
 <body>
     <h1>

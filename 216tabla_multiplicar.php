@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabla de multiplicar</title>
+    <meta name="Javi" content="Javier Alvarez Centeno">
+    <title>216 - Tabla de multiplicar</title>
 </head>
 <body>
     <table width="60%" border="solid 1px">
