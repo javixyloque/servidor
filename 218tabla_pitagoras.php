@@ -6,7 +6,7 @@
     <title>Tabla Pitagoras</title>
 </head>
 <body>
-<table border="solid 2px" min-width="30%">
+<table border="solid 2px" cellspacing="0px" min-width="30%">
     <?php    
         $num = 10;
         $num++;
@@ -23,15 +23,15 @@
                 
                 for ($j = 1; $j <= $num; $j++) {
                     if ($i === 1 && $j === 1) {
-                        echo "<td>x</td>";
+                        echo "<td width='40px' height='40px' align='center'>x</td>";
                         
                         
                     } else if ($i === 1) {       
-                        echo "<td>".($i)*($j-1)."</td>";
+                        echo "<td width='40px' height='40px' align='center'>".($i)*($j-1)."</td>";
                     }else if ($j ===1) {
-                        echo "<td>".($i-1)*($j)."</td>";
+                        echo "<td width='40px' height='40px' align='center'>".($i-1)*($j)."</td>";
                     }else {
-                        echo "<td>".($i-1)*($j-1)."</td>";
+                        echo "<td width='40px' height='40px' align='center'>".($i-1)*($j-1)."</td>";
                     }
                     
                 }
