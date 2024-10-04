@@ -9,7 +9,7 @@
 <body>
     <table border="solid 2px">
     <?php    
-        $num = 17;
+        $num = 18;
 
         echo "<thead><th colspan=".$num.">Lista de coordenadas</th></thead>";
         
