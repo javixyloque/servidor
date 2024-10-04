@@ -28,7 +28,10 @@
         ];
         var_dump($asocLetras);
             
-            // NO HACE FALTA EL FOREACH, CON FILTER FUNCIONA
+            // NO HACE FALTA EL FOREACH, CON FILTER FUNCIONA.
+            // AUNQUE NO LO HEMOS VISTO LO DEJO AQUI PARA UN FUTURO,
+            // La forma en la que lo hice yo era inicializando a 0 dentro del asociativo el value 
+            // e ir sumando cada paso por el foreach, pero tambien es muy lento.
 
 
         // foreach($letras as $letra) {
