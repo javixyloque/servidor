@@ -8,14 +8,41 @@
 </head>
 <body>
     <?php
-        $arr = [];
-        for($i = 0; $arr.length<100; $i++) {
-            $sorteo = rand(1, 3);
+        $letras = [];
+        $sorteo;
+        for($i = 0; $i<100; $i++) {
+            $sorteo = rand(1, 2);
             if ($sorteo === 1) {
-                array_push($arr, $sorteo);
+                array_push($letras, "F");
+            } else {
+                array_push($letras, "M");
             }
         }
-        var_dump($arr)
+        print_r($letras);
+        echo "<br><br><br>";
+        $asocLetras = [
+                'M' => count(array_filter($letras, function ($i) {
+                    return $i =="M";})),
+                'F' => count(array_filter($letras, function ($s) {
+                    return $s =="F";}))
+        ];
+        var_dump($asocLetras);
+            
+            // NO HACE FALTA EL FOREACH, CON FILTER FUNCIONA
+
+
+        // foreach($letras as $letra) {
+        //     if ($letra == "M") {
+        //         $asocLetras["M"]++;
+        //     } else if ($letra == 'F') {
+        //         $asocLetras["F"]++;
+        //     }
+        // }
+        
+
+        
+        
+        
     ?>
 </body>
 </html>
