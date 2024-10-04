@@ -8,6 +8,7 @@
 </head>
 <body>
     <table>
+        <thead><caption>Medias de alturas de los alumnos</caption></thead>
     <?php
         $altura = [
             "Josele" => 172,
