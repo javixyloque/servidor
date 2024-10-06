@@ -11,7 +11,7 @@
         <thead><th colspan="2">Alturas alumnos</th></thead>
     <?php
 
-use function PHPSTORM_META\type;
+
 
         $altura = [
             "Josele" => 172,
