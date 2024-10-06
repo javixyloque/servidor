@@ -10,7 +10,7 @@
 <body>
     <h1>
     <?php
-    $dinero = 967;
+    $dinero = 45;
     $total = $dinero;
     $billetes = [500, 200, 100, 50, 20, 10, 5, 2, 1];
     $nuevosBill =[];
@@ -31,6 +31,15 @@
             $dinero -= $billetes[$i];
             array_push($nuevosBill, $billetes[$i]);
             $contador++;
+            
+            // Esto tengo que hacerlo por si puede sacar mas de uno igual
+            
+            if ($dinero>=$billetes[$i]) {
+                $dinero -= $billetes[$i];
+                array_push($nuevosBill, $billetes[$i]);
+                $contador++;
+            }
+            
         }
     }
 

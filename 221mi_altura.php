@@ -10,6 +10,9 @@
 <table border="solid 2px">
         <thead><th colspan="2">Alturas alumnos</th></thead>
     <?php
+
+use function PHPSTORM_META\type;
+
         $altura = [
             "Josele" => 172,
             "Juanjo" => 192,
@@ -36,6 +39,8 @@
             echo "<br><br><h3>Tu altura : $miAltura cm</h3><br><br>";
             if ($miAltura < $altMedia) {
                 echo "Tu altura esta por debajo de la media &#x2639;";
+            } else if ($miAltura == $altMedia) {    // NO SE PUEDE COMPARAR ESTRICTAMENTE, EL GET DEVUELVE UN STRING
+                echo "Tu altura es justo la altura media";
             } else {
                 echo "Tu altura esta por encima de la media !!  &#x263a;";
             }

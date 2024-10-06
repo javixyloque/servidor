@@ -13,7 +13,13 @@
                 
                 <?php
                     $num = $_GET['num'];
-                    echo "Esta es la tabla del $num";
+                    if (isset($num)) {
+                        echo "Esta es la tabla del $num";
+                    } else {
+                        echo "<h1>Escribe un parametro num en la url (.php?num=15 [por ejemplo])</h1>";
+                        
+                    }
+                    
                 ?>
                 
             </th>
