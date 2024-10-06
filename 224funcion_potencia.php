@@ -8,9 +8,12 @@
 </head>
 <body>
     <?php
-        function potencia ($base, $exponente) {
-
+        function potencia ($base, $exponente = 2) {
+            echo "$base elevado a $exponente = ".$base**$exponente."<br>";
         }
+        potencia(2);
+        potencia(2, 15);
+        potencia(5);
         
 
     ?>
