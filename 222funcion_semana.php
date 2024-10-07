@@ -19,7 +19,7 @@
 
                 echo "Vamos a ir al cine el ".irCine();
 
-            ?> 
+            ?>
     </h1>
 </body>
 </html>

@@ -7,15 +7,17 @@
     <title>224 - Funcion potencia</title>
 </head>
 <body>
+    <h1>
     <?php
         function potencia ($base, $exponente = 2) {
-            echo "$base elevado a $exponente = ".$base**$exponente."<br>";
+            return "$base elevado a $exponente = ".$base**$exponente."<br>";
         }
-        potencia(2);
-        potencia(2, 15);
-        potencia(5);
+        echo potencia(2);
+        echo potencia(2, 15);
+        echo potencia(5);
         
 
     ?>
+    </h1>
 </body>
 </html>
