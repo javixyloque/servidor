@@ -28,7 +28,7 @@ declare(strict_types=1);
         return $contador;
     }
 
-    echo esPar(18);
+    var_dump(esPar(18));
     $arr = arrayAleatorio (8, 0, 100);
     print_r($arr);
     echo arrayPares($arr);
