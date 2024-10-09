@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
     function digitos (int $num): int {
         return strlen((string)$num);
     }
@@ -11,7 +12,16 @@ declare(strict_types=1);
     }
     
 
-    // function quitaPorDetras(int $num, int $cant): int {
+    function quitaPorDetras(int $num, int $cant): int {
+        $cadena = (string)$num;
+        $modificado = substr($cadena, 0, -$cant);
+        return (int)$modificado;
+    }
 
-    // }
+
+    function quitaPorDelante (int $num, int $cant): int {
+        $cadena = (string)$num;
+        $modificado = substr($cadena, $cant, strlen($cadena));
+        return (int)$modificado;
+    }
     
