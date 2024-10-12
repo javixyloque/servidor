@@ -18,12 +18,12 @@
         <tbody>
             <?php
             session_start();
-                $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : '';
-                echo''.$nombre.'';
-
-
-
-
+                $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
+                $nombre = isset($_GET['prApe']) ? $_GET['prApe'] : '';
+                $nombre = isset($_GET['sgApe']) ? $_GET['sgApe'] : '';
+                $nombre = isset($_GET['email']) ? $_GET['email'] : '';
+                $nombre = isset($_GET['anioNac']) ? $_GET['anioNac'] : '';
+                $nombre = isset($_GET['telefono']) ? $_GET['telefono'] : '';
             echo '<tr>';
                 
 
