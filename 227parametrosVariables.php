@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
     $arrDesord= [2,8,9,6,7,15,8,9,0];
 
     function mayor(): int {
