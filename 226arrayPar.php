@@ -27,10 +27,12 @@ declare(strict_types=1);
         }
         return $contador;
     }
-
+    echo "<h2>Es par el numero 18? </h2>";
     var_dump(esPar(18));
+    echo "<br><h2>Array aleatorio: </h2><br>";
     $arr = arrayAleatorio (8, 0, 100);
     print_r($arr);
+    echo "<br><h2>Cuantos pares tiene el Array aleatorio? </h2><br>";
     echo arrayPares($arr);
     
 

@@ -24,4 +24,10 @@ declare(strict_types=1);
         $modificado = substr($cadena, $cant, strlen($cadena));
         return (int)$modificado;
     }
-    
+
+    $arrFunciones = ["digitoN", "quitaPorDetras", "quitaPorDelante"];
+    echo "Cuantos digitos tiene 1726? ".digitos(1726)."<br>";
+    foreach ($arrFunciones as $func) {
+        echo $func." = ".$func(1726, 2)."<br>";
+    }
+
