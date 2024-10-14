@@ -28,6 +28,7 @@
         <input type="text" name="sueldo">
         <input type="submit" value="Insertar">
     </form>';
+    
     if (!empty($_SESSION['empresa'])) {
         foreach ($_SESSION['empresa'] as $trabaj) {
             foreach ($trabaj as $nombre => $sueldo) {
