@@ -23,11 +23,15 @@
         // POR ESO HAY QUE HACER EL ECHO DENTRO DEL BUCLE
         
         echo $strIni."<br>";
+        $contador = 0;
         foreach ($vocales as $key => $value) {
             $value += substr_count($cadena, $key);
             echo "La letra $key aparece $value veces<br>";
+            $contador+=$value;
         }
+        $porcentaje = ($contador/strlen($strIni))*100;
         
+        echo "Las vocales aparecen un total de $contador veces, lo que es el {$porcentaje}% de toda la frase"
         
         
         

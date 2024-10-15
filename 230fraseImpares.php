@@ -11,10 +11,10 @@
     $frase = "Hola buenas tardes soy maria jesus";
     $fraseCompleta = "";
     
-    for ($i = 0; $i<strlen($frase); $i++) {
-        if ($i%2===1) {
+    for ($i = 0; $i<strlen($frase)-1; $i+=2) {
+        
             $fraseCompleta.=$frase[$i];
-        }
+        
     }
     echo $fraseCompleta;
 
