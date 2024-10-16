@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-    $input = "Si el moreno te ronea tu te calma y lo pexea";
+    $input = "Si el muxaxo te basila tu t kaya i lo asimila";
     
     echo convierteCani($input);
     function convierteCani ($frase) {
