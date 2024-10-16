@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-    $input = "Escribe una funcion que transforme una cadena en cani";
+    $input = "Si el moreno te ronea tu te calma y lo pexea";
     
     echo convierteCani($input);
     function convierteCani ($frase) {
