@@ -8,30 +8,43 @@
 </head>
 <body>
     <?php
-        $letras = rellenarArray();
+        // $letras = rellenarArray();
         $num=5;
-        $arrayFinal = array_filter($letras, "desplazar");
-        function rellenarArray(): array {
+        $arrayFinal = array_walk($letras, "desplazar", $num);
+        $input = "Jose come canicas cuando se aburre en su casa";
+        
+
+        function rellenarArray($num): array {
             for ($i = ord("A");$i<=ord("Z");$i++) {
-                $arrayLetras[$i] = chr($i);
+                $input[$i] = chr($i);
             }
-            return $arrayLetras;
+            desplazar($num);
         }
 
         function desplazar($elemento)  {
             echo"Hola";
+            // switch (ord($elemento)) {
+            //     case 32:
+            //         return '';
+            //     case 90:
+            //         $elemento = chr(65);
+            // }
+            if ($elemento == '') {
+                return ' ';
+            }
             if (ord($elemento)==90) {
                 echo "-----------";
-                return (chr(0));
+                return (chr(64)+$num);
             } else {
                 echo"Mundo";
-                return chr(ord($elemento)+2);
+                return chr(ord($elemento)+$num);
+                
             }
         }
 
 
 
-        print_r($letras);
+        print_r($arrayFinal);
     
     ?>
 </body>
