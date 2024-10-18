@@ -9,42 +9,62 @@
 <body>
     <?php
         // $letras = rellenarArray();
-        $num=5;
-        $arrayFinal = array_walk($letras, "desplazar", $num);
+        $num=15;
+        // $arrayFinal = array_walk($letras, "desplazar", $num);
         $input = "Jose come canicas cuando se aburre en su casa";
+        // for ($i = 0; $i < strlen($input); $i++) {
+        //     echo ord($input[$i]);
+        // }
+
+        function cambiar(&$input, $num) {
+            for ($i = 0;$i<strlen($input);$i++) {
+                // $input[$i] = chr($i+$num);
+                $codigo =ord($input[$i])+$num;
+                if ($codigo == 32) {
+                    echo ' ';
+                    $i++;
+                }
+                if ($codigo>90) {
+                    echo (chr($codigo-26));
+                } else if ($codigo>122) {
+                        echo chr($codigo-26);
+                    
+                } else {
+                    echo chr($codigo+$num);
+                }
+            }
+            
+        }
+        function comprobar(&$input, $num) {
+
+        }
+
+        cambiar($input, $num);
+
+        // function desplazar(&$elemento, $num)  {
+        //     echo"Hola";
+        //     // switch (ord($elemento)) {
+        //     //     case 32:
+        //     //         return '';
+        //     //     case 90:
+        //     //         $elemento = chr(65);
+        //     // }
+        //     if ($elemento == ' ') {
+        //         return ' ';
+        //     }
+        //     if (ord(strtolower($elemento))==90) {
+
+        //         return (chr(64)+$num);
+        //     } else {
+
+        //         return chr(ord($elemento)+$num);
+                
+        //     }
+        // }
+
         
 
-        function rellenarArray($num): array {
-            for ($i = ord("A");$i<=ord("Z");$i++) {
-                $input[$i] = chr($i);
-            }
-            desplazar($num);
-        }
-
-        function desplazar($elemento)  {
-            echo"Hola";
-            // switch (ord($elemento)) {
-            //     case 32:
-            //         return '';
-            //     case 90:
-            //         $elemento = chr(65);
-            // }
-            if ($elemento == '') {
-                return ' ';
-            }
-            if (ord($elemento)==90) {
-                echo "-----------";
-                return (chr(64)+$num);
-            } else {
-                echo"Mundo";
-                return chr(ord($elemento)+$num);
-                
-            }
-        }
-
-
-
-        print_r($arrayFinal);
+        // print_r($arrayFinal);
     
     ?>
 </body>
