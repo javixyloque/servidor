@@ -8,16 +8,35 @@
 </head>
 <body>
     <?php
+
+    // NO HE SIDO CAPAZ DE HACER QUE IGNORE LAS TILDES :)
+    $palabra = "elegele";
     function palindroma ($palabra) {
         $palReves = "";
         for ($i = 0; $i<strlen($palabra)-1;$i++) {
-            switch (ord($palabra)) {
-                case "á":
-
+            switch ($palabra[$i]) {
+                case 'á': 
+                    $palReves .= 'a';
+                    $i++;
+                    break;
+                case 'é':
+                    $palReves .= 'e';
+                    $i++;
+                    break;
+                case 'í':
+                    $palReves .= 'i';
+                    $i++;
+                    break;
+                case 'ó':
+                    $palReves .= 'o';
+                    $i++;
+                    break;
+                case 'ú':
+                    $palReves .= 'u';
+                    $i++;
+                    break;
             }
-            // if (ord($palabra[$i]) == ord('é')||ord($palabra[$i]) == ord('á')|| ord($palabra[$i]) == ord('í')||ord($palabra[$i]) == ord('ú')|| ord($palabra[$i]) == ord('ó')) {
-                
-            // }
+
         }
 
         for ($i = strlen($palabra)-1; $i >= 0 ; $i--) {
@@ -32,7 +51,7 @@
             return false;
         }
     }
-    $palabra = "owó";
+    
     $ejemplo = palindroma($palabra);
 
     if ($ejemplo) {
