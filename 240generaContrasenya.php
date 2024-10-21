@@ -12,7 +12,7 @@
         // AL GENERARLO DE ESTA FORMA, EL MAXIMO TAMAñO DE CONTRASEñA
         // ES COMO MUCHO 32(EN HEXADECIMAL), YA QUE EL HASH ES DE 128 BITS.
         // SE PODRIA HACER MAS LARGO EN BINARIO, PERO PARA CONTRASEñAS MEJOR HEXADECIMAL 
-        $tam = 54;
+        $tam = 18;
 
         function createPass ($size): string { 
             $pass = "";

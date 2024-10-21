@@ -12,11 +12,13 @@
         $tok = strtok($input, " ");
         $contL = 0;
         echo "Frase: $input<br><br>";
+        
         while ($tok) {
             echo "Tamaño de la palabra $tok: ".strlen($tok)." letras<br>";
             $contL +=strlen($tok);
             $tok =strtok(" ");
         }
+
         echo "Cantidad de letras total: $contL<br>";
         echo "Cantidad de palabras total: ".str_word_count($input);
         
