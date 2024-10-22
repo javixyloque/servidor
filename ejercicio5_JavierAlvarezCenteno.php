@@ -14,7 +14,7 @@
     </form>
 
     <?php
-
+    session_start();
     $palabra = isset($_GET['insert'])? $_GET['insert']: '';
 
     
@@ -30,7 +30,7 @@
     function compruebaAnagrama($pal) {
         $palabraComp = strtolower($pal);
         $anagrama = "";
-        for ($i = 0; $i<=$pal; $i++) {
+        for ($i = 0; $i<=strlen($pal); $i++) {
             $anagrama.= chr(random_int(97, 122));
         }
 
