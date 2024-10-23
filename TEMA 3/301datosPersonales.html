@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Javi" content="Javier Alvarez Centeno">
+    <title>301 - Datos Personales</title>
+</head>
+<body>
+    <!-- Escribe un programa que pida nombre, primer apellido,
+        segundo apellido, DNI, email, fecha de nacimiento, 
+        teléfono, sexo, estudios (ESO, FP Grado Medio, Bachillerato,
+        FP Grado Superior, Universitarios,...), idiomas, foto y currículum 
+        (se almacena con los nombres dni.png y dni.pdf en la carpeta datosPersonales) 
+        con el método POST. Pasa información "oculta" al enviar el formulario mediante un 
+        input del tipo hidden para el tamaño de ficheros. Después los mostrará por pantalla:
+        nombre con apellidos, edad,... --->
+
+    <form action="301datosPersonales.php" method="post" enctype="multipart/form-data">
+
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre"><br><br>
+        
+        <label for="primero">Primer apellido: </label>
+        <input type="text" name="prApe"><br><br>
+        
+        <label for="segundo">Segundo apellido: </label>
+        <input type="text" name="sgApe"><br><br>
+        
+        <label for="DNI">DNI: </label>
+        <input type="text" name="dni"><br><br>
+        
+        <label for="email">CORREO ELECTRONICO: </label>
+        <input type="text" name="email"><br><br>
+        
+        <label for="fechaNac">FECHA DE NACIMIENTO: </label>
+        <input type="text" name="fechaNac"><br><br>
+        
+        <label for="telefono">TELEFONO: </label>
+        <input type="text" name="telefono"><br><br>
+        
+        <label for="sexo">SEXO: </label>
+        <select name="sexo" id="sx">
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+        </select><br><br>
+
+        <label for="estudios">ESTUDIOS: </label>
+        <select name="estudios" id="estudios">
+            <option value="eso">ESO</option>
+            <option value="medio">FP GRADO MEDIO</option>
+            <option value="bachillerato">BACHILLERATO</option>
+            <option value="superior">FP GRADO SUPERIOR</option>
+            <option value="uni">GRADO UNIVERSITARIO O SUPERIOR</option>
+        </select><br><br>
+        
+        <label for="idiomas">IDIOMAS: (separar con comas, guiones y/o espacios)</label>
+        <input type="text" name="idiomas"><br><br>
+
+        
+
+    </form>
+</body>
+</html>
