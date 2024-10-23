@@ -16,7 +16,7 @@
         //     echo ord($input[$i]);
         // }
         
-
+        
         function cambiar($input, $num):string {
             $output = "";
             for ($i = 0;$i<strlen($input);$i++) {
