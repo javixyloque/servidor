@@ -1,15 +1,29 @@
 <?php
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $nombre = filtrado($nombre);
-        $prApe = filtrado($prApe);
-        $sgApe = filtrado($sgApe);
-        $dni = filtrado($dni);
-        $email = filtrado($email);
-        $fechaNac = filtrado($fechaNac);
-        $telefono = filtrado($telefono);
-        $sexo = filtrado($sexo);
+        $nombre = ucwords(filtrado($_POST['nombre']));
+        $prApe = ucwords(filtrado($_POST['prApe']));
+        $sgApe = ucwords(filtrado($_POST['sgApe']));
+        $dni = filtrado($_POST['dni']);
+        $email = filtrado($_POST['email']);
+        $fechaNac = filtrado($_POST['fechaNac']);
+        $telefono = filtrado($_POST['telefono']);
+        $sexo = filtrado($_POST['sexo']);
         
+        move_uploaded_file($_FILES["cv"]);
+
+        
+
+
+
+
+
+
+
+
+
+
+
     }
 
 
@@ -46,5 +60,8 @@
         input del tipo hidden para el tamaño de ficheros. Después los mostrará por pantalla:
         nombre con apellidos, edad,... --->
     
+
+
+    <!-- <iframe> PUEDE MOSTRAR PDF  -->
 </body>
 </html>
