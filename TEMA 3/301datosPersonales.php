@@ -1,16 +1,24 @@
 <?php
+    session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $nombre = ucwords(filtrado($_POST['nombre']));
-        $prApe = ucwords(filtrado($_POST['prApe']));
-        $sgApe = ucwords(filtrado($_POST['sgApe']));
-        $dni = filtrado($_POST['dni']);
-        $email = filtrado($_POST['email']);
-        $fechaNac = filtrado($_POST['fechaNac']);
-        $telefono = filtrado($_POST['telefono']);
-        $sexo = filtrado($_POST['sexo']);
+        $nombre = isset($_POST['nombre'])? ucwords(filtrado($_POST['nombre'])): '';
+        $prApe = isset($_POST['prApe'])?ucwords(filtrado($_POST['prApe'])): '';
+        $sgApe = isset($_POST['sgApe'])?ucwords(filtrado($_POST['sgApe'])):'';
+        $dni = isset($_POST['dni'])?filtrado($_POST['dni']):"";
+        $email = isset($_POST['email'])?filtrado($_POST['email']):"";
+        $fechaNac = isset($_POST['fechaNac'])?filtrado($_POST['fechaNac']):"";
+        $telefono = isset($_POST['telefono'])?filtrado($_POST['telefono']):"";
+        $sexo = isset($_POST['sexo'])?filtrado($_POST['sexo']):"";
         
-        move_uploaded_file($_FILES["cv"]);
+
+        $arch = $_FILES["cv"]['tmp_name'];
+        if (move_uploaded_file($arch, "subidos/$arch")) {
+            echo "Accion completada correctamente";
+
+        } else {
+            echo "no funciona";
+        }
 
         
 
