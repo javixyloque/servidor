@@ -21,16 +21,16 @@
 
 
         if (move_uploaded_file($currV, "subidos/".basename($nomCurr))) {
-            echo "Curriculum subido correctamente";
+            echo "Curriculum subido correctamente<br>";
 
         } else {
-            echo "Problema subiendo curriculum, intentelo de nuevo";
+            echo "Problema subiendo curriculum, intentelo de nuevo<br>";
         }
-        if (move_uploaded_file($pic, "subidos/".basename($foto))) {
-            echo "Foto subida correctamente";
+        if (move_uploaded_file($pic, "subidos/".basename($nomFoto))) {
+            echo "Foto subida correctamente<br>";
 
         } else {
-            echo "Problema subiendo foto, intentelo de nuevo";
+            echo "Problema subiendo foto, intentelo de nuevo<br>";
         }
     }
 
@@ -55,6 +55,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Javi" content="Javier Alvarez Centeno">
     <title>301 - Datos personales</title>
+    <style>
+        table {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <!-- Escribe un programa que pida nombre, primer apellido,
@@ -65,14 +70,52 @@
         con el método POST. Pasa información "oculta" al enviar el formulario mediante un 
         input del tipo hidden para el tamaño de ficheros. Después los mostrará por pantalla:
         nombre con apellidos, edad,... --->
-    <table>
-        <caption><?= "$nombre $prApe $sgApe" ?></caption>
-    </table>
+    <table border="solid 2px" cellspacing="0" width="100%" height="80%" align="center">
+        <thead border="solid 2px">
+        <caption><h1><?= "$nombre $prApe $sgApe" ?></h1></caption>
+        </thead>
+    <tbody>
     <tr>
-        <td>DNI</td>
+        <td><strong>DNI</strong></td><?= "<td>$dni</td>" ?>
+        <td rowspan="3"> <?php
+            echo "<img width=200px height=200px src=subidos/".$nomFoto."></img>";
+        ?></td>
         
-    <?= "<td>$dni</td>" ?>
+        
     </tr>
+    
+    <tr>
+        <td><strong>Email</strong></td>
+        <td><?= $email ?></td>
+    </tr>
+    <tr>
+        <td><strong>Fecha de nacimiento</strong></td>
+        <td><?= $fechaNac ?></td>
+    </tr>
+    <tr>
+        <td><strong>Telefono</strong></td>
+        <td><?= $telefono ?></td>
+        <td rowspan="4"><?= "<iframe src='subidos/".$nomCurr."' width='500px' height='500px'> Descargar CV</iframe>"?></td>
+    </tr>
+
+    <tr>
+        <td><strong>Sexo</strong></td>
+        <td><?= $sexo ?></td>
+    </tr>
+
+    <tr>
+        <td><strong>Estudios</strong></td>
+        <td><?= $estudios ?></td>
+    </tr>
+    <tr>
+        <td><strong>Idiomas</strong></td>
+        <td><?= mostrarArray($idiomas)?></td>
+
+    </tr>
+    
+    </tbody>
+    </table>
+    
 
 
     <!-- <iframe> PUEDE MOSTRAR PDF  -->
