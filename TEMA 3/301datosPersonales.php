@@ -58,6 +58,10 @@
     <style>
         table {
             text-align: center;
+            font-family: 'Franklin Gothic Medium';
+        }
+        h1 {
+            font-size: 56;
         }
     </style>
 </head>
