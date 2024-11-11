@@ -14,4 +14,4 @@
         header("Location: insertar.html");
     }
     $conexion->close();
-?>
+?> 
