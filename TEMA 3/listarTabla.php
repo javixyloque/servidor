@@ -23,4 +23,4 @@
     echo "</table>";
     $resultado -> free();
     $conexion -> close();
-?> 
+?>
