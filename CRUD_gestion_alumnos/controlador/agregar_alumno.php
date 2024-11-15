@@ -20,7 +20,16 @@ $apellido2 = $_POST['apellido2'];
 $email = $_POST['email'];
 $telefono = $_POST['telefono'];
 $curso = $_POST['curso'];
-
+if ($_POST['curso'] < 1 || $_POST['curso'] > 6) {
+    echo "<script>
+        alert('El curso debe de estar entre 1º y 6º, ahora te toca empezar de nuevo');
+        window.location.href = '../vista/formulario_agregar_alumno.php';
+    </script>";
+    
+    exit();
+    
+    
+} else {
 // Preparar la consulta de inserción
 $consulta = "INSERT INTO alumnos (dni, nombre, apellido1, apellido2, email, telefono, curso) VALUES (?, ?, ?, ?, ?, ?, ?)";
 $consultaInsert = $conexion->prepare($consulta);
@@ -28,13 +37,15 @@ $consultaInsert->bind_param("ssssssi", $dni, $nombre, $apellido1, $apellido2, $e
 
 if ($consultaInsert->execute()) {
     // Redirigir a la lista de alumnos después de agregar
-    header("Location: ../vista/listado_alumnos.php");
+    header("Location: ./../vista/listado_alumnos.php");
     exit();
 } else {
     echo "Error al agregar alumno: " . $conexion->error;
 }
 
-// Cerrar la conexión
 $consultaInsert->close();
 $conexion->close();
+}
+
+
 ?>
