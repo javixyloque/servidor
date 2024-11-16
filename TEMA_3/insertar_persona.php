@@ -8,10 +8,10 @@
     $insert -> bind_param("si", $nombre, $telefono);
 
     if ($insert->execute()) {
-        header("Location: listarTabla.php");
+        header("Location: listar_personas.php");
     } else {
         echo "Ha ocurrido un error, intentelo de nuevo";
-        header("Location: insertar.html");
+        header("Location: insertar_persona.html");
     }
     $conexion->close();
 ?> 
