@@ -7,7 +7,7 @@
     $consulta = "select * from persona";
     $resultado = $conexion -> query ($consulta);
     $numRegistros = $resultado -> num_rows;
-    $lista = $resultado -> fetch_all(MYSQLI_ASSOC);
+    $lista = $resultado -> fetch_assoc();
     echo "Numero de registros: ". $numRegistros."<br>";
     echo "<table border='solid 2px' cellspacing='0' width='250px' align='center' style='text-align: center;'>";
     if ($numRegistros > 0 ) {
