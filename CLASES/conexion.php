@@ -1,6 +1,6 @@
 <?php
 function conectar() {
-    $conexion = mysqli_connect("localhost", "root", "", "302_modeloer");
+    $conexion = mysqli_connect("localhost", "root", "", "pruebas");
     if ($conexion -> connect_errno) {
         echo "Error al conectar con la base de datos". $conexion -> connect_errno;
         exit();

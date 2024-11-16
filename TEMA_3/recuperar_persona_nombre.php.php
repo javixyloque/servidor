@@ -6,7 +6,7 @@
 
     // CONSULTA
     $id = $_GET['id'];
-    $consultaSelect = $conexion -> prepare("SELECT * FROM EDITORIAL WHERE id_editorial=?");
+    $consultaSelect = $conexion -> prepare("SELECT * FROM PERSONA WHERE id_persona=?");
     // RENOMBRAMOS LA ?
     $consultaSelect -> bind_param("i", $id);
 
@@ -20,8 +20,12 @@
         if (!$usuario) {
             exit("No hay resultados para el id introducido");
         } else {
-
+            echo "Nombre: ". $usuario['nombre']. "<br>";
+            echo "Edad: ". $usuario['apellidos']. "<br>";
+            echo "Telefono: ". $usuario['telefono']. "<br>";
         }
+    } else {
+        echo "Error al ejecutar la consulta: ". $conexion->error;
     }
     $resultado -> free();
     $conexion -> close();

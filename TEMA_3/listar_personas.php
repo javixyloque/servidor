@@ -4,7 +4,7 @@
     $conexion = conectar();
     
 
-    $consulta = "select * from editorial";
+    $consulta = "select * from persona";
     $resultado = $conexion -> query ($consulta);
     $numRegistros = $resultado -> num_rows;
     $lista = $resultado -> fetch_all(MYSQLI_ASSOC);
@@ -13,10 +13,10 @@
     if ($numRegistros > 0 ) {
         //SI RECORREMOS LOS RESULTADOS
         echo "<thead> <th>ID</th><th>NOMBRE</th></thead>";
-        foreach($lista as $editorial) {
+        foreach($lista as $usuario) {
             echo "<tr>";
-            echo "<td>".$editorial["id_editorial"]."</td>";
-            echo "<td>".ucwords($editorial["nombre"])."</td>";
+            echo "<td>".$usuario["id_persona"]."</td>";
+            echo "<td>".ucwords($usuario["nombre"])."</td>";
             echo "</tr>";
         }
     } 
