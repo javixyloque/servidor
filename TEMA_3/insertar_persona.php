@@ -2,14 +2,15 @@
     include ("conexion.php");
     $conexion = conectar();
     $nombre = ucwords(filtrado($_POST['nombre']));
+    $apellidos = isset($_POST['apellidos']) ? filtrado(ucwords($_POST['apellidos'])) : '';
     // SI NO SE INSERTA TELEFONO, SE PONE UN VALOR VACIO,
     $telefono = isset($_POST['telefono']) ? intval(filtrado($_POST['telefono'])) : ' ';
 
     
 
     if (is_int($telefono)) {
-        $insert = $conexion->prepare("INSERT INTO persona(nombre, telefono) VALUES (?, ?) ");
-        $insert -> bind_param("si", $nombre, $telefono);
+        $insert = $conexion->prepare("INSERT INTO persona(nombre, apellidos, telefono) VALUES (?, ?, ?) ");
+        $insert -> bind_param("ssi", $nombre,$apellidos, $telefono);
 
         if ($insert->execute()) {
             header("Location: listar_personas.php");
@@ -27,10 +28,5 @@
 
 
 
-    function filtrado ($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
+    
 ?> 

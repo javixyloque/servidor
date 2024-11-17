@@ -64,7 +64,7 @@ if (!$alumno) {
 
     <label for="curso">Curso</label><br>
     <input type="number" name="curso" id="curso" value="<?php echo $alumno['curso']; ?>" required><br><br>
-
+    <input type="hidden" name="id_alumno" value="<?php echo $idAlumno; ?>">
     <button type="submit">Guardar Cambios</button>
 </form>
 </body>

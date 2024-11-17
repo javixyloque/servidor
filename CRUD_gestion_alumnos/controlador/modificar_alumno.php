@@ -10,33 +10,32 @@ if (!$conexion) {
 }
 
 // Recibir los datos del formulario
-$idAlumno = $_POST['idAlumno'];
-$dni = $_POST['dni'];
-$nombre = $_POST['nombre'];
-$apellido1 = $_POST['apellido1'];
-$apellido2 = $_POST['apellido2'];
-$email = $_POST['email'];
-$telefono = $_POST['telefono'];
-$curso = $_POST['curso'];
+$idAlumno = isset($_POST['id_alumno'])? (int)filtrado($_POST['id_alumno']) : 0;
+$dni = isset($_POST['dni']) ? filtrado($_POST['dni']) : '';
+$nombre = isset($_POST['nombre'])? filtrado($_POST['nombre']) : '';
+$apellido1 = isset($_POST['apellido1'])? filtrado($_POST['apellido1']) : '';
+$apellido2 = isset($_POST['apellido2'])? filtrado($_POST['apellido2']) : '';
+$email = isset($_POST['email'])? filtrado($_POST['email']) : '';
+$telefono = isset($_POST['telefono'])? filtrado($_POST['telefono']) : '';
+$curso = isset($_POST['curso'])? (int)filtrado($_POST['curso']) : '';
 
-$pasar = false;
-while (!$pasar) {
-    if ($_POST['curso'] < 1 || $_POST['curso'] > 6) {
-        
-        
-        $pasar = false;
-    } else {
-        $pasar = true;
-    }
+
+if ($curso < 1 || $curso > 6) {
+    echo "<script>
+        alert('El curso debe de estar entre 1º y 6º, no se ha podido modificar el alumno');
+        window.location.href = '../vista/listado_alumnos.php';
+    </script>";
+    
+    exit();
+    
+    
 }
 
+$consulta = "UPDATE alumnos SET dni = ?, nombre = ?, apellido1 = ?, apellido2 = ?, email = ?, telefono = ?, curso = ? WHERE id_alumno = ?";
+$update = $conexion->prepare($consulta);
+$update->bind_param("ssssssii", $dni, $nombre, $apellido1, $apellido2, $email, $telefono, $curso, $idAlumno);
 
-// Preparar la consulta de actualización
-$consultaActualizar = "UPDATE alumnos SET dni = ?, nombre = ?, apellido1 = ?, apellido2 = ?, email = ?, telefono = ?, curso = ? WHERE id_alumno = ?";
-$declaracionActualizar = $conexion->prepare($consultaActualizar);
-$declaracionActualizar->bind_param("ssssssii", $dni, $nombre, $apellido1, $apellido2, $email, $telefono, $curso, $idAlumno);
-
-if ($declaracionActualizar->execute()) {
+if ($update->execute()) {
     // Redirigir a la lista de alumnos después de modificar
     header("Location: ../vista/listado_alumnos.php");
     exit();
@@ -45,6 +44,6 @@ if ($declaracionActualizar->execute()) {
 }
 
 // Cerrar la conexión
-$declaracionActualizar->close();
+$update->close();
 $conexion->close();
 ?>

@@ -37,7 +37,7 @@ if ($resultado->num_rows > 0) {
 
 <h2>Lista de Alumnos</h2>
 <!-- Botón para agregar un nuevo alumno -->
-<a href="formulario_agregar_alumno.php">
+<a href="formulario_agregar.php">
     <button>Agregar Alumno</button>
 </a>
 
@@ -69,7 +69,7 @@ if ($resultado->num_rows > 0) {
                 echo "<td>" . $alumno['telefono'] . "</td>";
                 echo "<td>" . $alumno['curso'] . "</td>";
                 // Botón para modificar
-                echo "<td><a href='formulario_modificar_alumno.php?id=" . $alumno['id_alumno'] . "'><button type='button'>Modificar</button></a></td>";
+                echo "<td><a href='formulario_modificar.php?id=" . $alumno['id_alumno'] . "'><button type='button'>Modificar</button></a></td>";
                 // Botón para eliminar
                 echo "<td><a href='../controlador/eliminar_alumno.php?id=" . $alumno['id_alumno'] . "' onclick=\"return confirm('¿Estás seguro de que deseas eliminar este alumno?');\"><button type='button'>Eliminar</button></a></td>";
                 echo "</tr>";

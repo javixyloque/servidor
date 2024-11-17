@@ -10,6 +10,11 @@ function conectar() {
     // CONEXION A UNA BASE DE DATOS
     
     // echo "<h1>Bienvenido a la base de datos</h1>";
-
+    function filtrado ($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
 
 ?>

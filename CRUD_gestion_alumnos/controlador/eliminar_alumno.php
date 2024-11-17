@@ -9,16 +9,13 @@ if (!$conexion) {
     exit;
 }
 
-// Obtener el ID del alumno desde la URL
-$idAlumno = $_GET['id'];
+$idAlumno = isset($_GET['id']) ? (int)filtrado($_GET['id']) : '';
 
-// Preparar la consulta de eliminación
-$consultaEliminar = "DELETE FROM alumnos WHERE id_alumno = ?";
-$declaracionEliminar = $conexion->prepare($consultaEliminar);
-$declaracionEliminar->bind_param("i", $idAlumno);
+$consulta = "DELETE FROM alumnos WHERE id_alumno = ?";
+$delete = $conexion->prepare($consulta);
+$delete->bind_param("i", $idAlumno);
 
-if ($declaracionEliminar->execute()) {
-    // Redirigir al listado de alumnos después de eliminar
+if ($delete->execute()) {
     header("Location: ../vista/listado_alumnos.php");
     exit();
 } else {
@@ -26,6 +23,6 @@ if ($declaracionEliminar->execute()) {
 }
 
 // Cerrar la conexión
-$declaracionEliminar->close();
+$delete->close();
 $conexion->close();
 ?>

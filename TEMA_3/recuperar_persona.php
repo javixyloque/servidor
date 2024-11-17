@@ -5,7 +5,7 @@
     $conexion = conectar();
 
     // CONSULTA
-    $id = $_GET['id'];
+    $id = isset($_GET['id']) ? (int)filtrado($_GET['id']) : "";
     $consultaSelect = $conexion -> prepare("SELECT * FROM PERSONA WHERE id_persona=?");
     // RENOMBRAMOS LA ?
     $consultaSelect -> bind_param("i", $id);
@@ -15,15 +15,20 @@
     if ($consultaSelect -> execute()) {
         // SI LA CONSULTA FUNCIONA OBTENEMOS LA FILA REQUERIDA (ID ES CLAVE PRIMARIA)
         $resultado = $consultaSelect -> get_result();
-        $usuario = $resultado -> fetch_assoc();
+        $lista = $resultado -> fetch_all(MYSQLI_ASSOC);
+    
 
-        if (!$usuario) {
+        
+        if (!$lista) {
             exit("No hay resultados para el id introducido");
         } else {
-            echo "Nombre: ". $usuario['nombre']. "<br>";
-            echo "Edad: ". $usuario['apellidos']. "<br>";
-            echo "Telefono: ". $usuario['telefono']. "<br>";
+            echo "Nombre: ". $lista['nombre']. "<br>";
+            echo "Edad: ". $lista['apellidos']. "<br>";
+            echo "Telefono: ". $lista['telefono']. "<br>";
         }
+
+        
+        
     } else {
         echo "Error al ejecutar la consulta: ". $conexion->error;
     }
