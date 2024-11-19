@@ -1,0 +1,88 @@
+h2 {
+    font-family: 'Verdana';
+    color: #ffffff;
+}
+body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+html {
+    background:  #898121;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: Verdana;
+}
+
+table, th {
+    font-family: Verdana;
+    font-size: 14px;
+    border-collapse: collapse;
+    border: solid 1px #4C4B16;
+    color: white;
+    
+}
+table {
+    justify-content: center;
+    margin: auto;
+    width: 95%;
+    border-radius: 5px;
+    
+}
+th {
+    background-color: #4C4B16;
+    color: white;
+    text-align: center;
+    border: solid 1px black;
+}
+
+td {
+    border: solid 1px #4C4B16;
+}
+th:nth-child(10) {
+    background:linear-gradient(rgb(96, 165, 243) 80%, rgba(21, 112, 145, 0.685));
+}
+th:nth-child(11) {
+    background:linear-gradient(rgba(196, 80, 22, 0.812) 80%, rgba(155, 97, 43, 0.685));
+}
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    background-color: #F87A53;
+    color: whitesmoke;
+    border-radius: 10px;
+}
+button:hover {
+    transform: scale(1.15);
+    transition: all 0.25s ease-in;
+}
+input, textarea {
+    margin: 5%;
+    width: 30vh;
+    background: #E6C767;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    outline: none;
+}
+
+input[type='text']:hover, textarea:hover {
+    background-color:#F87A53;
+    transition: all 0.5s ease-in-out;
+    
+}
+
+
+td > button {
+    font-weight: bold;
+}
+label {
+    font-weight: bold;
+    color: white;
+}
