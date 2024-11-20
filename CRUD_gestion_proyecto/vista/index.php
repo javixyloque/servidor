@@ -27,7 +27,7 @@
         </thead>
         <tbody>
             <?php
-                include('../conexion/conexion.php');
+                include '../conexion/conexion.php';
                 $conexion = conexion();
             
                 try {
@@ -47,14 +47,16 @@
                         echo "<td>".$fila['curso']."</td>";
                         echo "<td>".$fila['fecha_presentacion']."</td>";
                         echo "<td>".$fila['nota']."</td>";
-                        echo "<td><img src='data:image/jpeg;base64,".base64_encode($fila['logo'])."' alt='Logo'></td>";
-                        echo "<td><a href='data:application/pdf;base64,".base64_encode($fila['pdf_proyecto'])."' target='_blank'>Descargar PDF</a></td>";                                                
-                        echo "<td><a href='editar.php?id=".$fila['id_proyecto']."'>Modificar</a></td>";
-                        echo "<td><a href='eliminar.php?id=".$fila['id_proyecto']."'>Eliminar</a></td>";                        
+                        echo "<td><img height='100px' width='100px' src='data:image/jpeg;base64,".base64_encode($fila['logotipo'])."' alt='Logo'></td>";
+                        echo "<td><a href='data:application/pdf;base64,".base64_encode($fila['pdf_proyecto'])." ' target='_blank'>Descargar PDF</a></td>";                                                
+                        echo "<td><a href='editar.php?id=".$fila['id_proyecto']."'><button>Modificar</button></a></td>";
+                        echo "<td><a href='eliminar.php?id=".$fila['id_proyecto']."'><button>Eliminar</button></a></td>";                        
                         echo "</tr>";
                     }
                 } catch (PDOException $e) {
                     echo $e ->getMessage();
+                } finally {
+                    $conexion = null;
                 }
             
             ?>

@@ -7,7 +7,7 @@
     <title>Subir proyecto</title>
 </head>
 <body>
-    <form action="../controlador/subir.php">
+    <form action="../controlador/subir.php" method="post">
         
             <label for="titulo">Titulo:
                 <input type="text" name="titulo">
@@ -43,11 +43,11 @@
                 <input type="text" name="nota">
             </label>
             
-            <label for="">
-                <input type="file" name="">
+            <label for="logotipo">Logo: 
+                <input type="file" name="logotipo" enctype="multipart/form-data">
             </label>
 
-       <button type="submit">Agregar trabajo</button>
+        <button type="submit">Agregar trabajo</button>
     </form>
 </body>
 </html>
