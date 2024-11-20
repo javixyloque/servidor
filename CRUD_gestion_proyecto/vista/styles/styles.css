@@ -32,6 +32,7 @@ table {
     
 }
 th {
+    padding-top: 4px;
     background-color: #03346E;
     color: #e2e2b6;
     text-align: center;
@@ -39,6 +40,7 @@ th {
 }
 
 td {
+    padding-top: 4px;
     border: solid 1px #227B94;
     background-color: #6EACDA;
     color: #e2e2b6;
@@ -99,13 +101,18 @@ td > button {
 
 label {
     font-weight: bold;
-    color: white;
+    color: #021526;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
+
 form {
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    justify-content: space-around;
     align-items: center;
+    width: 100vw;
 }
 section {
     width: 100vw;
