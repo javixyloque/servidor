@@ -8,25 +8,32 @@
 </head>
 <body>
     <form action="../controlador/subir.php">
-        <label for="titulo">Titulo:</label>
-        <input type="text" name="titulo"><br>
+        <section>
+            <label for="titulo">Titulo:</label>
+            <input type="text" name="titulo"><br>
+        </section>
+        <section>
+            <label for="descripcion">Descripción: </label>
+            <input type="text" name="descripcion"><br>
+        </section>
+        <section>
+            <label for="periodo">Periodo: </label>
+            <input type="text" name="periodo">
+        </section>
+        <section>
+            <label for="curso">Curso: </label>
+            <input type="number">
+        </section>
+        <section>
+            <label for="fecha">Fecha: </label>
+            <input type="text" name="fecha">
+        </section>
+        <section>
+            <label for="nota">Nota: </label>
+            <input type="text" name="nota">
+        </section>
 
-        <label for="descripcion">Descripción: </label>
-        <input type="text" name="descripcion"><br>
-
-        <label for=""></label>
-        <input type="text"><br>
-
-        <label for=""></label>
-        <input type="text"><br>
-
-        <label for=""></label>
-        <input type="text"><br>
-
-        <label for=""></label>
-        <input type="text" name=""><br>
-
-        <button type="submit">Agregar trabajo</button>
+       <button type="submit">Agregar trabajo</button>
     </form>
 </body>
 </html>
