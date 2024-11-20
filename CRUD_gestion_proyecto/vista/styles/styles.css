@@ -1,6 +1,6 @@
 h2 {
     font-family: 'Bahnschrift';
-    color: #ffffff;
+    color: #021526;
 }
 body {
     text-align: center;
@@ -10,7 +10,7 @@ body {
     width: 100vw;
 }
 html {
-    background:  #898121;
+    background-color: #E2E2B6;
     background-repeat: no-repeat;
     min-height: 100vh;
     font-family: "Bahnschrift";
@@ -20,8 +20,8 @@ table, th {
     font-family: "Bahnschrift";
     font-size: 14px;
     border-collapse: collapse;
-    border: solid 1px #4C4B16;
-    color: white;
+    border: solid 1px #227B94;
+    color: #e2e2b67f;
     
 }
 table {
@@ -32,14 +32,16 @@ table {
     
 }
 th {
-    background-color: #4C4B16;
-    color: white;
+    background-color: #03346E;
+    color: #e2e2b6;
     text-align: center;
     border: solid 1px black;
 }
 
 td {
-    border: solid 1px #4C4B16;
+    border: solid 1px #227B94;
+    background-color: #6EACDA;
+    color: #e2e2b6;
 }
 th:nth-child(10) {
     background:linear-gradient(rgb(96, 165, 243) 80%, rgba(21, 112, 145, 0.685));
@@ -54,8 +56,8 @@ button {
     font-weight: bold;
     cursor: pointer;
     border: none;
-    background-color: #F87A53;
-    color: whitesmoke;
+    background-color: #227B94;
+    color:  #e2e2b6;
     border-radius: 10px;
     font-family: "Bahnschrift";
 }
@@ -66,8 +68,8 @@ button:hover {
 }
 
 input:focus {
-    background-color: #F87A53;
-    color: white;
+    background-color: #021526;
+    color: #e2e2b6;
     border-radius: 5px;
     transition: all 0.5s ease-in-out;
 }
@@ -75,8 +77,8 @@ input:focus {
 input, textarea {
     margin: 2%;
     width: 30vh;
-    background: #E6C767;
-    color: black;
+    background: #6EACDA;
+    color: #03346E;
     border: none;
     border-radius: 5px;
     padding: 10px;
@@ -84,8 +86,9 @@ input, textarea {
 }
 
 input[type='text']:hover, input[type='number']:hover {
-    background-color:#F87A53;
+    background-color:#021526;
     transition: all 0.5s ease-in-out;
+    color: #e2e2b6;
     
 }
 

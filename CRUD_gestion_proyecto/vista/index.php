@@ -13,7 +13,7 @@
     </a>
     <table>
         <thead>
-            <th>ID</th>
+            <!-- <th>ID</th> -->
             <th>TITULO</th>
             <th>DESCRIPCIÓN</th>
             <th>PERIODO</th>
@@ -40,7 +40,7 @@
             
                     while ($fila = $sentencia->fetch()) {
                         echo "<tr>";
-                        echo "<td>".$fila['id_proyecto']."</td>";
+                        // echo "<td>".$fila['id_proyecto']."</td>";
                         echo "<td>".$fila['titulo']."</td>";
                         echo "<td>".$fila['descripcion']."</td>";
                         echo "<td>".$fila['periodo']."</td>";
@@ -69,5 +69,6 @@
 
 
 <?php 
+    // $sentencia ->free();
     $conexion = null;
 ?>
