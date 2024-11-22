@@ -3,6 +3,7 @@
     $conexion = conexion();
     //SUBIR EL TAMAÑO MAXIMO PERMITIDO (200 MB)
     $conexion ->exec("SET GLOBAL max_allowed_packet = 200 * 1024 * 1024;"); // 200 MB
+    
     $titulo = isset($_POST['titulo'])? filtrado($_POST['titulo']): '';
     $descripcion = isset($_POST['descripcion'])? filtrado($_POST['descripcion']): '';
     $periodo = isset($_POST['periodo'])? filtrado($_POST['periodo']): '';
