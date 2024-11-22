@@ -8,9 +8,7 @@
 </head>
 <body>
     <h2>Listado de proyectos de DAW del CIFP Camino de la Miranda</h2>
-    <a href="form_subir.php">
-        <button>Agregar proyecto</button>
-    </a>
+    
     <table>
         <thead>
             <!-- <th>ID</th> -->
@@ -63,7 +61,9 @@
         </tbody>
         
     </table>
-
+    <a href="form_subir.php">
+        <button>Agregar proyecto</button>
+    </a>
 </body>
 </html>
 

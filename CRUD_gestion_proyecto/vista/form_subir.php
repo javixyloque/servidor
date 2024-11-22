@@ -7,45 +7,44 @@
     <title>Subir proyecto</title>
 </head>
 <body>
-    <form action="../controlador/subir.php" method="post">
+    <form action="../controlador/subir.php" method="post" enctype="multipart/form-data">
         
-            <label for="titulo">Titulo:
+            <label for="titulo">Titulo: </label>
                 <input type="text" name="titulo">
-            </label>
-            <br>
+            
         
         
-            <label for="descripcion">Descripción: 
+            <label for="descripcion">Descripción: </label>
                 <input type="text" name="descripcion">
-            </label>
-            <br>
+            
+            
         
         
-            <label for="periodo">Periodo: 
+            <label for="periodo">Periodo: </label>
                 <input type="text" name="periodo">
-            </label>
+            
             
         
         
-            <label for="curso">Curso: 
+            <label for="curso">Curso: </label>
                 <input type="number">
-            </label>
+            
             
         
         
-            <label for="fecha">Fecha: 
+            <label for="fecha">Fecha: </label>
                 <input type="text" name="fecha">
-            </label>
+            
             
         
         
-            <label for="nota">Nota: 
+            <label for="nota">Nota: </label>
                 <input type="text" name="nota">
-            </label>
             
-            <label for="logotipo">Logo: 
+            
+            <label for="logotipo">Logo: </label>
                 <input type="file" name="logotipo" enctype="multipart/form-data">
-            </label>
+            
 
         <button type="submit">Agregar trabajo</button>
     </form>

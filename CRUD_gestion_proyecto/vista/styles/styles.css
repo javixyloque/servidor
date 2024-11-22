@@ -77,12 +77,12 @@ input:focus {
 }
 
 input, textarea {
-    margin: 2%;
+    /* margin: 2%; */
     width: 30vh;
     background: #6EACDA;
     color: #03346E;
     border: none;
-    border-radius: 5px;
+    border-radius: 5%;
     padding: 10px;
     outline: none;
 }
@@ -103,15 +103,14 @@ td > button {
 label {
     font-weight: bold;
     color: #021526;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
 }
 
 form {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-around; */
     align-items: center;
     width: 100vw;
 }
@@ -119,4 +118,8 @@ section {
     width: 100vw;
     display: flex;
     flex-direction: row;
+}
+
+body > a{
+    margin: 150px;
 }
