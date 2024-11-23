@@ -14,7 +14,7 @@
     $pdf = isset($_FILES['pdf_proyecto']['name'])? $_FILES['pdf_proyecto']['name']: '';
 
 
-    // CHEQUEAR QUE SE SUBIÓ BIEN EL LOGOTIPO
+    // CHEQUEAR QUE SE SUBIÓ BIEN EL LOGOTIPO Y EL FORMATO
     if ($logotipo && $logotipo['error'] == 0) {
         $formatoLogo = strtolower(pathinfo($logotipo['name'], PATHINFO_EXTENSION));
         $formato = ['jpg', 'jpeg', 'png', 'gif', 'svg'];
