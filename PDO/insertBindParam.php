@@ -1,7 +1,7 @@
 <?php
     include('./conexionPDO.php');
     $conexion = conexion();
-    $sql = "INSERT INTO ALUMNOS (nombre, apellido1) VALUES (:nombre, :apellido)";
+    $sql = "INSERT INTO PERSONA (nombre, apellido) VALUES (:nombre, :apellido)";
     
     $nombre = isset($_POST['nombre']) ?filtrado($_POST['nombre']): '';
     $apellido = isset($_POST['apellido'])?filtrado($_POST['apellido']): '';
