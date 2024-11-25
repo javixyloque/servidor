@@ -1,13 +1,14 @@
 <?php
     include('./conexionPDO.php');
     $conexion = conexion();
-    $sql = "DELETE FROM ALUMNOS WHERE nombre = :nombre;";
+    $sql = "DELETE FROM PERSONA WHERE nombre = :nombre;";
     
     $nombre = isset($_POST['nombre'])?filtrado($_POST['nombre']): '';
     try {
         $delete = $conexion ->prepare($sql);
         $delete -> bindParam(':nombre', $nombre, PDO::PARAM_STR);
         $resultado = $delete -> execute();
+        //NO LE USO EN EL SELECT, PERO AQUÍ SÍ POR TENERLO (ME PARECE MÁS LÓGICO)
         $numRows = $delete -> rowCount();
         if ($resultado) {
             switch ($numRows) {
