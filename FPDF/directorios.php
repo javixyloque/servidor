@@ -1,22 +1,22 @@
 <?php
 // $directorio = C:/Users/javier.alvcen/Documentos/htdocs/servidor
- echo getcwd()."<br>";
- chdir("../PDO");
- echo getcwd()."<br>";
- chdir('c:/Users/javier.alvcen/Documentos/htdocs/');
- echo getcwd()."<br><br>";
+    echo getcwd()."<br>";
+    chdir("../PDO");
+    echo getcwd()."<br>";
+    chdir('c:/Users/javier.alvcen/Documentos/htdocs/');
+    echo getcwd()."<br><br>";
 
 
 
  // ARRRAY DE ARCHIVOS Y DIRECTORIOS
- chdir('c:/Users/javier.alvcen/Documentos/htdocs/');
- $directorio = "servidor";
+    chdir('c:/Users/javier.alvcen/Documentos/htdocs/');
+    $directorio = "servidor";
  // SE PUEDE HACER SORT-ASCENDING O DESCENDING
- $archivos = scandir($directorio, SCANDIR_SORT_DESCENDING);
+    $archivos = scandir($directorio, SCANDIR_SORT_DESCENDING);
 
- foreach ($archivos as $archivo) {
-    echo $archivo."<br>";
- }
+    foreach ($archivos as $archivo) {
+        echo $archivo."<br>";
+    }
 
 echo "<br><br>";
 
