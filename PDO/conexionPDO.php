@@ -22,5 +22,4 @@
         $data = htmlspecialchars($data);
         return $data;
     }
-    phpinfo();
 ?>
