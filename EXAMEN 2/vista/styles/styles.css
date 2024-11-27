@@ -1,0 +1,136 @@
+h2 {
+    font-family: 'Bahnschrift';
+    color: #021526;
+}
+body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+html {
+    background-color: #E2E2B6;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: "Bahnschrift";
+}
+
+table, th {
+    font-family: "Bahnschrift";
+    font-size: 14px;
+    border-collapse: collapse;
+    border: solid 1px #227B94;
+    color: #e2e2b67f;
+    
+}
+table {
+    justify-content: center;
+    margin: auto;
+    width: 95%;
+    border-radius: 5px;
+    
+}
+th {
+    padding-top: 4px;
+    background-color: #03346E;
+    color: #e2e2b6;
+    text-align: center;
+    border: solid 1px black;
+}
+
+td {
+    padding-top: 4px;
+    border: solid 1px #227B94;
+    background-color: #6EACDA;
+    color: #e2e2b6;
+}
+th:nth-child(9) {
+    background:linear-gradient(rgb(96, 165, 243) 80%, rgba(21, 112, 145, 0.685));
+}
+th:nth-child(10) {
+    background:linear-gradient(rgba(196, 22, 22, 0.812) 80%, rgba(155, 97, 43, 0.685));
+}
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    background-color: #227B94;
+    color:  #e2e2b6;
+    border-radius: 10px;
+    font-family: "Bahnschrift";
+}
+
+button:hover {
+    transform: scale(1.15);
+    transition: all 0.25s ease-in;
+}
+
+input:focus {
+    background-color: #021526;
+    color: #e2e2b6;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+input, textarea {
+    /* margin: 2%; */
+    width: 30vh;
+    background: #6EACDA;
+    color: #03346E;
+    border: none;
+    border-radius: 5%;
+    padding: 10px;
+    outline: none;
+}
+
+input[type='text']:hover, input[type='number']:hover {
+    background-color:#021526;
+    transition: all 0.5s ease-in-out;
+    color: #e2e2b6;
+    
+}
+
+
+td > button {
+    font-weight: bold;
+    margin: 5px auto;
+}
+
+label {
+    font-weight: bold;
+    color: #021526;
+}
+
+form {
+    margin-left: 3vh;
+    margin-right: 60vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* display: flex;
+    flex-direction: column;*/
+    justify-items: center;
+    align-items: center;
+    width: 30vw;
+    row-gap: 30px;
+}
+form > button {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    /* width: 20%;
+    margin-right: 40%;
+    margin-left: 40%; */
+    align-self: center;    
+}
+section {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+
+body > a{
+    margin: 150px;
+}
