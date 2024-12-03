@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./styles/styles.css">
     <title>Listado de proyectos</title>
 </head>
+
 <body>
     <h2>Listado de tareas</h2>
     
@@ -22,6 +23,7 @@
             <th>ELIMINAR</th>
             
         </thead>
+
         <tbody>
             <?php
                 include '../conexion/conexion.php';
@@ -48,6 +50,7 @@
                         echo "<td><a href='../controlador/eliminar.php?id=".$fila['titulo']."'><button>Eliminar</button></a></td>";                        
                         echo "</tr>";
                     }
+                    
                 } catch (PDOException $e) {
                     echo $e ->getMessage();
                 } finally {
