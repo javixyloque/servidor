@@ -4,7 +4,7 @@
         setcookie($nombre, '',time() - 3600);
 
     }
-    borrar($nombre);
-    header('Location: ./contador_visitas.php');
+    // borrar($nombre);
+    // header('Location: ./403cookieFondo.php');
     
 ?>
