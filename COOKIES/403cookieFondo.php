@@ -1,20 +1,20 @@
 <?php
-    require_once'./borrar_cookie.php'; 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['color'])) {
-    
-    $color = $_POST['color'];
+        require_once'./borrar_cookie.php'; 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['color'])) {
+        
+        $color = $_POST['color'];
 
-    // AÑADIR LA COOKIE CON EL COLOR SELECCIONADO (2 DIAS)
-    setcookie('color', $color, time() + (2 * 3600 * 24)); 
-    header("Location: ".$_SERVER['PHP_SELF']);
-    exit;
-} else if( isset($_POST['borrar'])) {
-    borrar('color');
-    
-    header("Location: ".$_SERVER['PHP_SELF']);
-    exit;
-    
-}
+        // AÑADIR LA COOKIE CON EL COLOR SELECCIONADO (2 DIAS)
+        setcookie('color', $color, time() + (2 * 3600 * 24)); 
+        header("Location: ".$_SERVER['PHP_SELF']);
+        exit;
+    } else if( isset($_POST['borrar'])) {
+        borrar('color');
+        
+        header("Location: ".$_SERVER['PHP_SELF']);
+        exit;
+        
+    }
 
     $color = isset($_COOKIE['color']) ? $_COOKIE['color'] : 'white'; 
 
