@@ -18,9 +18,6 @@
         
             <label for="precio">Precio: </label>
                 <input type="number" name="precio">
-            
-            
-        
         
             <label for="rebajada">Rebajada: 
                 

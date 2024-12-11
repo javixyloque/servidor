@@ -18,7 +18,8 @@
             <th>PRECIO</th>
             <th>REBAJADA</th>
             <th>REBAJA</th>
-            <!-- <th>PRECIO REBAJADO</th> -->
+            <th>CANTIDAD REBAJA</th>
+            <th>PRECIO FINAL</th>
             <th>MODIFICAR</th>
             <th>ELIMINAR</th>
         </thead>
@@ -28,7 +29,7 @@
                 $conexion = conexion();
             
                 try {
-                    $sql = "SELECT * FROM rebajas_javier";
+                    $sql = "SELECT * FROM rebajas_javier ORDER BY rebaja ASC";
             
                     $sentencia = $conexion -> prepare($sql);
                     $sentencia -> setFetchMode(PDO::FETCH_ASSOC);
@@ -42,9 +43,18 @@
                         echo "<td>".$fila['id_prenda']."</td>";
                         echo "<td>".$fila['prenda']."</td>";
                         echo "<td><img height='100px' width='100px' src='data:image/jpeg;base64,".base64_encode($fila['foto'])."' alt='Logo'></td>";                                           
-                        echo "<td>".$fila['precio']."</td>";
+                        echo "<td>".$fila['precio']."€</td>";
                         echo "<td>".$nuevaR."</td>";
-                        echo "<td>".$fila['rebaja']."%</td>";
+                        if ($fila['rebajada'] == 1 ) {
+                            echo "<td>".$fila['rebaja']."%</td>";
+                            echo "<td>".$fila['precio'] * $fila['rebaja'] /(100)."</td>";
+                            echo "<td>".intval($fila['precio'])*(100-$fila['rebaja'])/(100)."€</td>";
+                            
+                        } else {
+                            echo "<td>0%</td>";
+                            echo "<td>SIN DESCUENTO</td>";
+                            echo "<td>".$fila['precio']."€</td>";
+                        }
                         echo "<td><a href='./form_editar.php?id=".$fila['id_prenda']."'><button>Modificar</button></a></td>";
                         echo "<td><a href='../controlador/eliminar.php?id=".$fila['id_prenda']."'><button>Eliminar</button></a></td>";                        
                         echo "</tr>";
@@ -59,7 +69,7 @@
         </tbody>
         
     </table>
-    <a href="form_subir.php">
+    <a href="./form_subir.php">
         <button>Agregar producto</button>
     </a>
 </body>
