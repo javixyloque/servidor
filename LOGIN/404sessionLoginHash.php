@@ -78,6 +78,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
 //     $_SESSION['loggedin'] = true;
 //     $_SESSION['usuario'] = $usuario;
 // } else {
-//     $error = 'Usuario o contraseña incorrectos.';
+//     $error = 'Usuario o contraseña incorrectos.';gi
 // }
 ?>
