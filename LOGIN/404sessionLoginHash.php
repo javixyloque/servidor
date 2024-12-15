@@ -48,6 +48,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
 <body>
     <?php if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin']): ?>
         <h2>Login</h2>
+        <!-- IF Y ENDIF COMO EN ORACLE SQL, SON COMO LOS CORCHETES -->
         <?php if (!empty($error)): ?>
             <p style="color: red;"><?= htmlspecialchars($error) ?></p>
         <?php endif; ?>
