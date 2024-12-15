@@ -68,16 +68,16 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
 <?php
 // PARA GUARDAR LOS USUARIOS COMO ARRAY ASOCIATVIVO Y ASÍ ACCEDER A ELLOS MAS FACILMENTE, (BASE DE DATOS)
 
-$users = [
-    'admin' => password_hash('admin123', PASSWORD_DEFAULT),
-    'user1' => password_hash('userpassword', PASSWORD_DEFAULT), 
-];
+// $users = [
+//     'admin' => password_hash('admin123', PASSWORD_DEFAULT),
+//     'user1' => password_hash('userpassword', PASSWORD_DEFAULT), 
+// ];
 
-// Validar credenciales
-if (isset($users[$username]) && password_verify($password, $users[$username])) {
-    $_SESSION['loggedin'] = true;
-    $_SESSION['username'] = $username;
-} else {
-    $error = 'Usuario o contraseña incorrectos.';
-}
+// // Validar credenciales
+// if (isset($users[$usuario]) && password_verify($pass, $users[$usuario])) {
+//     $_SESSION['loggedin'] = true;
+//     $_SESSION['usuario'] = $usuario;
+// } else {
+//     $error = 'Usuario o contraseña incorrectos.';
+// }
 ?>
