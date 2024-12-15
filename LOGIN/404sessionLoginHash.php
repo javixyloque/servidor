@@ -69,8 +69,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
 // PARA GUARDAR LOS USUARIOS COMO ARRAY ASOCIATVIVO Y ASÍ ACCEDER A ELLOS MAS FACILMENTE, (BASE DE DATOS)
 
 $users = [
-    'admin' => '$2y$10$e0MYzXyjpJS2J8HIt2cHuu7gQ9d6pr3B26Wj2Ea3b5Gzgb9T5xG8W', // admin123
-    'user1' => password_hash('userpassword', PASSWORD_DEFAULT), // Cambia según necesites
+    'admin' => password_hash('admin123', PASSWORD_DEFAULT),
+    'user1' => password_hash('userpassword', PASSWORD_DEFAULT), 
 ];
 
 // Validar credenciales
