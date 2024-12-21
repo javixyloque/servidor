@@ -1,4 +1,4 @@
-
+<!-- REVISAR PROYECTOS-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,17 +74,16 @@ TUTORES:
 INSERT INTO `tutor` (`id_tutor`, `login`, `password`, `correo`, `nombre`, `apellidos`, `tipo_usu`, `baja`, `activar`) VALUES
 
 
-    (1, 'tutor1', 'pass1', 'tutor1@example.com', 'TutorNombre1', 'TutorApellido1', 1, 1, 'inactivo'),
-    (2, 'tutor2', 'pass2', 'tutor2@example.com', 'TutorNombre2', 'TutorApellido2', 1, 1, 'inactivo'),
-    (3, 'tutor3', 'pass3', 'tutor3@example.com', 'TutorNombre3', 'TutorApellido3', 1, 1, 'inactivo'),
-    (4, 'tutor4', 'pass4', 'tutor4@example.com', 'TutorNombre4', 'TutorApellido4', 1, 1, 'inactivo'),
-    (5, 'tutor5', 'pass5', 'tutor5@example.com', 'TutorNombre5', 'TutorApellido5', 1, 1, 'inactivo'),
-    (6, 'tutor6', 'pass6', 'tutor6@example.com', 'TutorNombre6', 'TutorApellido6', 1, 1, 'inactivo'),
-    (7, 'tutor7', 'pass7', 'tutor7@example.com', 'TutorNombre7', 'TutorApellido7', 1, 1, 'inactivo'),
-    (8, 'tutor8', 'pass8', 'tutor8@example.com', 'TutorNombre8', 'TutorApellido8', 1, 1, 'inactivo'),
-    (9, 'tutor9', 'pass9', 'tutor9@example.com', 'TutorNombre9', 'TutorApellido9', 1, 1, 'inactivo'),
-    (10, 'tutor10', 'pass10', 'tutor10@example.com', 'TutorNombre10', 'TutorApellido10', 1, 1, 'inactivo');
-
+    (2, 'tutor1', 'pass1', 'tutor1@example.com', 'TutorNombre1', 'TutorApellido1', 1, 1, 'inactivo'),
+    (3, 'tutor2', 'pass2', 'tutor2@example.com', 'TutorNombre2', 'TutorApellido2', 1, 1, 'inactivo'),
+    (4, 'tutor3', 'pass3', 'tutor3@example.com', 'TutorNombre3', 'TutorApellido3', 1, 1, 'inactivo'),
+    (5, 'tutor4', 'pass4', 'tutor4@example.com', 'TutorNombre4', 'TutorApellido4', 1, 1, 'inactivo'),
+    (6, 'tutor5', 'pass5', 'tutor5@example.com', 'TutorNombre5', 'TutorApellido5', 1, 1, 'inactivo'),
+    (7, 'tutor6', 'pass6', 'tutor6@example.com', 'TutorNombre6', 'TutorApellido6', 1, 1, 'inactivo'),
+    (8, 'tutor7', 'pass7', 'tutor7@example.com', 'TutorNombre7', 'TutorApellido7', 1, 1, 'inactivo'),
+    (9, 'tutor8', 'pass8', 'tutor8@example.com', 'TutorNombre8', 'TutorApellido8', 1, 1, 'inactivo'),
+    (10, 'tutor9', 'pass9', 'tutor9@example.com', 'TutorNombre9', 'TutorApellido9', 1, 1, 'inactivo'),
+    (11, 'tutor10', 'pass10', 'tutor10@example.com', 'TutorNombre10', 'TutorApellido10', 1, 1, 'inactivo');
 
 
 
@@ -94,7 +93,7 @@ PROYECTOS:
 INSERT INTO `proyecto` (`id_proyecto`, `titulo`, `descripcion`, `periodo`, `curso`, `fecha_presentacion`, `nota`, `logotipo`, `pdf_proyecto`, `alumno`, `tutor`) VALUES
 
 
-    (1, 'Proyecto 1', 'Descripción del proyecto 1', 'Periodo 2020', 'Curso 4', '2024-01-02', 73, NULL, 'proyecto_1.pdf', 31, 1),
+    (1, 'Proyecto 1', 'Descripción del proyecto 1', 'Periodo 2020', 'Curso 4', '2024-01-02', 73, NULL, 'proyecto_1.pdf', '31', 1),
     (2, 'Proyecto 2', 'Descripción del proyecto 2', 'Periodo 2024', 'Curso 4', '2024-10-09', 52, NULL, 'proyecto_2.pdf', 7, 1),
     (3, 'Proyecto 3', 'Descripción del proyecto 3', 'Periodo 2020', 'Curso 2', '2024-08-26', 72, NULL, 'proyecto_3.pdf', 25, 2),
     (4, 'Proyecto 4', 'Descripción del proyecto 4', 'Periodo 2022', 'Curso 3', '2024-01-17', 98, NULL, 'proyecto_4.pdf', 36, 2),
