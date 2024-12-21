@@ -1,3 +1,16 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    
+</body>
+</html>
+
 <!--   
 USUARIO ADMINISTRADOR:  
     'id_tutor' = 1
@@ -109,19 +122,3 @@ INSERT INTO `proyecto` (`id_proyecto`, `titulo`, `descripcion`, `periodo`, `curs
 
 
 -->
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-</head>
-<body>
-    
-</body>
-</html>
