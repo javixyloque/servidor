@@ -1,13 +1,25 @@
+<?php
+    require_once'../biblioteca/biblioteca.php';
+    
+
+?>
+
 <!-- REVISAR PROYECTOS-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
     <title></title>
 </head>
-<body>
-    
+<body id="modo_claro">
+    <header>
+        <a href="<?= $_SERVER['PHP_SELF'] ?>"> <h1>IES MENDOZA</h1></a>
+    </header>
+    <button id="claro_oscuro">CAMBIAR CLARO/OSCURO</button>
+
+    <script src="../controlador/index.js"></script>
 </body>
 </html>
 
@@ -90,34 +102,27 @@ INSERT INTO `tutor` (`id_tutor`, `login`, `password`, `correo`, `nombre`, `apell
 
 
 PROYECTOS:
-INSERT INTO `proyecto` (`id_proyecto`, `titulo`, `descripcion`, `periodo`, `curso`, `fecha_presentacion`, `nota`, `logotipo`, `pdf_proyecto`, `alumno`, `tutor`) VALUES
+INSERT INTO proyecto (
+    id_proyecto, 
+    titulo, 
+    descripcion, 
+    periodo, 
+    curso, 
+    fecha_presentacion, 
+    nota, 
+    logotipo, 
+    pdf_proyecto, 
+    alumno, 
+    tutor
+)
 
 
-    (1, 'Proyecto 1', 'Descripción del proyecto 1', 'Periodo 2020', 'Curso 4', '2024-01-02', 73, NULL, 'proyecto_1.pdf', '31', 1),
-    (2, 'Proyecto 2', 'Descripción del proyecto 2', 'Periodo 2024', 'Curso 4', '2024-10-09', 52, NULL, 'proyecto_2.pdf', 7, 1),
-    (3, 'Proyecto 3', 'Descripción del proyecto 3', 'Periodo 2020', 'Curso 2', '2024-08-26', 72, NULL, 'proyecto_3.pdf', 25, 2),
-    (4, 'Proyecto 4', 'Descripción del proyecto 4', 'Periodo 2022', 'Curso 3', '2024-01-17', 98, NULL, 'proyecto_4.pdf', 36, 2),
-    (5, 'Proyecto 5', 'Descripción del proyecto 5', 'Periodo 2022', 'Curso 4', '2024-09-24', 76, NULL, 'proyecto_5.pdf', 6, 3),
-    (6, 'Proyecto 6', 'Descripción del proyecto 6', 'Periodo 2021', 'Curso 3', '2024-02-11', 86, NULL, 'proyecto_6.pdf', 17, 3),
-    (7, 'Proyecto 7', 'Descripción del proyecto 7', 'Periodo 2021', 'Curso 4', '2024-11-13', 96, NULL, 'proyecto_7.pdf', 16, 4),
-    (8, 'Proyecto 8', 'Descripción del proyecto 8', 'Periodo 2023', 'Curso 1', '2024-11-09', 78, NULL, 'proyecto_8.pdf', 24, 4),
-    (9, 'Proyecto 9', 'Descripción del proyecto 9', 'Periodo 2023', 'Curso 3', '2024-08-04', 94, NULL, 'proyecto_9.pdf', 23, 5),
-    (10, 'Proyecto 10', 'Descripción del proyecto 10', 'Periodo 2020', 'Curso 5', '2024-07-03', 57, NULL, 'proyecto_10.pdf', 22, 5),
-    (11, 'Proyecto 11', 'Descripción del proyecto 11', 'Periodo 2023', 'Curso 4', '2024-04-09', 85, NULL, 'proyecto_11.pdf', 35, 6),
-    (12, 'Proyecto 12', 'Descripción del proyecto 12', 'Periodo 2024', 'Curso 1', '2024-07-12', 53, NULL, 'proyecto_12.pdf', 8, 6),
-    (13, 'Proyecto 13', 'Descripción del proyecto 13', 'Periodo 2023', 'Curso 5', '2024-04-27', 50, NULL, 'proyecto_13.pdf', 1, 7),
-    (14, 'Proyecto 14', 'Descripción del proyecto 14', 'Periodo 2021', 'Curso 2', '2024-01-19', 87, NULL, 'proyecto_14.pdf', 4, 7),
-    (15, 'Proyecto 15', 'Descripción del proyecto 15', 'Periodo 2024', 'Curso 3', '2024-02-05', 68, NULL, 'proyecto_15.pdf', 32, 8),
-    (16, 'Proyecto 16', 'Descripción del proyecto 16', 'Periodo 2022', 'Curso 2', '2024-10-26', 83, NULL, 'proyecto_16.pdf', 30, 8),
-    (17, 'Proyecto 17', 'Descripción del proyecto 17', 'Periodo 2021', 'Curso 3', '2024-10-14', 65, NULL, 'proyecto_17.pdf', 10, 9),
-    (18, 'Proyecto 18', 'Descripción del proyecto 18', 'Periodo 2020', 'Curso 3', '2024-03-10', 93, NULL, 'proyecto_18.pdf', 27, 9),
-    (19, 'Proyecto 19', 'Descripción del proyecto 19', 'Periodo 2022', 'Curso 4', '2024-10-28', 76, NULL, 'proyecto_19.pdf', 13, 10),
-    (20, 'Proyecto 20', 'Descripción del proyecto 20', 'Periodo 2021', 'Curso 4', '2024-10-17', 58, NULL, 'proyecto_20.pdf', 39, 10),
-    (21, 'Proyecto 21', 'Descripción del proyecto 21', 'Periodo 2024', 'Curso 5', '2024-11-14', 83, NULL, 'proyecto_21.pdf', 38, NULL),
-    (22, 'Proyecto 22', 'Descripción del proyecto 22', 'Periodo 2022', 'Curso 2', '2024-10-15', 79, NULL, 'proyecto_22.pdf', 29, NULL),
-    (23, 'Proyecto 23', 'Descripción del proyecto 23', 'Periodo 2021', 'Curso 2', '2024-09-16', 82, NULL, 'proyecto_23.pdf', 15, NULL),
-    (24, 'Proyecto 24', 'Descripción del proyecto 24', 'Periodo 2020', 'Curso 3', '2024-02-22', 68, NULL, 'proyecto_24.pdf', 2, NULL),
-    (25, 'Proyecto 25', 'Descripción del proyecto 25', 'Periodo 2022', 'Curso 3', '2024-10-23', 57, NULL, 'proyecto_25.pdf', 20, NULL);
+VALUES 
+
+
+    (1, 'Proyecto 1', 'Descripción del proyecto 1', 'Periodo 2024', 3, '2024-02-01', 90, NULL, NULL, 11, 1),
+    (2, 'Proyecto 2', 'Descripción del proyecto 2', 'Periodo 2024', 4, '2024-03-01', 85, NULL, NULL, 12, 2),
+    (3, 'Proyecto 3', 'Descripción del proyecto 3', 'Periodo 2024', 5, '2024-04-01', 88, NULL, NULL, 13, 3);
 
 
 -->
