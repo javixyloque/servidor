@@ -19,7 +19,14 @@
     </header>
     <button id="claro_oscuro">CAMBIAR CLARO/OSCURO</button>
 
+
+    <footer> 
+        <p>Todos los derechos reservados &copy; 2025</p>
+        <p>Javier Álvarez Centeno</p>
+    </footer>
+
     <script src="../controlador/index.js"></script>
+    
 </body>
 </html>
 

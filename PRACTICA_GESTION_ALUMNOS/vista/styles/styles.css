@@ -1,12 +1,22 @@
 
 
-body {
-
+#modo_claro {
+    background-color: black;
+}
+#modo_oscuro {
+    background-color: white;
 }
 header {
-    /* position: fixed; */
+    position: fixed;
+    background-color:#38CCB2 ;
 }
 
 button {
     cursor: pointer;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #38CCB2;
 }
