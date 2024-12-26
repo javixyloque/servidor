@@ -6,16 +6,29 @@
 
 <!-- REVISAR PROYECTOS-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Javier Álvarez Centeno">
     <link rel="stylesheet" href="./styles/styles.css">
-    <title></title>
+    <title>IES MENDOZA</title>
 </head>
-<body id="modo_claro">
+<body>
     <header>
-        <a href="<?= $_SERVER['PHP_SELF'] ?>"> <h1>IES MENDOZA</h1></a>
+        <a href="https://www.jcyl.es/web/jcyl/Portada/es/Home/1246890364336/_/_/_"><img src="../biblioteca/JCYL.png" alt="JCYL"></a>
+    
+        <a href="<?= $_SERVER['PHP_SELF'] ?>"> 
+            
+            IES MENDOZA
+            
+        </a>
+        <hr>
+        <a href=""></a>
+        <hr>
+        <a id="login" href="./login.php">
+            REGISTRARSE<hr>INICIAR SESIÓN
+        </a>
     </header>
     <button id="claro_oscuro">CAMBIAR CLARO/OSCURO</button>
 
