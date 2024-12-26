@@ -7,6 +7,6 @@
     <title>REGISTRARSE / INICIAR SESIÓN</title>
 </head>
 <body>
-    
+    <form action="../controlador/"></form>
 </body>
 </html>

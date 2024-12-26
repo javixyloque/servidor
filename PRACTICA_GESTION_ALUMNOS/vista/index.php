@@ -24,7 +24,7 @@
             
         </a>
         <hr>
-        <a href=""></a>
+        <a href="./"></a>
         <hr>
         <a id="login" href="./login.php">
             REGISTRARSE<hr>INICIAR SESIÓN
