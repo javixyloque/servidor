@@ -1,10 +1,10 @@
 @font-face {
-    font-family: 'Abel';
-    src: url(../../biblioteca/Abel-Regular.ttf);
+    font-family: 'Ubuntu Light';
+    src: url('../../biblioteca/Ubuntu-Light.ttf');
 }
 
 * {
-    font-family: 'Playwrite AU VIC Guides', sans-serif;
+    font-family: 'Ubuntu Light';
     
 }
 
@@ -13,6 +13,7 @@ body {
     min-height: 100vh;
     background-color: #575F51;
     margin: 0;
+    justify-items: center;
 }
 
 header > a {
@@ -76,6 +77,30 @@ footer {
 }
 
 
+/* FORMULARIO LOGIN Y REGISTRO*/
+
+#container {
+    display: flex;
+    flex-direction: column;
+}
+#container section {
+    display: flex;
+    flex-direction: row;
+}
+
+#container h1 {
+    padding: 5px;
+    cursor: pointer;
+}
+#registrarse {
+    z-index: -1;
+}
+
+
+
+
+
+/* RESPONSIVE PARA TELEFONO*/
 
 @media (max-width: 768px) {
     
