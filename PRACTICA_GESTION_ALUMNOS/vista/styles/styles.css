@@ -7,11 +7,10 @@
     font-family: 'Ubuntu Light';
     
 }
-html {
-    max-width: 100vw;
-}
+
 
 body {
+    display: flex;
     min-width: 100vw;
     min-height: 100vh;
     background-color: #575F51;
@@ -90,6 +89,8 @@ footer {
     border-radius: 3px;
     margin-top: 5vh;
     min-width: 50vw;
+    max-width: 80vw;
+    justify-self: center;
 }
 #container section {
     display: flex;
@@ -102,20 +103,31 @@ footer {
     margin: 1vh 1vw;
     padding: 8vh 5vw;
     cursor: pointer;
-    transition: background-color 0.25s ease-out;
+    transition: all 0.25s ease-out;
 }
 #container h2:hover {
     
     background-color: #A6B695;
-    transition: background-color 0.25s ease-in;
+    transition: all 0.25s ease-in;
 }
 
 #iniciar_sesion {
     display: flex;
     flex-direction: column;
+    margin: auto;
 }
+
 #registrarse {
     display: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+form > input[type='submit'] {
+    max-width: 50%;
 }
 
 
