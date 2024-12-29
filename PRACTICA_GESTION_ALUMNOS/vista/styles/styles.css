@@ -7,6 +7,9 @@
     font-family: 'Ubuntu Light';
     
 }
+html {
+    max-width: 100vw;
+}
 
 body {
     min-width: 100vw;
@@ -14,6 +17,7 @@ body {
     background-color: #575F51;
     margin: 0;
     justify-items: center;
+    
 }
 
 header > a {
@@ -82,18 +86,36 @@ footer {
 #container {
     display: flex;
     flex-direction: column;
+    background-color: #DAE3D1;
+    border-radius: 3px;
+    margin-top: 5vh;
+    min-width: 50vw;
 }
 #container section {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;    
 }
 
-#container h1 {
-    padding: 5px;
+#container h2 {
+    border-radius: 3px;
+    margin: 1vh 1vw;
+    padding: 8vh 5vw;
     cursor: pointer;
+    transition: background-color 0.25s ease-out;
+}
+#container h2:hover {
+    
+    background-color: #A6B695;
+    transition: background-color 0.25s ease-in;
+}
+
+#iniciar_sesion {
+    display: flex;
+    flex-direction: column;
 }
 #registrarse {
-    z-index: -1;
+    display: none;
 }
 
 
