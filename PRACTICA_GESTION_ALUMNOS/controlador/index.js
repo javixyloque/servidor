@@ -9,8 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const formInicio = document.getElementById('iniciar_sesion');
     const formRegistro = document.getElementById('registrarse');
-
-    iniciarSesion.style.backgroundColor = "#575F51";
+    
+    if (iniciarSesion) {
+        iniciarSesion.style.backgroundColor = "#575F51";
+    }
 
     // Funciones para activar/desactivar triggers
     function activarTrigger(trigger) { 
@@ -52,4 +54,5 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
 });

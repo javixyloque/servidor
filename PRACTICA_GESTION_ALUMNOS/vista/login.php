@@ -3,6 +3,7 @@
     $conexion = conexion();
 
     
+    
 
 
 ?>
@@ -24,7 +25,7 @@
         </section>
 
 
-        <form id="iniciar_sesion" action="../controlador/iniciar_sesion.php">
+        <form id="iniciar_sesion" action="../controlador/iniciar_sesion.php" method="post">
         <label for="usuario">NOMBRE DE USUARIO</label>
             <input type="text" id="usuario" name="usuario" placeholder="lolobenitez43">
 
@@ -34,7 +35,7 @@
         </form>
 
 
-        <form id="registrarse" action="../controlador/registrarse.php">
+        <form id="registrarse" action="../controlador/registrarse.php" method="post">
         <label for="usuario">NOMBRE DE USUARIO</label>
             <input type="text" id="usuario" name="usuario" placeholder="lolobenitez43">
 

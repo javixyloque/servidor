@@ -1,6 +1,6 @@
 <?php
     require_once'../biblioteca/biblioteca.php';
-    
+    session_start();
 
 ?>
 
@@ -24,14 +24,17 @@
             
         </a>
         <hr>
+        
         <a href="./"></a>
+            
         <hr>
         <a id="login" href="./login.php">
             REGISTRARSE<hr>INICIAR SESIÓN
         </a>
     </header>
-    <button id="claro_oscuro">CAMBIAR CLARO/OSCURO</button>
-
+    <?php if (isset($_SESSION['login'])):?>
+            <p>¡Bienvenido, <?= $_SESSION['login']?>!</p>    
+        <?php endif; ?>
 
     <footer> 
         <p>Todos los derechos reservados &copy; 2025</p>
