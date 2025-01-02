@@ -30,7 +30,7 @@
             <input type="text" id="usuario" name="usuario" placeholder="lolobenitez43">
 
             <label for="password">CONTRASEÑA</label>
-            <input type="text" name="password">
+            <input type="password" name="password" placeholder="********">
             <input type="submit" value="Iniciar Sesión">
         </form>
 
@@ -40,8 +40,8 @@
             <input type="text" id="usuario" name="usuario" placeholder="lolobenitez43">
 
             <label for="password">CONTRASEÑA</label>
-            <input type="text" name="password">
-            <input type="submit" value="Registrarse">
+            <input type="password" name="password">
+            <input type="submit" value="Registrarse" placeholder="********">
         </form>
 
         <script src="../controlador/index.js"></script>

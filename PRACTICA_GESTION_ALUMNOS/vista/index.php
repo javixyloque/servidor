@@ -39,6 +39,9 @@
     <footer> 
         <p>Todos los derechos reservados &copy; 2025</p>
         <p>Javier Álvarez Centeno</p>
+        <?php 
+        // echo $_SESSION['login']
+        ?> 
     </footer>
 
     <script src="../controlador/index.js"></script>
@@ -109,16 +112,16 @@ TUTORES:
 INSERT INTO `tutor` (`id_tutor`, `login`, `password`, `correo`, `nombre`, `apellidos`, `tipo_usu`, `baja`, `activar`) VALUES
 
 
-    (2, 'tutor1', 'pass1', 'tutor1@example.com', 'TutorNombre1', 'TutorApellido1', 2, 1, 'inactivo'),
-    (3, 'tutor2', 'pass2', 'tutor2@example.com', 'TutorNombre2', 'TutorApellido2', 2, 1, 'inactivo'),
-    (4, 'tutor3', 'pass3', 'tutor3@example.com', 'TutorNombre3', 'TutorApellido3', 2, 1, 'inactivo'),
-    (5, 'tutor4', 'pass4', 'tutor4@example.com', 'TutorNombre4', 'TutorApellido4', 2, 1, 'inactivo'),
-    (6, 'tutor5', 'pass5', 'tutor5@example.com', 'TutorNombre5', 'TutorApellido5', 2, 1, 'inactivo'),
-    (7, 'tutor6', 'pass6', 'tutor6@example.com', 'TutorNombre6', 'TutorApellido6', 2, 1, 'inactivo'),
-    (8, 'tutor7', 'pass7', 'tutor7@example.com', 'TutorNombre7', 'TutorApellido7', 2, 1, 'inactivo'),
-    (9, 'tutor8', 'pass8', 'tutor8@example.com', 'TutorNombre8', 'TutorApellido8', 2, 1, 'inactivo'),
-    (10, 'tutor9', 'pass9', 'tutor9@example.com', 'TutorNombre9', 'TutorApellido9', 2, 1, 'inactivo'),
-    (11, 'tutor10', 'pass10', 'tutor10@example.com', 'TutorNombre10', 'TutorApellido10', 2, 1, 'inactivo');
+    (2, 'tutor1', 'pass1', 'tutor1@example.com', 'TutorNombre1', 'TutorApellido1', 2, 2, 'inactivo'),
+    (3, 'tutor2', 'pass2', 'tutor2@example.com', 'TutorNombre2', 'TutorApellido2', 2, 2, 'inactivo'),
+    (4, 'tutor3', 'pass3', 'tutor3@example.com', 'TutorNombre3', 'TutorApellido3', 2, 2, 'inactivo'),
+    (5, 'tutor4', 'pass4', 'tutor4@example.com', 'TutorNombre4', 'TutorApellido4', 2, 2, 'inactivo'),
+    (6, 'tutor5', 'pass5', 'tutor5@example.com', 'TutorNombre5', 'TutorApellido5', 2, 2, 'inactivo'),
+    (7, 'tutor6', 'pass6', 'tutor6@example.com', 'TutorNombre6', 'TutorApellido6', 2, 2, 'inactivo'),
+    (8, 'tutor7', 'pass7', 'tutor7@example.com', 'TutorNombre7', 'TutorApellido7', 2, 2, 'inactivo'),
+    (9, 'tutor8', 'pass8', 'tutor8@example.com', 'TutorNombre8', 'TutorApellido8', 2, 2, 'inactivo'),
+    (10, 'tutor9', 'pass9', 'tutor9@example.com', 'TutorNombre9', 'TutorApellido9', 2, 2, 'inactivo'),
+    (11, 'tutor10', 'pass10', 'tutor10@example.com', 'TutorNombre10', 'TutorApellido10', 2, 2, 'inactivo');
 
 
 

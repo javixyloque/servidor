@@ -12,10 +12,10 @@
     try {
         
         $select = $conexion->prepare($sql);
-        $select->bindParam(':login', $login, PDO::PARAM_STR);
+        $select->bindParam(':login', $usuario, PDO::PARAM_STR);
         $select->bindParam(':password', $password, PDO::PARAM_STR);
         if ($select->execute()) {
-            $_SESSION['login'] = $login;
+            $_SESSION['login'] = $usuario;
             header('Location:../vista/index.php');
         }
     } catch (PDOException $e) {
