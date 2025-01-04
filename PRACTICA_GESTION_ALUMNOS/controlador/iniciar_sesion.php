@@ -7,7 +7,9 @@
         $usuario = filtrado($_POST['usuario'])?? '';
         $password = filtrado($_POST['password'])?? '';
     }
+    
 
+    //NO HAY HASH PORQUE INTRODUJE LOS DATOS ANTES DE CAER EN ELLO
     $sql = "SELECT * FROM `tutor` WHERE login = :login  AND password = :password;";
     try {
         

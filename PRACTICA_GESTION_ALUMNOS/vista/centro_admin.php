@@ -26,9 +26,9 @@
 
     <!-- MENU DE TRIGGERS PARA CADA UNA DE LAS TABLAS -->
     <div id="menu_trigger">
-        <button class="trigger" id="boton-tutor">TUTORES</button>
-        <button class="trigger" id="boton-alumnos">ALUMNOS</button>
-        <button class="trigger" id="boton-proyecto">PROYECTOS</button>
+        <button class="trigger" id="boton_tutor">TUTORES</button>
+        <button class="trigger" id="boton_alumnos">ALUMNOS</button>
+        <button class="trigger" id="boton_proyecto">PROYECTOS</button>
     </div>
 
 

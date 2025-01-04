@@ -15,28 +15,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Funciones para activar/desactivar triggers
-    function activarTrigger(trigger) { 
+    function activarTrigger(trigger,e) { 
+        e.preventDefault();
         trigger.setAttribute("data-status", "activo");
         trigger.style.backgroundColor = '#575F51';
         // AÑADIR FORMULARIO
         if (trigger.classList.contains("iniciar_sesion")) {
             formInicio.style.display = 'flex';
             formInicio.style.flexDirection = 'column';
+            formInicio.style.transition = 'all 0.5 ease-in';
         } else {
             formRegistro.style.display = 'flex';            
             formRegistro.style.flexDirection = 'column';
+            formRegistro.style.transition = 'all 0.5 ease-in';
         }
 
     }
 
-    function desactivarTrigger(trigger) {
+    function desactivarTrigger(trigger, e) {
+        e.preventDefault();
         trigger.setAttribute("data-status", "inactivo");
         trigger.style.backgroundColor = '#DAE3D1';
         // ELIMINAR DISPLAY FORMULARIO
         if (trigger.classList.contains("iniciar_sesion")) {
             formInicio.style.display = 'none';
+            formInicio.style.transition = 'all 0.5 ease-out';
         } else {
             formRegistro.style.display = 'none';
+            formRegistro.style.transition = 'all 0.5 ease-out';
         }
     }
 

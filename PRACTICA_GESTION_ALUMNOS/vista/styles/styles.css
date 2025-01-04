@@ -90,30 +90,31 @@ footer {
     max-width: 80vw;
     justify-self: center;
 }
-#container section {
+#cabecero {
     display: flex;
     flex-direction: row;
     justify-content: space-around;    
 }
 
-#container h2 {
+#cabecero h2 {
+    border: solid 2px #A6B695;
     border-radius: 3px;
     margin: 1vh 1vw;
     padding: 8vh 5vw;
     cursor: pointer;
-    transition: all 0.25s ease-out;
+    transition: all 0.5s ease-out;
 }
-#container h2:hover {
+/* #cabecero:hover {
     
     background-color: #A6B695;
     transition: all 0.25s ease-in;
-}
+} */
 
-#iniciar_sesion {
+/* #iniciar_sesion {
     display: flex;
     flex-direction: column;
     margin: auto;
-}
+} */
 
 #registrarse {
     display: none;
@@ -123,7 +124,9 @@ form {
     display: flex;
     flex-direction: column;
     margin: auto;
+    align-items: space-between;
 }
+
 form > input[type='submit'] {
     max-width: 50%;
 }
@@ -140,7 +143,7 @@ br {
     display:flex;
     flex-direction: column;
 }
-/* .trigger {
+#boton_tutor, #boton_alumnos, #boton_proyecto {
 
     border-radius: 3px;
     margin: 1vh 1vw;
@@ -148,11 +151,11 @@ br {
     cursor: pointer;
     transition: all 0.25s ease-out;
 }
-.trigger:hover {
+#boton_tutor:hover, #boton_alumnos:hover, #boton_proyecto:hover  {
     
     background-color: #A6B695;
     transition: all 0.25s ease-in;
-} */
+}
 
 
 

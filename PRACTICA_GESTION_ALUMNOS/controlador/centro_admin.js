@@ -13,19 +13,15 @@ window.addEventListener('DOMContentLoaded', () => {
     const botonAlumnos = document.getElementById('boton-alumnos');
     const botonProyecto = document.getElementById('boton-proyecto');
 
-    
+    // BUCLE PARA AÑADIR EL EVENTO A LOS BOTONES
     botones.forEach( (boton) => {
-        if (boton.getAttribute("data-status") === "inactivo") {
-            activarTrigger(boton);
-        } else {
-            desactivarTrigger(boton);
-        }
+        boton.addEventListener('click', activarTrigger(boton))
     })
 
 
-    function activarTrigger(trigger) { 
-        trigger.setAttribute("data-status", "activo");
-        trigger.style.backgroundColor = '#575F51';
+    function activarTrigger(boton) { 
+        boton.setAttribute("data-status", "activo");
+        boton.style.backgroundColor = '#575F51';
         // AÑADIR FORMULARIO
         // if (trigger.classList.contains("iniciar_sesion")) {
         //     formInicio.style.display = 'flex';
