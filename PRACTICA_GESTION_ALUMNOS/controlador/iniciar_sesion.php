@@ -3,7 +3,7 @@
     session_start();
     $conexion = conexion();
 
-    if ($_SESSION['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $usuario = filtrado($_POST['usuario'])?? '';
         $password = filtrado($_POST['password'])?? '';
     }
@@ -17,8 +17,11 @@
         if ($select->execute()) {
             $_SESSION['login'] = $usuario;
             header('Location:../vista/index.php');
+            $conexion = null;
         }
     } catch (PDOException $e) {
-        echo $e->getMessage();
+        echo "<script>alert('O el usuario que buscabas no estaba, o algo estás haciendo mal, prueba de nuevo');
+        location.reload();
+        </script>";
     }
 ?>

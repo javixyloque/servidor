@@ -1,7 +1,8 @@
 <?php
     require_once'../biblioteca/biblioteca.php';
     session_start();
-
+    
+    
 ?>
 
 <!-- REVISAR PROYECTOS-->
@@ -16,8 +17,11 @@
 </head>
 <body>
     <header>
+
         <a href="https://www.jcyl.es/web/jcyl/Portada/es/Home/1246890364336/_/_/_"><img src="../biblioteca/JCYL.png" alt="JCYL"></a>
     
+
+        <!-- AUTOENLACE -->
         <a href="<?= $_SERVER['PHP_SELF'] ?>"> 
             
             IES MENDOZA
@@ -25,17 +29,38 @@
         </a>
         <hr>
         
-        <a href="./"></a>
+        <!-- FILTRAR QUÉ CENTRO DE CONTROL TIENE EL USUARIO -->
+        <a href="<?php if($_SESSION['login']=='admin') {
+                echo "./centro_admin.php";
+                } else if (isset($_SESSION['login'])){
+                    echo "./centro_tutor.php";
+                } else {
+                    echo "./login.php";
+                }
+            
+            ?>">CENTRO DE CONTROL</a>
             
         <hr>
+
+        <!-- FIN -->
+
+
         <a id="login" href="./login.php">
             REGISTRARSE<hr>INICIAR SESIÓN
         </a>
     </header>
+    <main>
+    <!-- SI ESTA LOGEADO, MUESTRA UN MENSAJE DE INICIAR SESIÓN -->
     <?php if (isset($_SESSION['login'])):?>
             <p>¡Bienvenido, <?= $_SESSION['login']?>!</p>    
-        <?php endif; ?>
+    <?php endif; ?>
 
+
+    
+
+
+
+    </main> 
     <footer> 
         <p>Todos los derechos reservados &copy; 2025</p>
         <p>Javier Álvarez Centeno</p>

@@ -44,7 +44,7 @@
             <input type="submit" value="Registrarse" placeholder="********">
         </form>
 
-        <script src="../controlador/index.js"></script>
+        <script src="../controlador/login.js"></script>
     </div>
 </body>
 </html>

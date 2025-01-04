@@ -23,10 +23,6 @@
         return $data;
     }
 
-    $consultas = [
-            "select_alumnos" => "SELECT * FROM alumnos",
-            
-
-    ];
+    
     
 ?>

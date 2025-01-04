@@ -61,9 +61,7 @@ header > a > img {
     height: 8vh;
 }
 
-button {
-    cursor: pointer;
-}
+
 
 footer {
     position: relative;
@@ -129,6 +127,32 @@ form {
 form > input[type='submit'] {
     max-width: 50%;
 }
+br {
+    margin-top: 15px;
+    height: 10vh;
+}
+
+
+
+/* BOTONES DEL CENTRO ADMIN */
+
+#menu_trigger {
+    display:flex;
+    flex-direction: column;
+}
+/* .trigger {
+
+    border-radius: 3px;
+    margin: 1vh 1vw;
+    padding: 8vh 5vw;
+    cursor: pointer;
+    transition: all 0.25s ease-out;
+}
+.trigger:hover {
+    
+    background-color: #A6B695;
+    transition: all 0.25s ease-in;
+} */
 
 
 
