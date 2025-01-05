@@ -7,8 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const iniciarSesion = document.querySelector('.iniciar_sesion'); // Formulario iniciar sesión
     const registrarse = document.querySelector('.registrarse'); // Formulario registrarse
 
+
+    const forms = document.querySelectorAll('form');
     const formInicio = document.getElementById('iniciar_sesion');
     const formRegistro = document.getElementById('registrarse');
+
+    forms.forEach ( (form) => {
+        form.style.alignItems = 'left';
+        form.style.justifyContent = 'space-around';
+    })
     
     if (iniciarSesion) {
         iniciarSesion.style.backgroundColor = "#575F51";
@@ -22,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (trigger.classList.contains("iniciar_sesion")) {
             formInicio.style.display = 'flex';
             formInicio.style.flexDirection = 'column';
+            formInicio.style.justifyContent = 'space-around';
             formInicio.style.transition = 'all 0.5 ease-in';
         } else {
             formRegistro.style.display = 'flex';            
@@ -34,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function desactivarTrigger(trigger) {
         trigger.setAttribute("data-status", "inactivo");
         trigger.style.backgroundColor = '#DAE3D1';
+        
         // ELIMINAR DISPLAY FORMULARIO
         if (trigger.classList.contains("iniciar_sesion")) {
             formInicio.style.display = 'none';
@@ -59,10 +68,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         elemento.addEventListener("mouseover", () => {
-            if (elemento.getAttribute("data-status") === "inactivo") {
+            if (elemento.getAttribute('data-status') == 'inactivo') {
                 elemento.style.backgroundColor = '#A6B695';
             }
         });
+    
+        elemento.addEventListener("mouseout", () => {
+            if (elemento.getAttribute('data-status') == 'inactivo') {
+                elemento.style.backgroundColor = '#DAE3D1';
+            }
         });
+        
+    });
 
 });

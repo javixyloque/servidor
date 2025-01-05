@@ -16,7 +16,7 @@ body {
     background-color: #575F51;
     margin: 0;
     justify-content: center;
-    
+    /* flex-direction: column; */
 }
 
 
@@ -100,7 +100,7 @@ main {
 /* PIE DE PAGINA */
 
 footer {
-    position: absolute;
+    position: fixed;
     background-color: #2C3128;
     width: 100%;
     margin: 0;
@@ -135,7 +135,8 @@ footer {
 #cabecero {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;    
+    justify-content: space-around;   
+    flex-shrink:  1; 
 }
 
 #cabecero h2 {
@@ -145,6 +146,7 @@ footer {
     padding: 8vh 5vw;
     cursor: pointer;
     transition: all 0.5s ease-out;
+    text-align: center;
 }
 /* #cabecero h2:hover {
     
@@ -166,13 +168,21 @@ form {
     display: flex;
     flex-direction: column;
     margin: auto;
-    justify-content: space-between;
+    /* justify-content: space-between;  */
+}
+
+form > label {
+    margin-top: 20px;
+}
+form > input {
+    margin-top: 10px;
 }
 
 form > input[type='submit'] {
     max-width: 50%;
     margin-top: 15px;
     align-self: center;
+    box-shadow:  0 10px 5px rgba(0, 0, 0, 0.6);
 }
 br {
     margin-top: 15px;
@@ -215,5 +225,7 @@ br {
 /* RESPONSIVE PARA TELEFONO*/
 
 @media (max-width: 768px) {
-    
+    footer {
+        margin: 0;
+    }
 }

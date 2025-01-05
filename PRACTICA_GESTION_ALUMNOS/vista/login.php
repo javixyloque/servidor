@@ -37,6 +37,17 @@
 
 
         <form id="registrarse" action="../controlador/registrarse.php" method="post">
+
+            <label for="nombre">NOMBRE</label>
+            <input type="text" name="nombre" required>
+
+            <label for="apellidos">APELLIDOS</label>
+            <input type="text" name="apellidos" required>
+
+            <label for="correo">CORREO ELECTRÓNICO</label>
+            <input type="email" name="correo" required>
+
+
             <label for="user">NOMBRE DE USUARIO</label>
             <input type="text" id="usuarioReg" name="user" placeholder="lolobenitez43">
 
