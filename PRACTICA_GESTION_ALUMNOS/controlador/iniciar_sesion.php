@@ -4,8 +4,8 @@
     $conexion = conexion();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $usuario = filtrado($_POST['usuario'])?? '';
-        $password = filtrado($_POST['password'])?? '';
+        $usuario = filtrado($_POST['user'])?? '';
+        $password = filtrado($_POST['pass'])?? '';
     }
     
 

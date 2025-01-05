@@ -2,6 +2,10 @@
     require_once'../biblioteca/biblioteca.php';
     session_start();
     
+    if (!isset($_SESSION['login'])) {
+        header('Location: login.php');
+        exit();
+    }
     
 ?>
 
@@ -30,15 +34,8 @@
         <hr>
         
         <!-- FILTRAR QUÉ CENTRO DE CONTROL TIENE EL USUARIO -->
-        <a href="<?php if($_SESSION['login']=='admin') {
-                echo "./centro_admin.php";
-                } else if (isset($_SESSION['login'])){
-                    echo "./centro_tutor.php";
-                } else {
-                    echo "./login.php";
-                }
-            
-            ?>">CENTRO DE CONTROL</a>
+        <a href="<?= $_SESSION['login']=='admin'? './centro_admin.php': './centro_tutor.php'; ?>">
+            CENTRO DE CONTROL</a>
             
         <hr>
 
@@ -64,9 +61,6 @@
     <footer> 
         <p>Todos los derechos reservados &copy; 2025</p>
         <p>Javier Álvarez Centeno</p>
-        <?php 
-        // echo $_SESSION['login']
-        ?> 
     </footer>
 
     <script src="../controlador/index.js"></script>

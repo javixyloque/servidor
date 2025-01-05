@@ -32,6 +32,11 @@
     </div>
 
 
+    <footer> 
+        <p>Todos los derechos reservados &copy; 2025</p>
+        <p>Javier Álvarez Centeno</p>
+    </footer>
+
     <script src="../controlador/centro_admin.js"></script>
 </body>
 </html>

@@ -15,8 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Funciones para activar/desactivar triggers
-    function activarTrigger(trigger,e) { 
-        e.preventDefault();
+    function activarTrigger(trigger) { 
         trigger.setAttribute("data-status", "activo");
         trigger.style.backgroundColor = '#575F51';
         // AÑADIR FORMULARIO
@@ -32,8 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    function desactivarTrigger(trigger, e) {
-        e.preventDefault();
+    function desactivarTrigger(trigger) {
         trigger.setAttribute("data-status", "inactivo");
         trigger.style.backgroundColor = '#DAE3D1';
         // ELIMINAR DISPLAY FORMULARIO
@@ -59,6 +57,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 desactivarTrigger(iniciarSesion);
             }
         });
-    });
+
+        elemento.addEventListener("mouseover", () => {
+            if (elemento.getAttribute("data-status") === "inactivo") {
+                elemento.style.backgroundColor = '#A6B695';
+            }
+        });
+        });
 
 });
