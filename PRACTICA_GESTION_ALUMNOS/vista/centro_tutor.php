@@ -1,3 +1,12 @@
+<?php
+    require_once'../biblioteca/biblioteca.php';
+    session_start();
+    $conexion = conexion();
+
+    
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

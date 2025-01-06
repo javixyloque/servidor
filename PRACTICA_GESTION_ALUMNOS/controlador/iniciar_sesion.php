@@ -9,7 +9,7 @@
     }
     
 
-    //NO HAY HASH PORQUE INTRODUJE LOS DATOS ANTES DE CAER EN ELLO
+    // NO HAY HASH PORQUE INTRODUJE LOS DATOS ANTES DE CAER EN ELLO
     $sql = "SELECT * FROM `tutor` WHERE login = :login  AND password = :password;";
     try {
         
@@ -17,6 +17,7 @@
         $select->bindParam(':login', $usuario, PDO::PARAM_STR);
         $select->bindParam(':password', $password, PDO::PARAM_STR);
         if ($select->execute()) {
+            
             $_SESSION['login'] = $usuario;
             header('Location:../vista/index.php');
             $conexion = null;

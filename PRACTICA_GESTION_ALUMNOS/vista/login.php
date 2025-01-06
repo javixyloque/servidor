@@ -27,10 +27,10 @@
 
         <form id="iniciar_sesion" action="../controlador/iniciar_sesion.php" method="post">
             <label for="user">NOMBRE DE USUARIO</label>
-            <input type="text" id="usuarioLogin" name="user" placeholder="lolobenitez43">
+            <input type="text" id="usuarioLogin" name="user" placeholder="lolobenitez43" required>
 
             <label for="pass">CONTRASEÑA</label>
-            <input type="passwordLogin" name="pass" placeholder="********">
+            <input type="passwordLogin" name="pass" placeholder="********" required>
 
             <input type="submit" value="Iniciar Sesión">
         </form>

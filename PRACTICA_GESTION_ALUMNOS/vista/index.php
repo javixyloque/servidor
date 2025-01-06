@@ -168,11 +168,11 @@ VALUES
     (1, 'Proyecto 1', 'Descripción del proyecto 1', 'Periodo 2024', 3, '2024-02-01', 90, NULL, NULL, 11, 1),
     (2, 'Proyecto 2', 'Descripción del proyecto 2', 'Periodo 2024', 4, '2024-03-01', 85, NULL, NULL, 12, 2),
     (3, 'Proyecto 3', 'Descripción del proyecto 3', 'Periodo 2024', 5, '2024-04-01', 88, NULL, NULL, 13, 3),
-    (4, 'Proyecto 4', 'Descripción del proyecto 4', 'Periodo 2023', 2, '2024-05-10', 75, NULL, 'proyecto_4.pdf', 14, 2),
-    (5, 'Proyecto 5', 'Descripción del proyecto 5', 'Periodo 2023', 3, '2024-06-15', 82, NULL, 'proyecto_5.pdf', 15, 3),
-    (6, 'Proyecto 6', 'Descripción del proyecto 6', 'Periodo 2022', 4, '2024-07-20', 89, NULL, 'proyecto_6.pdf', 16, 4),
-    (7, 'Proyecto 7', 'Descripción del proyecto 7', 'Periodo 2024', 1, '2024-08-25', 92, NULL, 'proyecto_7.pdf', 17, 5),
-    (8, 'Proyecto 8', 'Descripción del proyecto 8', 'Periodo 2021', 5, '2024-09-30', 88, NULL, 'proyecto_8.pdf', 18, 1);
+    (4, 'Proyecto 4', 'Descripción del proyecto 4', 'Periodo 2023', 2, '2024-05-10', 75, NULL, NULL, 14, 2),
+    (5, 'Proyecto 5', 'Descripción del proyecto 5', 'Periodo 2023', 3, '2024-06-15', 82, NULL, NULL, 15, 3),
+    (6, 'Proyecto 6', 'Descripción del proyecto 6', 'Periodo 2022', 4, '2024-07-20', 89, NULL, NULL, 16, 4),
+    (7, 'Proyecto 7', 'Descripción del proyecto 7', 'Periodo 2024', 1, '2024-08-25', 92, NULL, NULL, 17, 7),
+    (8, 'Proyecto 8', 'Descripción del proyecto 8', 'Periodo 2021', 5, '2024-09-30', 88, NULL, NULL, 18, 10);
 
 
 -->
