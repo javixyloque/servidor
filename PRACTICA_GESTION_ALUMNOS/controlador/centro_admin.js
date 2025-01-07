@@ -1,58 +1,74 @@
 "use strict";
 
 window.addEventListener('DOMContentLoaded', () => {
-    // VARIABLES PARA LAS TABLAS 
+    // VARIABLES PARA LAS TABLAS
     const tablaTutor = document.getElementById('tutor');
     const tablaAlumnos = document.getElementById('alumnos');
     const tablaProyecto = document.getElementById('proyecto');
 
+
     // VARIABLES PARA LOS BOTONES
     const botones = document.querySelectorAll('.trigger');
+    const tablas = document.querySelectorAll('table');
     const menu = document.getElementById('menu_trigger');
+    menu.style.display = 'flex'; 
+    menu.style.justifyContent ='center';
 
-    // BUCLE PARA AÑADIR ESTILOS Y EVENTOS A LOS BOTONES
-    botones.forEach((boton) => {
-        boton.style.position = "absolute";
-        boton.style.marginTop = "50px";
 
-        if (boton.getAttribute('data-status') === 'inactivo') {
-            boton.addEventListener('click', () => activarTrigger(boton));
-        }
+    // FUNCIÓN PARA MOSTRAR UNA TABLA Y OCULTAR LAS DEMÁS
+    function mostrarTabla(tablaId) {
+        tablas.forEach(tabla => {
+            tabla.style.marginTop = '15vh';
+            if (tabla.id === tablaId) {
+                tabla.style.display = 'table';
+                tabla.setAttribute('data-status', 'activo');
+            } else {
+                tabla.style.display = 'none';
+                tabla.setAttribute('data-status', 'inactivo');
+            }
+        });
+    }
+
+    // FUNCIÓN PARA ACTIVAR UN BOTÓN Y DESACTIVAR LOS DEMÁS
+    function activarBoton(botonId) {
+        botones.forEach(boton => {
+            if (boton.id === botonId) {
+                boton.setAttribute('data-status', 'activo');
+                boton.style.backgroundColor = '#2C3128';
+                boton.style.color = 'white';
+            } else {
+                boton.setAttribute('data-status', 'inactivo');
+                boton.style.backgroundColor = '#DAE3D1';
+                boton.style.color = '#575F51';
+            }
+        });
+    }
+
+    // AÑADIR EVENTOS A LOS BOTONES
+    botones.forEach(boton => {
+        
+        boton.addEventListener('click', () => {
+            const tablaId = boton.id.replace('boton_', ''); // Convierte 'boton_tutor' en 'tutor'
+            mostrarTabla(tablaId);
+            activarBoton(boton.id);
+        });
 
         boton.addEventListener('mouseover', () => {
-            boton.style.backgroundColor = '#575F51';
-            boton.style.color = 'white';
+            if (boton.getAttribute('data-status') === 'inactivo') {
+                boton.style.backgroundColor = '#A6B695';
+                boton.style.color = 'white';
+            }
         });
 
         boton.addEventListener('mouseout', () => {
-            boton.style.backgroundColor = '#DAE3D1';
-            boton.style.color = '#575F51';
+            if (boton.getAttribute('data-status') === 'inactivo') {
+                boton.style.backgroundColor = '#DAE3D1';
+                boton.style.color = '#575F51';
+            }
         });
     });
 
-    function activarTrigger(boton) {
-        // Cambiar el estado del botón a activo
-        botones.forEach((btn) => {
-            btn.setAttribute("data-status", "inactivo");
-            btn.style.backgroundColor = '#DAE3D1';
-        });
-
-        boton.setAttribute("data-status", "activo");
-        boton.style.backgroundColor = '#575F51';
-
-        // Mostrar/ocultar tablas según el botón
-        if (boton.id === 'boton_tutor') {
-            tablaTutor.style.display = 'block';
-            tablaAlumnos.style.display = 'none';
-            tablaProyecto.style.display = 'none';
-        } else if (boton.id === 'boton_alumnos') {
-            tablaTutor.style.display = 'none';
-            tablaAlumnos.style.display = 'block';
-            tablaProyecto.style.display = 'none';
-        } else if (boton.id === 'boton_proyecto') {
-            tablaTutor.style.display = 'none';
-            tablaAlumnos.style.display = 'none';
-            tablaProyecto.style.display = 'block';
-        }
-    }
+    // CONFIGURACIÓN INICIAL: MOSTRAR LA TABLA DE TUTORES
+    mostrarTabla('tutor');
+    activarBoton('boton_tutor');
 });

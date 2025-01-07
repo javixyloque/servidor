@@ -94,10 +94,10 @@
 
 
             <label for="user">NOMBRE DE USUARIO</label>
-            <input type="text" id="usuarioReg" name="user" placeholder="lolobenitez43">
+            <input type="text" id="usuarioReg" name="user" placeholder="lolobenitez43" required>
 
             <label for="pass">CONTRASEÑA</label>
-            <input type="passwordReg" name="pass" placeholder="********">
+            <input type="password" name="passwordReg" placeholder="********" required>
 
             <input type="submit" class="enviar" value="Registrarse">
         </form>

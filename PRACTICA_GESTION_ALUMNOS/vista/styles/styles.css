@@ -202,7 +202,6 @@ form > input {
     color: #FFFFFF;
 }
 form > input::placeholder {
-    border: none;
     color: #A6B695;
 
 }
@@ -214,6 +213,11 @@ form > input[type='submit'] {
     box-shadow:  0 10px 5px rgba(0, 0, 0, 0.6);
     cursor: pointer;
     margin-bottom: 15px;
+    transition: all 0.25s ease-out;
+}
+form > input[type='submit']:hover {
+    transform: translate(0, -5px);
+    transition: all 0.2s ease-in;
 }
 br {
     margin-top: 15px;
@@ -231,25 +235,40 @@ br {
 
 /* BOTONES DEL CENTRO ADMIN */
 
-#menu_trigger {
-    display:flex;
-    flex-direction: column;
-}
-#boton_tutor, #boton_alumnos, #boton_proyecto {
 
-    border-radius: 3px;
-    margin: 1vh 1vw;
-    padding: 8vh 5vw;
-    cursor: pointer;
-    transition: all 0.25s ease-out;
+.trigger {
+    margin-top: 15vh;
+    display: inline-block;
+    width: 150px; /* Ajusta según tus necesidades */
+    height: 50px; /* Ajusta según tus necesidades */
+    text-align: center;
+    line-height: 50px; /* Para centrar el texto verticalmente */
     background-color: #DAE3D1;
-    
+    color: #575F51;
+    font-size: 16px; /* Tamaño consistente */
+    border: 2px solid transparent; /* Asegura que el borde esté siempre presente */
+    border-radius: 5px;
+    cursor: pointer;
+    box-sizing: border-box; /* Incluye borde y padding dentro de las dimensiones */
+    transition: background-color 0.3s, color 0.3s; /* Suaviza los cambios de color */
 }
-#boton_tutor:hover, #boton_alumnos:hover, #boton_proyecto:hover  {
-    
+
+.trigger[data-status="activo"] {
+    background-color: #2C3128;
+    color: white;
+    border-color: #2C3128; /* Mantén el borde del mismo color */
+}
+
+.trigger:hover {
     background-color: #A6B695;
-    transition: all 0.25s ease-in;
+    color: white;
 }
+
+/* Opcional: evitar que se seleccionen los textos de los botones */
+.trigger:active {
+    user-select: none;
+}
+
 
 
 
@@ -258,18 +277,27 @@ br {
 
 /* TABLAS */
 
-table {
-    margin-top: 10vh;
-}
 
-td {
+
+td, th {
     text-align: center;
+    border: solid 2px #A6B695;
+    color: #A6B695;
+}
+
+th {
+    background-color: #2C3128;
+    color: white;
+}
+table {
+    margin-bottom: 15vh;
 }
 
 
 
 
-/* RESPONSIVE PARA TELEFONO*/
+/* RESPONSIVE PARA TELEFONO 
+    NO DA TIEMPO :) */
 
 @media (max-width: 768px) {
     footer {

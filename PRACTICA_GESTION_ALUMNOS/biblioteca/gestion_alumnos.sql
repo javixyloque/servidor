@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2024 at 02:58 AM
+-- Generation Time: Jan 08, 2025 at 12:35 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -111,7 +111,12 @@ CREATE TABLE `proyecto` (
 INSERT INTO `proyecto` (`id_proyecto`, `titulo`, `descripcion`, `periodo`, `curso`, `fecha_presentacion`, `nota`, `logotipo`, `pdf_proyecto`, `alumno`, `tutor`) VALUES
 (1, 'Proyecto 1', 'Descripción del proyecto 1', 'Periodo 2024', '3', '2024-02-01', 90, NULL, NULL, 11, 1),
 (2, 'Proyecto 2', 'Descripción del proyecto 2', 'Periodo 2024', '4', '2024-03-01', 85, NULL, NULL, 12, 2),
-(3, 'Proyecto 3', 'Descripción del proyecto 3', 'Periodo 2024', '5', '2024-04-01', 88, NULL, NULL, 13, 3);
+(3, 'Proyecto 3', 'Descripción del proyecto 3', 'Periodo 2024', '5', '2024-04-01', 88, NULL, NULL, 13, 3),
+(4, 'Proyecto 4', 'Descripción del proyecto 4', 'Periodo 2023', '2', '2024-05-10', 75, NULL, NULL, 14, 2),
+(5, 'Proyecto 5', 'Descripción del proyecto 5', 'Periodo 2023', '3', '2024-06-15', 82, NULL, NULL, 15, 3),
+(6, 'Proyecto 6', 'Descripción del proyecto 6', 'Periodo 2022', '4', '2024-07-20', 89, NULL, NULL, 16, 4),
+(7, 'Proyecto 7', 'Descripción del proyecto 7', 'Periodo 2024', '1', '2024-08-25', 92, NULL, NULL, 17, 7),
+(8, 'Proyecto 8', 'Descripción del proyecto 8', 'Periodo 2021', '5', '2024-09-30', 88, NULL, NULL, 18, 10);
 
 -- --------------------------------------------------------
 
@@ -124,7 +129,7 @@ CREATE TABLE `tutor` (
   `login` varchar(20) NOT NULL,
   `password` varchar(16) NOT NULL,
   `correo` varchar(50) NOT NULL,
-  `nombre` varchar(20) NOT NULL,
+  `nomTutor` varchar(20) NOT NULL,
   `apellidos` varchar(50) NOT NULL,
   `tipo_usu` int(1) NOT NULL,
   `baja` tinyint(1) NOT NULL,
@@ -135,18 +140,19 @@ CREATE TABLE `tutor` (
 -- Dumping data for table `tutor`
 --
 
-INSERT INTO `tutor` (`id_tutor`, `login`, `password`, `correo`, `nombre`, `apellidos`, `tipo_usu`, `baja`, `activar`) VALUES
+INSERT INTO `tutor` (`id_tutor`, `login`, `password`, `correo`, `nomTutor`, `apellidos`, `tipo_usu`, `baja`, `activar`) VALUES
 (1, 'admin', 'admin123', 'admin@admin.es', 'Administrador', 'Del SGBD', 1, 0, 'activo'),
-(2, 'tutor1', 'pass1', 'tutor1@example.com', 'TutorNombre1', 'TutorApellido1', 1, 1, 'inactivo'),
-(3, 'tutor2', 'pass2', 'tutor2@example.com', 'TutorNombre2', 'TutorApellido2', 1, 1, 'inactivo'),
-(4, 'tutor3', 'pass3', 'tutor3@example.com', 'TutorNombre3', 'TutorApellido3', 1, 1, 'inactivo'),
-(5, 'tutor4', 'pass4', 'tutor4@example.com', 'TutorNombre4', 'TutorApellido4', 1, 1, 'inactivo'),
-(6, 'tutor5', 'pass5', 'tutor5@example.com', 'TutorNombre5', 'TutorApellido5', 1, 1, 'inactivo'),
-(7, 'tutor6', 'pass6', 'tutor6@example.com', 'TutorNombre6', 'TutorApellido6', 1, 1, 'inactivo'),
-(8, 'tutor7', 'pass7', 'tutor7@example.com', 'TutorNombre7', 'TutorApellido7', 1, 1, 'inactivo'),
-(9, 'tutor8', 'pass8', 'tutor8@example.com', 'TutorNombre8', 'TutorApellido8', 1, 1, 'inactivo'),
-(10, 'tutor9', 'pass9', 'tutor9@example.com', 'TutorNombre9', 'TutorApellido9', 1, 1, 'inactivo'),
-(11, 'tutor10', 'pass10', 'tutor10@example.com', 'TutorNombre10', 'TutorApellido10', 1, 1, 'inactivo');
+(2, 'tutor1', 'pass1', 'tutor1@example.com', 'TutorNombre1', 'TutorApellido1', 2, 0, 'inactivo'),
+(3, 'tutor2', 'pass2', 'tutor2@example.com', 'TutorNombre2', 'TutorApellido2', 2, 0, 'inactivo'),
+(4, 'tutor3', 'pass3', 'tutor3@example.com', 'TutorNombre3', 'TutorApellido3', 2, 0, 'inactivo'),
+(5, 'tutor4', 'pass4', 'tutor4@example.com', 'TutorNombre4', 'TutorApellido4', 2, 0, 'inactivo'),
+(6, 'tutor5', 'pass5', 'tutor5@example.com', 'TutorNombre5', 'TutorApellido5', 2, 0, 'inactivo'),
+(7, 'tutor6', 'pass6', 'tutor6@example.com', 'TutorNombre6', 'TutorApellido6', 2, 0, 'inactivo'),
+(8, 'tutor7', 'pass7', 'tutor7@example.com', 'TutorNombre7', 'TutorApellido7', 2, 0, 'inactivo'),
+(9, 'tutor8', 'pass8', 'tutor8@example.com', 'TutorNombre8', 'TutorApellido8', 2, 0, 'inactivo'),
+(10, 'tutor9', 'pass9', 'tutor9@example.com', 'TutorNombre9', 'TutorApellido9', 2, 0, 'inactivo'),
+(11, 'tutor10', 'pass10', 'tutor10@example.com', 'TutorNombre10', 'TutorApellido10', 2, 0, 'inactivo'),
+(13, 'josefina57', '1234', 'josefa@lajefa', 'Josefina', 'Fina Filipina', 2, 0, 'inactivo');
 
 --
 -- Indexes for dumped tables
@@ -186,13 +192,13 @@ ALTER TABLE `alumnos`
 -- AUTO_INCREMENT for table `proyecto`
 --
 ALTER TABLE `proyecto`
-  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tutor`
 --
 ALTER TABLE `tutor`
-  MODIFY `id_tutor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_tutor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables

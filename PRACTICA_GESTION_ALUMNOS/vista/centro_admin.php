@@ -61,12 +61,60 @@
         </a>
     </header>
 
+    <section>
+
+    <div id="menu_trigger">
+        <button class="trigger" id="boton_tutor" data-status="activo">TUTORES</button>
+        <button class="trigger" id="boton_alumnos" data-status="inactivo">ALUMNOS</button>
+        <button class="trigger" id="boton_proyecto" data-status="inactivo">PROYECTOS</button>
+    </div>
+
+
     <!-- TABLAS DE DATOS Y CRUD -->
     <div id="tablas">
         <table id="tutor" data-status="activo">
+            <thead>
+                <th>NOMBRE</th>
+                <th>CORREO</th>
+                <th>ACTIVAR</th>
+                <th>ELIMINAR</th>
+            </thead>
+            <tbody>
+            <?php
+                try {
+                    // LOS PROYECTOS ESTARÁN ORDENADOS ALFABÉTICAMENTE POR LOS APELLIDOS DEL ALUMNO
+                    $sql = "SELECT * FROM tutor WHERE baja=0 AND tipo_usu=2";
             
+                    $sentencia = $conexion -> prepare($sql);
+                    $sentencia -> setFetchMode(PDO::FETCH_ASSOC);
+                    $sentencia -> execute();
+            
+            
+                    while ($fila = $sentencia->fetch()) {
+                        echo "<tr>";
+                        // echo "<td>".$fila['id_proyecto']."</td>";
+                        echo "<td>".$fila['nomTutor']." ".$fila['apellidos']."</td>";
+                        echo "<td>".$fila['correo']."</td>";
+                        echo "<td><a href='../controlador/eliminar_tutor.php?id={$fila['id_tutor']}'>Eliminar</a></td>";
+                        if ($fila['activar']=='inactivo') {
+                            echo "<td><a href='../controlador/activar_tutor.php?id={$fila['id_tutor']}'>Activar</a></td>";
+                        } else if ($fila['activar']=='activo') {
+                            echo "<td><a href='../controlador/desactivar_tutor.php?id={$fila['id_tutor']}'>Desactivar</a></td>";
+                        }                                      
+                        // echo "<td><a href='./admin_editar.php?id=".$fila['id_proyecto']."'><button>Modificar</button></a></td>";
+                        // echo "<td><a href='../controlador/eliminar.php?id=".$fila['id_proyecto']."'><button>Eliminar</button></a></td>";                        
+                        echo "</tr>";
+                    }
+                } catch (PDOException $e) {
+                    echo $e ->getMessage();
+                }
+            ?>
+            </tbody>
         </table>
-        <table id="alumnos" data-status="inactivo"></table>
+        <table id="alumnos" data-status="inactivo">
+
+                
+        </table>
 
         <table id="proyecto" data-status="inactivo">
             <thead>
@@ -106,13 +154,10 @@
                             echo "<td>".$fila['nomTutor']." ".$fila['apellidos']."</td>";                                              
                             echo "<td><a href='./admin_editar.php?id=".$fila['id_proyecto']."'><button>Modificar</button></a></td>";
                             echo "<td><a href='../controlador/eliminar.php?id=".$fila['id_proyecto']."'><button>Eliminar</button></a></td>";                        
-                            
                             echo "</tr>";
                         }
                     } catch (PDOException $e) {
                         echo $e ->getMessage();
-                    } finally {
-                        $conexion = null;
                     }
                 ?>
             </tbody>
@@ -121,13 +166,9 @@
 
 
     <!-- MENU DE TRIGGERS PARA CADA UNA DE LAS TABLAS -->
-    <div id="menu_trigger">
-        <button class="trigger" id="boton_tutor" data-status="activo">TUTORES</button>
-        <button class="trigger" id="boton_alumnos" data-status="inactivo">ALUMNOS</button>
-        <button class="trigger" id="boton_proyecto" data-status="inactivo">PROYECTOS</button>
-    </div>
+    
 
-
+    </section>
     <footer> 
         <p>Todos los derechos reservados &copy; 2025</p>
         <p>Javier Álvarez Centeno</p>
