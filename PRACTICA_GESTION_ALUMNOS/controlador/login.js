@@ -1,22 +1,16 @@
 "use strict";
 
 // Asegúrate de que el script se ejecute después de que el DOM esté listo
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", () => {
     // Selección de elementos
     const triggers = document.querySelectorAll("h2"); // Todos los elementos <h2>
     const iniciarSesion = document.querySelector('.iniciar_sesion'); // Formulario iniciar sesión
     const registrarse = document.querySelector('.registrarse'); // Formulario registrarse
 
-
-    const forms = document.querySelectorAll('form');
     const formInicio = document.getElementById('iniciar_sesion');
     const formRegistro = document.getElementById('registrarse');
+    const botones = document.getElementsByClassName('enviar');
 
-    forms.forEach ( (form) => {
-        form.style.alignItems = 'left';
-        form.style.justifyContent = 'space-around';
-    })
-    
     if (iniciarSesion) {
         iniciarSesion.style.backgroundColor = "#575F51";
     }

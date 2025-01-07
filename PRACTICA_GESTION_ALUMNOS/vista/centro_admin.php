@@ -34,9 +34,17 @@
         <hr>
 
         <!-- FILTRAR QUÉ CENTRO DE CONTROL TIENE EL USUARIO -->
-        <a href="<?= $_SESSION['login']=='admin'? './centro_admin.php': './centro_tutor.php'; ?>">
-            CENTRO DE CONTROL</a>
-        <hr>
+        <?php if (isset($_SESSION['login'])) {
+            if ($_SESSION['tipo_usu']===1) {
+                echo '<a href="./centro_admin.php">';
+            } else {
+                echo '<a href="./centro_tutor.php">';
+            }
+        } 
+            echo "CENTRO DE CONTROL</a>";
+            echo"<hr>";
+        ?>
+        
 
             <?php
                 if (isset($_SESSION['login'])) {
@@ -114,9 +122,9 @@
 
     <!-- MENU DE TRIGGERS PARA CADA UNA DE LAS TABLAS -->
     <div id="menu_trigger">
-        <button class="trigger" id="boton_tutor">TUTORES</button>
-        <button class="trigger" id="boton_alumnos">ALUMNOS</button>
-        <button class="trigger" id="boton_proyecto">PROYECTOS</button>
+        <button class="trigger" id="boton_tutor" data-status="activo">TUTORES</button>
+        <button class="trigger" id="boton_alumnos" data-status="inactivo">ALUMNOS</button>
+        <button class="trigger" id="boton_proyecto" data-status="inactivo">PROYECTOS</button>
     </div>
 
 

@@ -34,10 +34,20 @@
         <hr>
         
         <!-- FILTRAR QUÉ CENTRO DE CONTROL TIENE EL USUARIO -->
-        <a href="<?= $_SESSION['tipo_usu']==1? './centro_admin.php': './centro_tutor.php'; ?>">
-            CENTRO DE CONTROL</a>
+        <?php if (isset($_SESSION['login'])) {
+            if ($_SESSION['tipo_usu']===1) {
+                echo '<a href="./centro_admin.php">';
+            } else {
+                echo '<a href="./centro_tutor.php">';
+            }
+        } 
+            echo "CENTRO DE CONTROL</a>";
+            echo"<hr>";
+        ?>
+        
             
-        <hr>
+            
+        
 
             <!--    SCRIPT PARA BOTÓN DE CERRAR SESIÓN      -->
             <?php
@@ -56,7 +66,11 @@
     <main>
     <!-- SI ESTA LOGEADO, MUESTRA UN MENSAJE DE INICIAR SESIÓN -->
     <?php if (isset($_SESSION['login'])):?>
-            <p>¡Bienvenido, <?= $_SESSION['login']?>!</p>    
+            <h1>¡Bienvenido, <?= $_SESSION['login']?>!</h1>
+            <p id="leyenda">Esta Es la página web del IES Mendoza, de momento no hay novedades
+                (le pagamos poco a nuestros lacayos del frontend), si quieres empezar a realizar operaciones,
+                consulta el Centro de Control
+            </p>    
     <?php endif; ?>
 
 
@@ -135,7 +149,7 @@ INSERT INTO `alumnos` (`dni`, `nombre`, `apellido1`, `apellido2`, `email`, `tele
 
 TUTORES: 
 
-INSERT INTO `tutor` (`id_tutor`, `login`, `password`, `correo`, `nombre`, `apellidos`, `tipo_usu`, `baja`, `activar`) VALUES
+INSERT INTO `tutor` (`id_tutor`, `login`, `password`, `correo`, `nomTutor`, `apellidos`, `tipo_usu`, `baja`, `activar`) VALUES
 
 
     (2, 'tutor1', 'pass1', 'tutor1@example.com', 'TutorNombre1', 'TutorApellido1', 2, 2, 'inactivo'),

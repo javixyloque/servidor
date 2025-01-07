@@ -1,5 +1,6 @@
 <?php
     require_once'../biblioteca/biblioteca.php';
+    
     session_start();
     $conexion = conexion();
 

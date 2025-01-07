@@ -1,7 +1,7 @@
 <?php
     require_once'../biblioteca/biblioteca.php';
     $conexion = conexion();
-
+    session_start();
     
     
 
@@ -25,7 +25,7 @@
     
 
         <!-- AUTOENLACE -->
-        <a href="<?= $_SERVER['PHP_SELF'] ?>"> 
+        <a href="./index.php"> 
             
             IES MENDOZA
             
@@ -33,17 +33,27 @@
         <hr>
         
         <!-- FILTRAR QUÉ CENTRO DE CONTROL TIENE EL USUARIO -->
-        <a href="<?= $_SESSION['tipo_usu']==1? './centro_admin.php': './centro_tutor.php'; ?>">
-            CENTRO DE CONTROL</a>
+        <?php if (isset($_SESSION['login'])) {
+            if ($_SESSION['tipo_usu']===1) {
+                echo '<a  href="./centro_admin.php">';
+            } else {
+                echo '<a  href="./centro_tutor.php">';
+            }
+            echo "CENTRO DE CONTROL</a>";
+            echo"<hr>";
+        } 
             
-        <hr>
+           
+        ?>
+        
 
             <!--    SCRIPT PARA BOTÓN DE CERRAR SESIÓN      -->
             <?php
                 if (isset($_SESSION['login'])) {
                     echo "<a href='../controlador/cerrar_sesion.php'>CERRAR SESIÓN</a>";
+                    echo '<hr>';
                 }
-                echo '<hr>';
+                
             ?>
         
 
@@ -65,9 +75,9 @@
             <input type="text" id="usuarioLogin" name="user" placeholder="lolobenitez43" required>
 
             <label for="pass">CONTRASEÑA</label>
-            <input type="passwordLogin" name="pass" placeholder="********" required>
+            <input type="password" name="pass" placeholder="********" required>
 
-            <input type="submit" value="Iniciar Sesión">
+            <input type="submit" class="enviar" value="Iniciar Sesión">
         </form>
 
 
@@ -89,7 +99,7 @@
             <label for="pass">CONTRASEÑA</label>
             <input type="passwordReg" name="pass" placeholder="********">
 
-            <input type="submit" value="Registrarse">
+            <input type="submit" class="enviar" value="Registrarse">
         </form>
 
         
