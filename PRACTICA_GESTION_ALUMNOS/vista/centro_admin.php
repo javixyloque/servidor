@@ -5,6 +5,8 @@
     $conexion = conexion();
     $sqlTutores = "SELECT * FROM tutor"
 
+
+
 ?>
 
 
@@ -17,6 +19,39 @@
     <title>ADMINISTRACIÓN</title>
 </head>
 <body>
+    <header>
+
+        <a href="https://www.jcyl.es/web/jcyl/Portada/es/Home/1246890364336/_/_/_"><img src="../biblioteca/JCYL.png" alt="JCYL"></a>
+
+
+        <!-- AUTOENLACE -->
+        <a href="./index.php"> 
+            
+            IES MENDOZA
+            
+        </a>
+        
+        <hr>
+
+        <!-- FILTRAR QUÉ CENTRO DE CONTROL TIENE EL USUARIO -->
+        <a href="<?= $_SESSION['login']=='admin'? './centro_admin.php': './centro_tutor.php'; ?>">
+            CENTRO DE CONTROL</a>
+        <hr>
+
+            <?php
+                if (isset($_SESSION['login'])) {
+                    echo "<a href='../controlador/cerrar_sesion.php'>CERRAR SESIÓN</a>";
+                }
+                echo '<hr>';
+            ?>
+
+        <!-- FIN -->
+
+
+        <a id="login" href="./login.php">
+            REGISTRARSE<hr>INICIAR SESIÓN
+        </a>
+    </header>
 
     <!-- TABLAS DE DATOS Y CRUD -->
     <div id="tablas">

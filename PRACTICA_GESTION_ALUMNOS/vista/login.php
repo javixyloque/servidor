@@ -18,6 +18,41 @@
     <title>REGISTRARSE / INICIAR SESIÓN</title>
 </head>
 <body>
+
+<header>
+
+        <a href="https://www.jcyl.es/web/jcyl/Portada/es/Home/1246890364336/_/_/_"><img src="../biblioteca/JCYL.png" alt="JCYL"></a>
+    
+
+        <!-- AUTOENLACE -->
+        <a href="<?= $_SERVER['PHP_SELF'] ?>"> 
+            
+            IES MENDOZA
+            
+        </a>
+        <hr>
+        
+        <!-- FILTRAR QUÉ CENTRO DE CONTROL TIENE EL USUARIO -->
+        <a href="<?= $_SESSION['tipo_usu']==1? './centro_admin.php': './centro_tutor.php'; ?>">
+            CENTRO DE CONTROL</a>
+            
+        <hr>
+
+            <!--    SCRIPT PARA BOTÓN DE CERRAR SESIÓN      -->
+            <?php
+                if (isset($_SESSION['login'])) {
+                    echo "<a href='../controlador/cerrar_sesion.php'>CERRAR SESIÓN</a>";
+                }
+                echo '<hr>';
+            ?>
+        
+
+
+        <a id="login" href="./login.php">
+            REGISTRARSE<hr>INICIAR SESIÓN
+        </a>
+    </header>
+
     <div id="container">
         <section id="cabecero">
             <h2 class="iniciar_sesion"  data-status="activo">INICIAR SESIÓN</h1>

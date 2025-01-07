@@ -34,12 +34,19 @@
         <hr>
         
         <!-- FILTRAR QUÉ CENTRO DE CONTROL TIENE EL USUARIO -->
-        <a href="<?= $_SESSION['login']=='admin'? './centro_admin.php': './centro_tutor.php'; ?>">
+        <a href="<?= $_SESSION['tipo_usu']==1? './centro_admin.php': './centro_tutor.php'; ?>">
             CENTRO DE CONTROL</a>
             
         <hr>
 
-        <!-- FIN -->
+            <!--    SCRIPT PARA BOTÓN DE CERRAR SESIÓN      -->
+            <?php
+                if (isset($_SESSION['login'])) {
+                    echo "<a href='../controlador/cerrar_sesion.php'>CERRAR SESIÓN</a>";
+                }
+                echo '<hr>';
+            ?>
+        
 
 
         <a id="login" href="./login.php">
