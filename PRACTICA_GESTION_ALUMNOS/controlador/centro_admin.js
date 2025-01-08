@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
     botones.forEach(boton => {
         
         boton.addEventListener('click', () => {
-            const tablaId = boton.id.replace('boton_', ''); // Convierte 'boton_tutor' en 'tutor'
+            const tablaId = boton.id.replace('boton_', ''); 
             mostrarTabla(tablaId);
             activarBoton(boton.id);
         });
