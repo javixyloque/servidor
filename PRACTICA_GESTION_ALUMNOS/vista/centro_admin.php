@@ -3,7 +3,13 @@
     require_once '../biblioteca/biblioteca.php';
     session_start(); 
     $conexion = conexion();
-    $sqlTutores = "SELECT * FROM tutor"
+    $sqlTutores = "SELECT * FROM tutor";
+    if ($_SESSION['tipo_usu'] != 1 || !isset($_SESSION['tipo_usu'])) {
+        echo "<script>alert('En casa ajena zapatos limpios, guajín. Inicia sesión como administrador y prueba de nuevo')
+            location.href='../vista/index.php';</script>";
+        // header('Location:./index.php');
+        exit();
+    }
 
 
 
@@ -76,8 +82,8 @@
             <thead>
                 <th>NOMBRE</th>
                 <th>CORREO</th>
-                <th>ACTIVAR</th>
                 <th>ELIMINAR</th>
+                <th>ACTIVAR</th>
             </thead>
             <tbody>
             <?php
@@ -95,11 +101,11 @@
                         // echo "<td>".$fila['id_proyecto']."</td>";
                         echo "<td>".$fila['nomTutor']." ".$fila['apellidos']."</td>";
                         echo "<td>".$fila['correo']."</td>";
-                        echo "<td><a href='../controlador/eliminar_tutor.php?id={$fila['id_tutor']}'>Eliminar</a></td>";
+                        echo "<td><a href='../controlador/eliminar_tutor.php?id={$fila['id_tutor']}'><button>Eliminar</button></a></td>";
                         if ($fila['activar']=='inactivo') {
-                            echo "<td><a href='../controlador/activar_tutor.php?id={$fila['id_tutor']}'>Activar</a></td>";
+                            echo "<td><a href='../controlador/activar_tutor.php?id={$fila['id_tutor']}'><button>Activar</button></a></td>";
                         } else if ($fila['activar']=='activo') {
-                            echo "<td><a href='../controlador/desactivar_tutor.php?id={$fila['id_tutor']}'>Desactivar</a></td>";
+                            echo "<td><a href='../controlador/desactivar_tutor.php?id={$fila['id_tutor']}'><button>Desactivar</button></a></td>";
                         }                                      
                         // echo "<td><a href='./admin_editar.php?id=".$fila['id_proyecto']."'><button>Modificar</button></a></td>";
                         // echo "<td><a href='../controlador/eliminar.php?id=".$fila['id_proyecto']."'><button>Eliminar</button></a></td>";                        
@@ -129,7 +135,7 @@
                     $sentencia -> setFetchMode(PDO::FETCH_ASSOC);
                     $sentencia -> execute();
             
-            
+                    
                     while ($fila = $sentencia->fetch()) {
                         echo "<tr>";
                         echo "<td>".$fila['dni']."</td>";
@@ -190,7 +196,7 @@
                             echo "<td>".$fila['fecha_presentacion']."</td>";
                             echo "<td>".$fila['nota']."</td>";
                             // echo "<td><img height='100px' width='100px' src='data:image/jpeg;base64,".base64_encode($fila['logotipo'])."' alt='Logo'></td>";
-                            echo "<td><a href='data:application/pdf;base64,".base64_encode($fila['pdf_proyecto'])." ' target='_blank'>Descargar PDF</a></td>";  
+                            echo "<td><a href='data:application/pdf;base64,".base64_encode($fila['pdf_proyecto'])." ' target='_blank'><button>Descargar PDF</button></a></td>";  
                             echo "<td>".$fila['nomTutor']." ".$fila['apellidos']."</td>";                                              
                             echo "<td><a href='./admin_editar.php?id=".$fila['id_proyecto']."'><button>Modificar</button></a></td>";
                             echo "<td><a href='../controlador/eliminar.php?id=".$fila['id_proyecto']."'><button>Eliminar</button></a></td>";                        

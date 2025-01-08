@@ -200,6 +200,7 @@ form > input {
     background-color: #575F51;
     padding-left: 5px;
     color: #FFFFFF;
+    margin-bottom: 20px;
 }
 form > input::placeholder {
     color: #A6B695;
@@ -210,13 +211,13 @@ form > input[type='submit'] {
     max-width: 50%;
     margin-top: 15px;
     align-self: center;
-    box-shadow:  0 10px 5px rgba(0, 0, 0, 0.6);
+    box-shadow:  0 2px 5px rgba(0, 0, 0, 0.6);
     cursor: pointer;
     margin-bottom: 15px;
     transition: all 0.25s ease-out;
 }
 form > input[type='submit']:hover {
-    transform: translate(0, -5px);
+    transform: translate(0, -1.5vh);
     transition: all 0.2s ease-in;
 }
 br {
@@ -269,6 +270,23 @@ br {
     user-select: none;
 }
 
+button {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 150px;
+    height: 50px;
+    background-color: #2C3128;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#form_modificar {
+    padding: 5%;
+    background-color: #FFFFFF;
+}
+
 
 
 
@@ -283,6 +301,7 @@ td, th {
     text-align: center;
     border: solid 2px #A6B695;
     color: #A6B695;
+    text-decoration: none !important;
 }
 
 th {

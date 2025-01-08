@@ -20,13 +20,17 @@
         if ($select->execute()) {
             $filas = $select->rowCount();
             $resultado = $select->fetch(PDO::FETCH_ASSOC);
-                if ($filas<1 || $resultado['activar'] =='inactivo' || $resultado['baja'] == 1) {
+                if ($filas<1 ||$resultado['baja'] == 1 ) {
                     
                     echo "<script>alert('Usuario o contraseña incorrectos');
                     location.href = '../vista/login.php';
                     </script>";
                     exit();
-                } else {
+                } else if ($resultado['activar'] =='inactivo') {
+                    echo "<script>alert('El usuario debe ser activado por el administrador')
+                    location.href = '../vista/login.php';
+                    </script>";
+                }else {
                     $_SESSION['login'] = $usuario;
                     $_SESSION['tipo_usu'] = $resultado['tipo_usu'];
                     header('Location:../vista/index.php');

@@ -56,7 +56,7 @@
 </head>
 <body>
   
-    <form action="../controlador/editar_proyecto.php" method="post" enctype="multipart/form-data">
+    <form action="../controlador/editar_proyecto.php" method="post" enctype="multipart/form-data" id="form_modificar">
     <h2>FORMULARIO DE MODIFICACIÓN DEL TRABAJO <?=  filtrado($titulo) ?></h2>
             <label for="titulo">Titulo: </label>
                 <input type="text" name="titulo" value="<?= filtrado($titulo) ?>">

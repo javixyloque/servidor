@@ -76,6 +76,8 @@
 
             <label for="pass">CONTRASEÑA</label>
             <input type="password" name="pass" placeholder="********" required>
+            <br>
+            <p>¿Has olvidado tu contraseña?, menudo mongolín. <a href="./recuperar_password.php">RECUPERAR</a></p>
 
             <input type="submit" class="enviar" value="Iniciar Sesión">
         </form>
