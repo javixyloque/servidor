@@ -112,7 +112,46 @@
             </tbody>
         </table>
         <table id="alumnos" data-status="inactivo">
-
+            <thead>
+                <th>DNI</th>
+                <th>NOMBRE</th>
+                <th>EMAIL</th>
+                <th>TELEFONO</th>
+                <th>CURSO</th>
+            </thead>
+            <tbody>
+            <?php
+                try {
+                    // LOS PROYECTOS ESTARÁN ORDENADOS ALFABÉTICAMENTE POR LOS APELLIDOS DEL ALUMNO
+                    $sql = "SELECT * FROM alumnos ORDER BY curso, apellido1, apellido2 ASC";
+            
+                    $sentencia = $conexion -> prepare($sql);
+                    $sentencia -> setFetchMode(PDO::FETCH_ASSOC);
+                    $sentencia -> execute();
+            
+            
+                    while ($fila = $sentencia->fetch()) {
+                        echo "<tr>";
+                        echo "<td>".$fila['dni']."</td>";
+                        echo "<td>".$fila['nombre']." ".$fila['apellido1']." ".$fila['apellido2']."</td>";
+                        echo "<td>".$fila['email']."</td>";
+                        echo "<td>".$fila['telefono']."</td>";
+                        echo "<td>".$fila['curso']."</td>";
+                        // echo "<td><a href='../controlador/eliminar_tutor.php?id={$fila['id_tutor']}'>Eliminar</a></td>";
+                        // if ($fila['activar']=='inactivo') {
+                        //     echo "<td><a href='../controlador/activar_tutor.php?id={$fila['id_tutor']}'>Activar</a></td>";
+                        // } else if ($fila['activar']=='activo') {
+                        //     echo "<td><a href='../controlador/desactivar_tutor.php?id={$fila['id_tutor']}'>Desactivar</a></td>";
+                        // }                                      
+                        // echo "<td><a href='./admin_editar.php?id=".$fila['id_proyecto']."'><button>Modificar</button></a></td>";
+                        // echo "<td><a href='../controlador/eliminar.php?id=".$fila['id_proyecto']."'><button>Eliminar</button></a></td>";                        
+                        echo "</tr>";
+                    }
+                } catch (PDOException $e) {
+                    echo $e ->getMessage();
+                }
+            ?>
+            </tbody>
                 
         </table>
 
@@ -123,7 +162,7 @@
                 <th>CURSO</th>
                 <th>FECHA DE PRESENTACIÓN</th>
                 <th>NOTA</th>
-                <th>LOGO</th>
+                <!-- <th>LOGO</th> -->
                 <th>PDF</th>
                 <th>TUTOR</th>
             </thead>
@@ -149,7 +188,7 @@
                             echo "<td>".$fila['curso']."</td>";
                             echo "<td>".$fila['fecha_presentacion']."</td>";
                             echo "<td>".$fila['nota']."</td>";
-                            echo "<td><img height='100px' width='100px' src='data:image/jpeg;base64,".base64_encode($fila['logotipo'])."' alt='Logo'></td>";
+                            // echo "<td><img height='100px' width='100px' src='data:image/jpeg;base64,".base64_encode($fila['logotipo'])."' alt='Logo'></td>";
                             echo "<td><a href='data:application/pdf;base64,".base64_encode($fila['pdf_proyecto'])." ' target='_blank'>Descargar PDF</a></td>";  
                             echo "<td>".$fila['nomTutor']." ".$fila['apellidos']."</td>";                                              
                             echo "<td><a href='./admin_editar.php?id=".$fila['id_proyecto']."'><button>Modificar</button></a></td>";
