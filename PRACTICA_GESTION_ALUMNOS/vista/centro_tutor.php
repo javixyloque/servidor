@@ -80,6 +80,7 @@
                 <th>EMAIL</th>
                 <th>TELEFONO</th>
                 <th>CURSO</th>
+                <th>ELIMINAR</th>
             </thead>
             <tbody>
             <?php
@@ -106,7 +107,7 @@
                         //     echo "<td><a href='../controlador/desactivar_tutor.php?id={$fila['id_tutor']}'>Desactivar</a></td>";
                         // }                                      
                         // echo "<td><a href='./admin_editar.php?id=".$fila['id_proyecto']."'><button>Modificar</button></a></td>";
-                        // echo "<td><a href='../controlador/eliminar.php?id=".$fila['id_proyecto']."'><button>Eliminar</button></a></td>";                        
+                        echo "<td><a href='../controlador/eliminar_alumno.php?id=".$fila['id_alumno']."'><button>Eliminar</button></a></td>";                        
                         echo "</tr>";
                     }
                 } catch (PDOException $e) {
@@ -114,7 +115,7 @@
                 }
             ?>
             </tbody>
-                
+                <button>Agregar alumnos</button>
         </table>
 
         <table id="proyecto" data-status="inactivo">
