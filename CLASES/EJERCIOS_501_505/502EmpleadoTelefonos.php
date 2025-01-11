@@ -12,9 +12,6 @@
         public function setSalario(float $sal): void {
             $this -> salario = $sal;
         }
-        public function anadirTelefono(int $tel): void {
-            array_push(($this -> telefono), $tel);
-        }
 
         public function getNombre(): string {
             return $this->nombre;
@@ -28,9 +25,10 @@
         public function listarTelefonos(): string {
             $completo = '';
             foreach ($this -> telefono as $tel) {
-                $completo+= "Teléfono: ".$tel."<br>";
+                $completo.= $tel.", ";
             }
-            return $completo;
+            $final = substr($completo, 0, strlen($completo)-2);
+            return $final;
         }
 
         public function vaciarTelefonos(): void {
@@ -48,9 +46,13 @@
         }
 
         public function getDatosCompleto(): string {
-            return "EMPLEADO: ".$this->getNombre()."<br>Telefono: ".$this->listarTelefonos()."<br>".$this->getSalario();
+            return "EMPLEADO: ".$this->getNombre()."<br>Telefonos: ".$this->listarTelefonos()."<br>".$this->getSalario()." €";
         }
-        
+
+        public function anadirTelefono(int $tel): void {
+            array_push(($this -> telefono), $tel);
+        }
+
 
 
     }

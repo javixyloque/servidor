@@ -36,7 +36,7 @@
         }
 
         public function getDatosCompleto(): string {
-            return "EMPLEADO: ".$this->getNombre()."<br>Telefono: ".$this->getTelefono()."<br>".$this->getSalario();
+            return "EMPLEADO: ".$this->getNombre()."<br>Telefono: ".$this->getTelefono()."<br>".$this->getSalario()." €";
         }
         
 
