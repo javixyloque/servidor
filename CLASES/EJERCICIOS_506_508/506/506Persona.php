@@ -5,7 +5,7 @@
 
     class Empleado extends Persona {
         private float $salario;
-        private array $telefono;
+        private array $telefono = [];
         private static int $sueldoTope = 1500;
 
         public function __construct(string $nombre, string $apellidos, float $salario = 1000, $num=null) {
