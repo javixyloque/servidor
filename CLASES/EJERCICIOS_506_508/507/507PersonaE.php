@@ -5,7 +5,7 @@
 
     class Empleado extends Persona {
         private float $salario;
-        private array $telefono;
+        private array $telefono = [];
         private static int $sueldoTope = 1500;
 
         public function __construct(string $nombre, string $apellidos, float $salario = 1000, $num=null) {
@@ -81,9 +81,12 @@
 
     $obj1 = new Empleado("Juan", "Gonzalez", 2000);
     $obj1 -> setEdad(26);
+    $obj1-> anadirTelefono(656545654);
     if ($obj1 -> debePagarImpuestos()) {
         echo $obj1 -> getDatosCompleto(). ".<br><br> Además, tiene que pagar impuestos";
     }
+
+    
     
     // echo $obj1 ->getDatosCompleto();
 
