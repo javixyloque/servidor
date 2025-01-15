@@ -1,28 +1,55 @@
 <?php
     require_once'./controlador.php';
-    session_start();
+    require_once'../modelo/Producto.php';
 
+    
+    
     // COMPROBAR LA REQUEST
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // ASIGNACIÓN DE VARIABLES
         $carrito = isset($_COOKIE['carrito']) ? json_decode($_COOKIE['carrito'], true) : [];
-        $acumulado = isset($_COOKIE['acumulado']) ? intval($_COOKIE['acumulado']) : 0;
-        $nombreProd = filtrado($_POST['nombreProd'])?? '';
-        echo $nombreProd;
+        $acumulado = isset($_COOKIE['acumulado']) ? floatval($_COOKIE['acumulado']) : 0;
+        $nombreProd = isset($_POST['nombreProd'])? filtrado($_POST['nombreProd']) : '';
+
+        if (!isset($_COOKIE['carrito'])) {
+            
+        }
+
+        // BUCLE PARA BUSCAR EL PRODUCTO EN EL ARRAY
+        foreach ($productos as $indice => $producto) {
+            // SI EL NOMBRE DEL PRODUCTO ES CO
+            if ($producto->getNombre() == $nombreProd) {
+                $carrito[] =$producto->getNombre();
+                $acumulado+= $producto->getPrecio();
+                
+            }
+            
+        // json_decode json_encode para serializar los productos
+        } 
+
+        if (!isset($_COOKIE['acumulado'])) {
+            
+        } 
+        $_COOKIE['acumulado'] = strval($acumulado);
+        $_COOKIE['carrito'] = json_encode($carrito);
+        
     } 
 
     
 
-    //BUCLE PARA BUSCAR EL PRODUCTO EN EL ARRAY
-    foreach ($productos as $indice => $producto) {
-        // SI EL NOMBRE DEL PRODUCTO ES CO
-        if ($producto->getNombre() == $nombreProd) {
-            array_push($carrito, $producto ->getNombre());
-        }
-    // json_decode json_encode para serializar los productos
-    } 
+    // INICIALIZAMOS LAS COOKIES PARA 3 HORAS (NI LAS VIEJAS DE MI BARRIO TARDAN TANTO) DARLE UNA VUELTA A ESTO
+    // setcookie('acumulado', $acumulado, time() + (3 * 3600));
+    // setcookie('carrito', json_encode($carrito), time() + (3 * 3600));
 
-    print_r($carrito);
+    echo $_COOKIE['carrito'];
+    echo $_COOKIE['acumulado'];
 
+    // header('location: ../vista/carrito.php');
+
+
+    function pintarCarrito() {
+
+    }
 
 
 ?>

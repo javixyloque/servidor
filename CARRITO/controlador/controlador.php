@@ -16,11 +16,11 @@
     ];
 
     // CREAR VARIABLE DE SESIÓN PARA EL CARRITO SI NO EXISTE
-    if (!isset($_COOKIE['carrito'])) {
-        setcookie("carrito", json_encode([]), time() + (2 * 24 *3600));
-    } else if (!isset($_COOKIE['acumulado'])) {
-        setcookie("acumulado", 0, time() + (2 * 24 *3600));
-    }
+    // if (!isset($_COOKIE['carrito'])) {
+    //     setcookie("carrito", json_encode([]), time() + (2 * 24 *3600));
+    // } else if (!isset($_COOKIE['acumulado'])) {
+    //     setcookie("acumulado", 0, time() + (2 * 24 *3600));
+    // }
 
 
 

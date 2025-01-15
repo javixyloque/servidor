@@ -14,8 +14,9 @@
 </head>
 <body>
     <ul>
-    <?php
-        foreach ($productos as $indice => $prod) {
+    <?php foreach ($productos as $indice => $prod) {
+
+            
             echo "<li>";
                 echo "<h2>". filtrado($prod->getNombre()). "</h2>";
                 echo "<p>Precio: ". filtrado($prod->getPrecio()). "</p>";
@@ -25,8 +26,8 @@
                     </form>";
                 
             echo "</li>";
-        }
-    ?>
+        
+    }?>
     </ul>
 </body>
 </html>

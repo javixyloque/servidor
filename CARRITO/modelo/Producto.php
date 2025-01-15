@@ -3,8 +3,8 @@ declare(strict_types=1);
 
     // HAY QUE SERIALIZAR EL OBJETO (a post no le gusta)
     class Producto {
-        private $nombre;
-        private $precio;
+        private string $nombre;
+        private float $precio;
 
         public function __construct($nombre, $precio) {
             $this -> nombre = $nombre;
@@ -18,7 +18,7 @@ declare(strict_types=1);
 
 
         // GETTERS Y SETTERS    
-        public function getNombre() {
+        public function getNombre(): string {
             return $this -> nombre;
         }
 
@@ -26,7 +26,7 @@ declare(strict_types=1);
             $this -> nombre = $nom;
         }
 
-        public function getPrecio() {
+        public function getPrecio(): float {
             return $this -> precio;
         }
         public function setPrecio($prec) {
