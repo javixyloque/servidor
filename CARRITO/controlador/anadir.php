@@ -32,21 +32,16 @@
         } 
         print_r ($carrito);
         echo $acumulado;
-        setcookie('acumulado', $acumulado, time() + (3 * 24 * 3600));
-        setcookie('carrito', json_encode($carrito), time() + (3 * 24 * 3600));
+
+        // HACER LAS COOKIES. EL DIRECTORIO ES LA BARRA (DIRECTORIO RAIZ) PARA QUE SE MUESTRE EN TODO EL DOCUMENTO
+        // DURAN 3 DIAS DESDE LA ÚLTIMA MODIFICACIÓN DEL CARRITO
+        setcookie('acumulado', $acumulado, time() + (3 * 24 * 3600), "/");
+        setcookie('carrito', json_encode($carrito), time() + (3 * 24 * 3600), "/");
         
         header('location: ../vista/carrito.php');
         
         
     } 
-
-    
-
-   
-    
-
-    
-
     // header('location: ../vista/carrito.php');
 
 

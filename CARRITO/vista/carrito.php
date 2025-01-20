@@ -11,6 +11,8 @@
     <title>CARRITO</title>
 </head>
 <body>
-    
+    <?php
+        pintarCarrito();
+    ?>
 </body>
-</html>
+</html>    

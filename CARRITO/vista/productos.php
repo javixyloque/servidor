@@ -1,8 +1,7 @@
 <?php
     require_once'../modelo/Producto.php';
     require_once'../controlador/controlador.php';
-
-
+    
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +26,7 @@
                 
             echo "</li>";
         
-    }?>
+    }?> 
     </ul>
 </body>
 </html>
