@@ -1,7 +1,5 @@
 <?php
     require_once'../modelo/Producto.php';
-
-
     $productos = [
         new Producto("Pan de molde", 1.29),
         new Producto("Leche entera 1L", 0.99),
@@ -30,6 +28,19 @@
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
+    }
+
+    function pintarCarrito($carrito, $acumulado) {
+        echo "<h1>Carrito de compras</h1>";
+        echo "<table>";
+        echo "<tr><th>Producto</th><th>Precio</th><th>ELIMINAR</th>";
+
+        foreach ($carrito as $indice => $producto) {
+            echo "<tr><th>".$producto->getNombre()."</th><th>".$producto->getPrecio()."</th><th><button action='./eliminar.php?nombreProd=".$producto->getNombre()."' style='cursor: pointer'>Eliminar</button></th></tr>";
+
+            
+        }
+        echo "<h4>Total a pagar ┌( ͝° ͜ʖ͡°)=ε/̵͇̿̿/’̿’̿ ̿   :</h4>"."<h5>".$acumulado."</h5>";
     }
 
 ?>
