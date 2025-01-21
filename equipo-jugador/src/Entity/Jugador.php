@@ -53,4 +53,110 @@ class Jugador
     private $equipo;
 
 
+
+    /**
+     * Get the value of idJugador
+     *
+     * @return  int
+     */ 
+    public function getIdJugador()
+    {
+        return $this->idJugador;
+    }
+
+    /**
+     * Get the value of nombre
+     *
+     * @return  int
+     */ 
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set the value of nombre
+     *
+     * @param  int  $nombre
+     *
+     * @return  self
+     */ 
+    public function setNombre(int $nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of apellidos
+     *
+     * @return  int
+     */ 
+    public function getApellidos()
+    {
+        return $this->apellidos;
+    }
+
+    /**
+     * Set the value of apellidos
+     *
+     * @param  int  $apellidos
+     *
+     * @return  self
+     */ 
+    public function setApellidos(int $apellidos)
+    {
+        $this->apellidos = $apellidos;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of edad
+     *
+     * @return  int|null
+     */ 
+    public function getEdad()
+    {
+        return $this->edad;
+    }
+
+    /**
+     * Set the value of edad
+     *
+     * @param  int|null  $edad
+     *
+     * @return  self
+     */ 
+    public function setEdad($edad)
+    {
+        $this->edad = $edad;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of equipo
+     *
+     * @return  \Equipo
+     */ 
+    public function getEquipo()
+    {
+        return $this->equipo;
+    }
+
+    /**
+     * Set the value of equipo
+     *
+     * @param  \Equipo  $equipo
+     *
+     * @return  self
+     */ 
+    public function setEquipo(\Equipo $equipo)
+    {
+        $this->equipo = $equipo;
+
+        return $this;
+    }
 }
