@@ -5,12 +5,12 @@
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Jugador
+ * JugadorBidireccional
  *
  * @ORM\Table(name="jugador", indexes={@ORM\Index(name="equipo_fk", columns={"equipo"})})
  * @ORM\Entity
  */
-class Jugador
+class JugadorBidireccional
 {
     /**
      * @var int
@@ -43,9 +43,9 @@ class Jugador
     private $edad;
 
     /**
-     * @var \Equipo
+     * @var \EquipoBidireccional
      *
-     * @ORM\ManyToOne(targetEntity="Equipo")
+     * @ORM\ManyToOne(targetEntity="EquipoBidireccional")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="equipo", referencedColumnName="id_equipo")
      * })
@@ -139,9 +139,9 @@ class Jugador
     /**
      * Get the value of equipo
      *
-     * @return  \Equipo
+     * @return  \EquipoBidireccional
      */ 
-    public function getEquipo(): Equipo
+    public function getEquipo(): EquipoBidireccional
     {
         return $this->equipo;
     }
@@ -151,11 +151,11 @@ class Jugador
     /**
      * Set the value of equipo
      *
-     * @param  \Equipo  $equipo
+     * @param  \EquipoBidireccional  $equipo
      *
      * @return  self
      */ 
-    public function setEquipo(\Equipo $equipo)
+    public function setEquipo(\EquipoBidireccional $equipo)
     {
         $this->equipo = $equipo;
 

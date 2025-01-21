@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="equipo")
  * @ORM\Entity
  */
-class Equipo
+class EquipoBidireccional
 {
     /**
      * @var int
@@ -53,7 +53,9 @@ class Equipo
     // function getNombre() {
     //     return $this->nombre;
     // }
+    private $jugadores;
 
+    
     
     
 

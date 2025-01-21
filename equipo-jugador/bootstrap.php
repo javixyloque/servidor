@@ -23,4 +23,15 @@ $dbParams = array(
 $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode, null, null, FALSE);
 $entityManager = EntityManager::create($dbParams, $config);
 
+
+
+
+
+    function filtrado ($data) {
+        $data = trim($data);
+        $data = strip_tags($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
 ?>

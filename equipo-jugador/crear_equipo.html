@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AÑADIR EQUIPO</title>
+</head>
+    <style>
+        form {
+            margin: 0 auto;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+        }
+        
+    </style>
+<body>
+    <form action="./crear_equipo.php" method="post">
+        <label for="nombre">NOMBRE</label>
+        <input type="text" name="nombre" required>
+        <br>
+
+        <label for="socios">SOCIOS</label>
+        <input type="number" name="socios" >
+        <br>
+
+        <label for="fundacion">FUNDACION</label>
+        <input type="number" name="fundacion" >
+        <br>
+        
+        <label for="ciudad">CIUDAD</label>
+        <input type="text" name="ciudad" >
+        <br>
+        
+        <input type="submit" value="AÑADIR EQUIPO">
+
+    </form>
+    
+</body>
+</html>
