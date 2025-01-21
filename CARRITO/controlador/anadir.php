@@ -7,15 +7,16 @@
     // COMPROBAR LA REQUEST
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // ASIGNACIÓN DE VARIABLES
+        // JSON_DECODE => TRUE -> ARRAY ASOCIATIVO
         $carrito = isset($_COOKIE['carrito']) ? json_decode($_COOKIE['carrito'], true) : [];
         $acumulado = isset($_COOKIE['acumulado']) ? floatval($_COOKIE['acumulado']) : 0;
-        $nombreProd = isset($_POST['nombreProd'])? filtrado($_POST['nombreProd']) : '';
+        $nombreProd = isset($_POST['nombreProd']) ? filtrado($_POST['nombreProd']) : '';
 
         
 
         // BUCLE PARA BUSCAR EL PRODUCTO EN EL ARRAY
         foreach ($productos as $indice => $producto) {
-            // SI EL NOMBRE DEL PRODUCTO ES CO
+            // SI EL NOMBRE DEL PRODUCTO ES COMO EL DEL $_POST => PUSH AL ARRAY Y ACUMULAR
             if ($producto->getNombre() == $nombreProd) {
                 
                 $productoNuevo = $producto->getNombre();
@@ -30,19 +31,17 @@
             
 
         } 
-        print_r ($carrito);
-        echo $acumulado;
 
         // HACER LAS COOKIES. EL DIRECTORIO ES LA BARRA (DIRECTORIO RAIZ) PARA QUE SE MUESTRE EN TODO EL DOCUMENTO
         // DURAN 3 DIAS DESDE LA ÚLTIMA MODIFICACIÓN DEL CARRITO
         setcookie('acumulado', $acumulado, time() + (3 * 24 * 3600), "/");
         setcookie('carrito', json_encode($carrito), time() + (3 * 24 * 3600), "/");
         
-        header('location: ../vista/carrito.php');
+        header('Location: ../vista/productos.php');
         
         
-    } 
-    // header('location: ../vista/carrito.php');
+    }
+    
 
 
     

@@ -12,20 +12,20 @@
     <title>PRODUCTOS</title>
 </head>
 <body>
-    <ul>
+    <ul style="list-style: none; display: grid; grid-template-columns: repeat(2, 1fr);">
         <?php 
             foreach ($productos as $indice => $prod) {    
-                echo "<li>";
+                echo "<li style='margin-bottom: 8vh;'>";
                     echo "<h2>". filtrado($prod->getNombre()). "</h2>";
                     echo "<p>Precio: ". filtrado($prod->getPrecio()). "</p>";
                     echo "<form action='../controlador/anadir.php' method='post'>
                             <input type='hidden' name='nombreProd' value='" . filtrado($prod->getNombre()) . "'>
-                            <button type='submit' name='subir'>AÑADIR AL CARRITO</button>
+                            <button type='submit' name='subir' style='cursor: pointer;'>AÑADIR AL CARRITO</button>
                         </form>";
-                    
                 echo "</li>";
             }
         ?> 
     </ul>
+    <a href="../vista/carrito.php">VER CARRITO</a>
 </body>
 </html>

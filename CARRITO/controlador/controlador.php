@@ -30,28 +30,50 @@
         return $data;
     }
 
-    function pintarCarrito() {
-        echo "<h1>Carrito de compras</h1>";
-        echo "<table>";
-        echo "<tr><th>Producto</th><th>Precio</th><th>ELIMINAR</th>";
+    
 
-        $carritoObjetos=[];
-        $carritoSerializado = json_decode($_COOKIE['carrito']);
-        foreach ($carritoSerializado as $nombreProd) {
-            foreach ($GLOBALS['productos'] as $producto) { // Usar $GLOBALS para acceder a $productos
-                if ($producto->getNombre() === $nombreProd) {
-                    $carritoObjetos[] = $producto;
-                    break;
+    function pintarCarrito() {
+        if (!isset($_COOKIE['carrito'])) {
+            echo '<h1>El carrito de compras está vacío</h1>';
+        } else {
+            echo "<h1>Carrito de compras</h1>";
+            echo "<table>";
+            echo "<tr><th>Producto</th><th>Precio</th><th>ELIMINAR</th>";
+    
+            $carritoObjetos=[];
+            $carritoSerializado = json_decode($_COOKIE['carrito'], true);
+            foreach ($carritoSerializado as $indice => $nombreProd) {
+                foreach ($GLOBALS['productos'] as $producto) { // Usar $GLOBALS para acceder a $productos
+                    if ($producto->getNombre() === $nombreProd) {
+                        $carritoObjetos[] = $producto;
+                        break;
+                    }
                 }
             }
+            foreach ($carritoObjetos as $indice => $producto) {
+                echo "<tr><td>".$producto->getNombre()."</td><td>".$producto->getPrecio()."</td><td><a href='../controlador/eliminar.php?indice=".$indice."'>Eliminar</a></td></tr>";
+    
+                
+            }
+            echo "</table>";
+            echo "<h4>Total a pagar ┌( ͝° ͜ʖ͡°)=ε/̵͇̿̿/’̿’̿ ̿   :::::::    ".$_COOKIE['acumulado']." €</h4>";
+            echo "<a href='../vista/productos.php'>Seguir comprando</a><br><br>";
+            echo "<a href='./realizar_pago.php'>Pagar</a>";
         }
-        foreach ($carritoObjetos as $producto) {
-            echo "<tr><td>".$producto->getNombre()."</td><td>".$producto->getPrecio()."</td><td><button action='./eliminar.php?nombreProd=".$producto->getNombre()."' style='cursor: pointer'>Eliminar</button></td></tr>";
-
-            
-        }
-        echo "</table>";
-        echo "<h4>Total a pagar ┌( ͝° ͜ʖ͡°)=ε/̵͇̿̿/’̿’̿ ̿   :::::::    ".$_COOKIE['acumulado']." €</h4>";
+        
     }
+
+    function procesarPago() {
+        if (!isset($_COOKIE['carrito'])) {
+            echo '<h1>No hay productos en el carrito</h1>';
+        } else {
+            echo "<h1>Pago realizado con éxito</h1>";
+            setcookie("carrito", '', time() - 3600, "/");
+            setcookie("acumulado", '', time() - 3600, "/");
+            echo "<a href='../vista/productos.php'>Volver a la página principal</a>";
+        }
+    }
+
+    
 
 ?>
