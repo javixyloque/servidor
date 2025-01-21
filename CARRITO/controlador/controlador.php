@@ -30,17 +30,28 @@
         return $data;
     }
 
-    function pintarCarrito($carrito, $acumulado) {
+    function pintarCarrito() {
         echo "<h1>Carrito de compras</h1>";
         echo "<table>";
         echo "<tr><th>Producto</th><th>Precio</th><th>ELIMINAR</th>";
 
-        foreach ($carrito as $indice => $producto) {
-            echo "<tr><th>".$producto->getNombre()."</th><th>".$producto->getPrecio()."</th><th><button action='./eliminar.php?nombreProd=".$producto->getNombre()."' style='cursor: pointer'>Eliminar</button></th></tr>";
+        $carritoObjetos=[];
+        $carritoSerializado = json_decode($_COOKIE['carrito']);
+        foreach ($carritoSerializado as $nombreProd) {
+            foreach ($GLOBALS['productos'] as $producto) { // Usar $GLOBALS para acceder a $productos
+                if ($producto->getNombre() === $nombreProd) {
+                    $carritoObjetos[] = $producto;
+                    break;
+                }
+            }
+        }
+        foreach ($carritoObjetos as $producto) {
+            echo "<tr><td>".$producto->getNombre()."</td><td>".$producto->getPrecio()."</td><td><button action='./eliminar.php?nombreProd=".$producto->getNombre()."' style='cursor: pointer'>Eliminar</button></td></tr>";
 
             
         }
-        echo "<h4>Total a pagar ┌( ͝° ͜ʖ͡°)=ε/̵͇̿̿/’̿’̿ ̿   :</h4>"."<h5>".$acumulado."</h5>";
+        echo "</table>";
+        echo "<h4>Total a pagar ┌( ͝° ͜ʖ͡°)=ε/̵͇̿̿/’̿’̿ ̿   :::::::    ".$_COOKIE['acumulado']." €</h4>";
     }
 
 ?>
