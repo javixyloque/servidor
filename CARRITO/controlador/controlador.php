@@ -7,7 +7,7 @@
         new Producto("Manzanas 1kg", 1.75),
         new Producto("Pasta espaguetis 500g", 0.95),
         new Producto("Tomate frito 400g", 1.45),
-        new Producto("Aceite de oliva 1L", 499),
+        new Producto("Aceite de oliva 1L", 4.99),
         new Producto("Café molido 250g", 3.49),
         new Producto("Cereal de desayuno 500g", 2.99),
         new Producto("Detergente para ropa 3L", 7.50)

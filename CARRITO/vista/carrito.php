@@ -13,6 +13,7 @@
 <body>
     <?php
         pintarCarrito();
+        
     ?>
 </body>
 </html>    

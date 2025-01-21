@@ -13,20 +13,19 @@
 </head>
 <body>
     <ul>
-    <?php foreach ($productos as $indice => $prod) {
-
-            
-            echo "<li>";
-                echo "<h2>". filtrado($prod->getNombre()). "</h2>";
-                echo "<p>Precio: ". filtrado($prod->getPrecio()). "</p>";
-                echo "<form action='../controlador/anadir.php' method='post'>
-                        <input type='hidden' name='nombreProd' value='" . filtrado($prod->getNombre()) . "'>
-                        <button type='submit' name='subir'>AÑADIR AL CARRITO</button>
-                    </form>";
-                
-            echo "</li>";
-        
-    }?> 
+        <?php 
+            foreach ($productos as $indice => $prod) {    
+                echo "<li>";
+                    echo "<h2>". filtrado($prod->getNombre()). "</h2>";
+                    echo "<p>Precio: ". filtrado($prod->getPrecio()). "</p>";
+                    echo "<form action='../controlador/anadir.php' method='post'>
+                            <input type='hidden' name='nombreProd' value='" . filtrado($prod->getNombre()) . "'>
+                            <button type='submit' name='subir'>AÑADIR AL CARRITO</button>
+                        </form>";
+                    
+                echo "</li>";
+            }
+        ?> 
     </ul>
 </body>
 </html>
