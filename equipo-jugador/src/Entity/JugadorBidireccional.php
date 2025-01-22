@@ -45,7 +45,7 @@ class JugadorBidireccional
     /**
      * @var \EquipoBidireccional
      *
-     * @ORM\ManyToOne(targetEntity="EquipoBidireccional")
+     * @ORM\ManyToOne(targetEntity="EquipoBidireccional", inversedBy="jugadores")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="equipo", referencedColumnName="id_equipo")
      * })

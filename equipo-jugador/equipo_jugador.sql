@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-01-2025 a las 11:42:38
+-- Tiempo de generación: 22-01-2025 a las 13:10:18
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.26
 
@@ -60,6 +60,14 @@ CREATE TABLE `jugador` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Volcado de datos para la tabla `jugador`
+--
+
+INSERT INTO `jugador` (`id_jugador`, `nombre`, `apellidos`, `edad`, `equipo`) VALUES
+(1, 'juanolo', 'ºdasjkofngolsdjfbgsdlfjbg', 12, 2),
+(2, 'juanolo', 'ºdasjkofngolsdjfbgsdlfjbg', 12, 2);
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -85,6 +93,12 @@ ALTER TABLE `jugador`
 --
 ALTER TABLE `equipo`
   MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `jugador`
+--
+ALTER TABLE `jugador`
+  MODIFY `id_jugador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas

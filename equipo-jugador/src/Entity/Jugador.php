@@ -29,7 +29,7 @@ class Jugador
     private $nombre;
 
     /**
-     * @var int
+     * @var string
      *
      * @ORM\Column(name="apellidos", type="string", nullable=false)
      */

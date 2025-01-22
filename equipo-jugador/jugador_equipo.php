@@ -8,8 +8,9 @@
   if(!$jugador){
  	echo "Jugador no encontrado";
   }else{
-    echo "Nombre del jugador: ". $jugador->getNombre()."<br>";
-
-    $equipo = $jugador->getEquipo();
-    echo "Nombre del equipo: ". $equipo->getNombre();
+      echo "Nombre del jugador: ". $jugador->getNombre()."<br>";
+      $equipo = $jugador->getEquipo();
+      echo "Nombre del equipo: ". $equipo->getNombre();
+      echo "Socios del equipo: ". $equipo->getSocios();
+      echo "Jugadores del equipo: ". $equipoBid->getJugadores();
   }

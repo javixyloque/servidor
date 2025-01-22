@@ -1,11 +1,11 @@
 <?php
 
-
-
+// IMPORTAR ARRAYCOLECTIONS PARA PODER CREARLOS
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Equipo
+ * EquipoBidireccional
  *
  * @ORM\Table(name="equipo")
  * @ORM\Entity
@@ -31,7 +31,7 @@ class EquipoBidireccional
     /**
      * @var int|null
      *
-     * @ORM\Column(name="socios", type="integer", nullable=true)
+     * @ORM\Column(name="socios", type="integer", length=50, nullable=true)
      */
     private $socios;
 
@@ -49,12 +49,17 @@ class EquipoBidireccional
      */
     private $ciudad;
 
-
-    // function getNombre() {
-    //     return $this->nombre;
-    // }
+    /**
+     *  Un equipo tiene muchos jugadores
+     * @ORM\OneToMany(targetEntity="JugadorBidireccional", mappedBy="equipo")
+     */
     private $jugadores;
 
+
+
+    public function __construct() {
+        $this->jugadores = new ArrayCollection();
+    }
     
     
     
@@ -165,6 +170,26 @@ class EquipoBidireccional
     public function setCiudad($ciudad)
     {
         $this->ciudad = $ciudad;
+
+        return $this;
+    }
+
+    /**
+     * Get un equipo tiene muchos jugadores
+     */ 
+    public function getJugadores()
+    {
+        return $this->jugadores;
+    }
+
+    /**
+     * Set un equipo tiene muchos jugadores
+     *
+     * @return  self
+     */ 
+    public function setJugadores($jugadores)
+    {
+        $this->jugadores = $jugadores;
 
         return $this;
     }
