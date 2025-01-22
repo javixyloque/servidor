@@ -24,14 +24,14 @@ class JugadorBidireccional
     /**
      * @var int
      *
-     * @ORM\Column(name="nombre", type="text", nullable=false)
+     * @ORM\Column(name="nombre", type="string", nullable=false)
      */
     private $nombre;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="apellidos", type="text", nullable=false)
+     * @ORM\Column(name="apellidos", type="string", nullable=false)
      */
     private $apellidos;
 
