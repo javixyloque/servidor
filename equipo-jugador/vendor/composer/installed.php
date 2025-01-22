@@ -3,7 +3,7 @@
         'name' => 'javier.alvcen/equipo-jugador',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '0fac2067895b09332a7ab446bf08c5aea5baa8cb',
+        'reference' => 'a7ad0a1a41738dbe5fc0372543deeb25df77961e',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -121,7 +121,7 @@
         'javier.alvcen/equipo-jugador' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '0fac2067895b09332a7ab446bf08c5aea5baa8cb',
+            'reference' => 'a7ad0a1a41738dbe5fc0372543deeb25df77961e',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

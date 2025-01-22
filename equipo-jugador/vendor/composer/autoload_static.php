@@ -36,6 +36,7 @@ class ComposerStaticInit076cf16b67a487a3d361a07658721dd4
         ),
         'J' => 
         array (
+            'JavierAlvcen\\EquipoJugador\\Entity\\' => 34,
             'JavierAlvcen\\EquipoJugador\\' => 27,
         ),
         'D' => 
@@ -98,6 +99,10 @@ class ComposerStaticInit076cf16b67a487a3d361a07658721dd4
         'Psr\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
+        ),
+        'JavierAlvcen\\EquipoJugador\\Entity\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Entity',
         ),
         'JavierAlvcen\\EquipoJugador\\' => 
         array (
