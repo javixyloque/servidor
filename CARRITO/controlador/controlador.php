@@ -22,6 +22,7 @@ function filtrado($data) {
 
 function procesarPago(): bool {
     // CONDICION => ESTAN YA SETTED LAS COOKIES?
+    
     if (isset($_COOKIE['carrito']) && isset($_COOKIE['acumulado'])) {
         // LIMPIAR LAS COOKIES
         setcookie('carrito', '', time() - 3600, '/'); // Expira la cookie del carrito
@@ -31,43 +32,41 @@ function procesarPago(): bool {
         return true;
     }
     
-    // Si no hay carrito o acumulado, retornar falso
     return false;
 }
 
 
 // FUNCIÓN PARA MOSTRAR EL CARRITO
 function pintarCarrito() {
-    // Verificar si existe la cookie 'carrito'
+    // VERIFICAR SI EXISTE CARRITO Y / O ESTÁ VACIO
     if (!isset($_COOKIE['carrito']) || empty($_COOKIE['carrito'])) {
         echo '<h1>El carrito de compras está vacío</h1>';
         return;
     }
 
-    // Decodificar el carrito de la cookie
+    // OBTENER CARRITO
     $carrito = json_decode($_COOKIE['carrito'], true);
-    if (!is_array($carrito)) {
-        echo '<h1>Error al cargar el carrito</h1>';
-        return;
-    }
+    
+    $acumulado = 0;
+
 
     echo "<h1>Carrito de compras</h1>";
     echo "<table>";
     echo "<tr><th>Producto</th><th>Precio</th><th>Eliminar</th></tr>";
 
-    // Mostrar los productos del carrito
-    $acumulado = 0;
+    // MOSTRAR LOS PRODUCTOS
+    
     foreach ($carrito as $indice => $producto) {
         echo "<tr>";
         echo "<td>" . htmlspecialchars($producto['nombre']) . "</td>";
-        echo "<td>" . number_format($producto['precio'], 2) . " €</td>";
+        echo "<td>" . floatval($producto['precio']) . " €</td>";
         echo "<td><a href='../controlador/eliminar.php?indice=$indice'>Eliminar</a></td>";
         echo "</tr>";
         $acumulado += $producto['precio'];
     }
 
     echo "</table>";
-    echo "<h4>Total a pagar: " . number_format($acumulado, 2) . " €</h4>";
+    echo "<h4>Total a pagar: " . floatval($acumulado) . " €</h4>";
     echo "<a href='../vista/productos.php'>Seguir comprando</a><br><br>";
     echo "<a href='./realizar_pago.php'>Pagar</a>";
 }

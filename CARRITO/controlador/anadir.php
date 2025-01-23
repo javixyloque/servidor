@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // BUCLE PARA BUSCAR EL PRODUCTO EN EL ARRAY
     foreach ($productos as $producto) {
         if ($producto->getNombre() == $nombreProd) {
-            // Añadir producto como array asociativo con nombre y precio
+            // VARIABLE => AÑADIR PRODUCTO
             $productoNuevo = [
                 'nombre' => $producto->getNombre(),
                 'precio' => $producto->getPrecio()
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // Actualizar las cookies
+    // ACTUALIZAR COOKIES
     setcookie('carrito', json_encode($carrito), time() + (3 * 24 * 3600), "/");
     setcookie('acumulado', $acumulado, time() + (3 * 24 * 3600), "/");
 

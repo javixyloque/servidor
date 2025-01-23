@@ -15,13 +15,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         }
     }
 
-    // Verificar que el índice sea válido
+
     if ($indice !== null && isset($carrito[$indice])) {
         $acumulado -= $carrito[$indice]['precio'];
-        unset($carrito[$indice]); // Eliminar el producto del carrito
-        $carrito = array_values($carrito); // Reindexar el array
+        // ELIMINAR
+        unset($carrito[$indice]);
+        
+        // REINDEXAR ARRAY CARRITO
+        $carrito = array_values($carrito); 
 
-        // Actualizar las cookies
+        // ACTUALIZAR COOKIES
         setcookie('carrito', json_encode($carrito), time() + (3 * 24 * 3600), '/');
         setcookie('acumulado', $acumulado, time() + (3 * 24 * 3600), '/');
     } else {
@@ -29,6 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
 
     header('location: ../vista/carrito.php');
-    exit;
+    
 }
 ?>

@@ -15,6 +15,7 @@
             echo "<script>alert('El carrito está vacío, intenta realizar una compra primero')</script>";
         } else {
             if (procesarPago()) {
+                
                 echo "<h1>Pago realizado correctamente</h1><br><br><a href='./productos.php'>volver a comprar</a>";
             }
         }
