@@ -15,8 +15,7 @@
             echo "<script>alert('El carrito está vacío, intenta realizar una compra primero')</script>";
         } else {
             if (procesarPago()) {
-                echo "<script>alert('El pago se ha realizado correctamente')</script>";
-                header('Location:../vista/index.php');
+                echo "<h1>Pago realizado correctamente</h1><br><br><a href='./productos.php'>volver a comprar</a>";
             }
         }
         
