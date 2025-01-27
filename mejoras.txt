@@ -1,0 +1,6 @@
+MEJORAS CARRITO
+	
+
+    • En vez de guardar las sesiones en cookies, guardo el carrito en una cookie directamente, así como el valor total de la compra.
+    • Opción de vaciar carrito.
+    • Serializar y deserializar objetos para meterlos en la cookie.
