@@ -12,5 +12,5 @@
       $equipo = $jugador->getEquipo();
       echo "Nombre del equipo: ". $equipo->getNombre();
       echo "Socios del equipo: ". $equipo->getSocios();
-      echo "Jugadores del equipo: ". $equipoBid->getJugadores();
+      echo "Jugadores del equipo: ". $equipo->getJugadores();
   }
