@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * EquipoBidireccional
  *
  * @ORM\Table(name="equipo")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="EquipoRepository")
  */
 class EquipoBidireccional
 {
