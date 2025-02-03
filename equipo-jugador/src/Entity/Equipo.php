@@ -1,14 +1,14 @@
 <?php
 
-
-
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * Equipo
  *
  * @ORM\Table(name="equipo")
- * @ORM\Entity(repositoryClass="EquipoRepository")
+ * @ORM\Entity
  */
 class Equipo
 {
@@ -29,141 +29,44 @@ class Equipo
     private $nombre;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="socios", type="integer", nullable=true)
+     * @ORM\OneToMany(targetEntity="Partido", mappedBy="local")
      */
-    private $socios;
+    private $partidosLocal;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="fundacion", type="integer", nullable=true)
+     * @ORM\OneToMany(targetEntity="Partido", mappedBy="visitante")
      */
-    private $fundacion;
+    private $partidosVisitante;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="ciudad", type="string", length=50, nullable=true)
-     */
-    private $ciudad;
+    public function __construct()
+    {
+        $this->partidosLocal = new ArrayCollection();
+        $this->partidosVisitante = new ArrayCollection();
+    }
 
-
-    // function getNombre() {
-    //     return $this->nombre;
-    // }
-
-    
-    
-
-    
-
-    
-
-    /**
-     * Get the value of idEquipo
-     *
-     * @return  int
-     */ 
-    public function getIdEquipo()
+    public function getIdEquipo(): ?int
     {
         return $this->idEquipo;
     }
 
-    /**
-     * Get the value of nombre
-     *
-     * @return  string
-     */ 
-    public function getNombre()
+    public function getNombre(): ?string
     {
         return $this->nombre;
     }
 
-    /**
-     * Set the value of nombre
-     *
-     * @param  string  $nombre
-     *
-     * @return  self
-     */ 
-    public function setNombre(string $nombre)
+    public function setNombre(string $nombre): self
     {
         $this->nombre = $nombre;
-
         return $this;
     }
 
-    /**
-     * Get the value of socios
-     *
-     * @return  int|null
-     */ 
-    public function getSocios()
+    public function getPartidosLocal(): Collection
     {
-        return $this->socios;
+        return $this->partidosLocal;
     }
 
-    /**
-     * Set the value of socios
-     *
-     * @param  int|null  $socios
-     *
-     * @return  self
-     */ 
-    public function setSocios($socios)
+    public function getPartidosVisitante(): Collection
     {
-        $this->socios = $socios;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of fundacion
-     *
-     * @return  int|null
-     */ 
-    public function getFundacion()
-    {
-        return $this->fundacion;
-    }
-
-    /**
-     * Set the value of fundacion
-     *
-     * @param  int|null  $fundacion
-     *
-     * @return  self
-     */ 
-    public function setFundacion($fundacion)
-    {
-        $this->fundacion = $fundacion;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of ciudad
-     *
-     * @return  string|null
-     */ 
-    public function getCiudad()
-    {
-        return $this->ciudad;
-    }
-
-    /**
-     * Set the value of ciudad
-     *
-     * @param  string|null  $ciudad
-     *
-     * @return  self
-     */ 
-    public function setCiudad($ciudad)
-    {
-        $this->ciudad = $ciudad;
-
-        return $this;
+        return $this->partidosVisitante;
     }
 }
