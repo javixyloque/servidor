@@ -1,0 +1,52 @@
+--- Instrucciones para ejecutar el proyecto ---
+
+- Requisitos previos
+
+    Tener PHP 8.2.12 mínimo
+
+    Tener instalado Composer
+
+    Tener configurado un servidor MySQL con la base de datos equipo_jugador
+
+    Hacer dump a la base de datos con equipo-jugador.sql
+
+    Configurar las credenciales de la base de datos en bootstrap.php
+
+    Instalar dependencias ejecutando composer install
+
+- Pasos para ejecutar el programa
+
+    - Ejecuta el siguiente comando para crear las tablas necesarias en la base de datos:
+
+        php vendor/bin/doctrine orm:schema-tool:update --force
+
+    - Corre el script de prueba para poblar la base de datos con datos de ejemplo:
+
+        php probar_partido.php
+
+
+
+- Consultas implementadas en src/Entity/PartidoRepository.php
+
+    findPartidosComoVisitante($equipoId): Devuelve los partidos donde el equipo indicado jugó como visitante.
+
+    countVictoriasLocal($equipoId): Devuelve el número de victorias de un equipo como local.
+
+    findPartidosPorFecha($fecha): Devuelve los partidos jugados en una fecha específica.
+
+
+
+
+
+
+- Problemas comunes y soluciones
+
+    Error: "Class Doctrine\ORM\EntityRepository not found"**  
+    Solución:
+
+        composer require doctrine/orm
+        composer dump-autoload
+
+    Error: "No such file or directory" al ejecutar el script**  
+    Verifica que **XAMPP está corriendo** y que tienes la base de datos configurada correctamente.
+
