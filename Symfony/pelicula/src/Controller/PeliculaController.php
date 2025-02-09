@@ -169,7 +169,6 @@ final class PeliculaController extends AbstractController
             ->getResult();
 
         // RECORREMOS PELICULAS Y GUARDAMOS EN PELICULASJSON
-        // $peliculasJson = array();
         foreach ($peliculas as $pelicula) {
             $peliculasJson[] = [
                 $pelicula->getTitulo(),
