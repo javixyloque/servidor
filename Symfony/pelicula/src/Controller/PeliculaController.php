@@ -162,11 +162,11 @@ final class PeliculaController extends AbstractController
     #[Route('/lista/{anyo}', name: 'lista_peliculas_anyo', methods:['GET'])]
     public function peliculaListarAnyo(int $anyo, EntityManagerInterface $emi): Response {
         // GUARDAMOS LA CONSULTA EN UNA VARIABLE PELICULAS
-        $peliculas = $emi ->getRepository(Pelicula::class)->createQueryBuilder('p')
-            ->where('p.anyo >= :anyo')
-            ->setParameter('anyo', $anyo)
-            ->getQuery()
-            ->getResult();
+        $peliculas = $emi ->getRepository(Pelicula::class)->getPeliculaAnyo($anyo); //
+
+        if (!$peliculas) {
+            return $this->json("No hay ninguna pelicula a partir de ese año", Response::HTTP_NOT_FOUND);
+        }
 
         // RECORREMOS PELICULAS Y GUARDAMOS EN PELICULASJSON
         foreach ($peliculas as $pelicula) {

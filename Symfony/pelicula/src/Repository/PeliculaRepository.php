@@ -16,6 +16,14 @@ class PeliculaRepository extends ServiceEntityRepository
         parent::__construct($registry, Pelicula::class);
     }
 
+    public function getPeliculaAnyo(int $anyo) {
+        return $this->createQueryBuilder('p')
+            ->where('p.anyo >= :anyo')
+            ->setParameter('anyo', $anyo)
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Pelicula[] Returns an array of Pelicula objects
     //     */
