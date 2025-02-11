@@ -40,4 +40,13 @@ class MascotaRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+    public function findPorNombre($value): ?Array {
+        return $this->createQueryBuilder('m')
+            ->andWhere('m.nombre LIKE :val')
+            ->setParameter('val', $value . '%') 
+            ->getQuery()
+            ->getResult();
+    }
+    
 }

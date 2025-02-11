@@ -20,7 +20,7 @@ class MascotaType extends AbstractType
             ])
             ->add('cliente', EntityType::class, [
                 'class' => Cliente::class,
-                'choice_label' => 'id',
+                'choice_label' => 'nombre',
             ])
         ;
     }

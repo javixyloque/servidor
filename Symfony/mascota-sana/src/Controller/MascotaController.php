@@ -14,11 +14,22 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/mascota')]
 final class MascotaController extends AbstractController
 {
+
+    // MOSTRAR TODOS
     #[Route(name: 'app_mascota_index', methods: ['GET'])]
     public function index(MascotaRepository $mascotaRepository): Response
     {
         return $this->render('mascota/index.html.twig', [
             'mascotas' => $mascotaRepository->findAll(),
+        ]);
+    }
+
+    // MOSTRAR POR LETRA
+    #[Route('/{letra}',name: 'app_mascota_nombre', methods: ['GET'])]
+    public function indexNombre(MascotaRepository $mascotaRepository, String $letra): Response
+    {
+        return $this->render('mascota/index.html.twig', [
+            'mascotas' => $mascotaRepository->findPorNombre($letra),
         ]);
     }
 

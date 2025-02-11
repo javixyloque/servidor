@@ -78,4 +78,5 @@ final class ClienteController extends AbstractController
 
         return $this->redirectToRoute('app_cliente_index', [], Response::HTTP_SEE_OTHER);
     }
+    
 }
