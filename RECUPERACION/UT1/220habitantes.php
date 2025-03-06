@@ -9,9 +9,10 @@ $paises = [
     "Alemania" => 82.79,
     "Italia" => 60.52,
     "Reino Unido" => 66.67
-]
+];
 
-
+$total = 0;
+$nPaises = 0;
 
 ?>
 
@@ -32,15 +33,23 @@ $paises = [
         </thead>
 
         <tbody>
+            <!-- TABLA DENSIDADES DE PAISES  -->
             <?php
                 foreach ($paises as $pais => $habs) {
                     echo "<tr style='padding: 15px'>
                             <td>$pais</td>
                             <td>$habs</td>
-                          </tr>";
-                }
+                        </tr>";
+                    $total += $habs;
+                    $nPaises++;
+                        }
 
             ?>
+            <!-- FILA DENSIDAD MEDIA -->
+            <tr>
+                <td><strong>Densidad Media:</strong></td>
+                <td><strong><?= $total/$nPaises ?></strong></td>
+            </tr>
         </tbody>
     </table>
 </body>
