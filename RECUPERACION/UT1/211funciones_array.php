@@ -21,7 +21,7 @@
         echo "arr1 y arr2 no son idénticos<br><br>";
     }
 
-    // 2. Unión de arrays con +
+    // 2. UNION DE ARRAYS CON +
     $arrA = array(10 => "3000", 20 => "4000", 30 => "6000");
     $arrB = array(10 => "8000", 15 => "6000", 20 => "4000");
     $union = $arrA + $arrB;
@@ -49,7 +49,7 @@
     echo "<br><br>=== Claves del array ===<br><br>";
     print_r($claves);
 
-    // 5. Ordenación de arrays
+    // 5. ORDENACIÓN (ASORT ORDENA ASOCIATIVOS Y NO CAMBIA CLAVES, SORT RECONSTRUYE)
     sort($claves);
     echo "<br><br>=== Claves ordenadas ===<br><br>";
     print_r($claves);

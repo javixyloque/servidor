@@ -28,7 +28,6 @@ FECHAS.PHP
 
 230, 231, 232, 235, 236, 238, 240 (MAYUS Y MINUS, MINIMO 8 Y MAXIMO 12 CARACTERES, 1 DIGITO Y UN CARÁCTER ESPECIAL(AL MENOS)) ! " # $ % & ' ( ) * + , - . / : ; < = > ? @
 
-
 ----------------------------------------------------------------
 
 UT2

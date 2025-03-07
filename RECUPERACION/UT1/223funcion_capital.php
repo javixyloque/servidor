@@ -15,24 +15,37 @@ function obtenerHabitantes(string $pais = "") {
         "Rusia" => 143.40,
         "Brasil" => 212.55,
     ];
-    $paisUc = ucwords($pais);
     
-    
+    // PASAR LA PRIMERA LETRA A MAYÚSCULA
 
-    if ($paisUc === "") {
+    $paisUc = ucwords($pais);
+
+
+    // CONDICIONAL => ¿PAÍS BUSCADO ESTÁ EN EL ARRAY?
+    if (array_key_exists($paisUc, $paises)) {
+
+        // SÍ => MOSTRAR DENSIDAD
+        echo $paisUc." tiene ".$paises[$paisUc]." millones de habitantes<br><br>";
+
+    } else {
+
+        // NO => DENSIDAD DESCONOCIDA
+        echo "La densidad de población de $paisUc es desconocida<br>Densidades de población conocidas:<br><br>";
+        
+        
+        // BUCLE => MOSTRAR CIUDADES CON DENSIDAD CONOCIDA 
         foreach ($paises as $pais => $habitantes) {
+            
             echo "Los habitantes de $pais son: $habitantes millones<br>";
         }
-    } else {
-        foreach ($paises as $pais => $habitantes) {
-            echo $pais." tiene ".$habitantes." millones de habitantes<br>";
-        }
+        echo "<br><br>";
     }
+
 }
 
 obtenerHabitantes("china");
-obtenerHabitantes("Japón");
-echo "<br><br>";
+obtenerHabitantes("Japon");
+obtenerHabitantes("Kuwait")
 
 
 ?>
