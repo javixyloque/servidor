@@ -31,7 +31,7 @@ function digitos(int $num): int  {
 
 // digitoN(int $num, int $pos): int → devuelve el dígito que ocupa, empezando por la izquierda, la posición $pos.
 
-function digitoN(int $num, int $pos) {
+function digitoN(int $num, int $pos): int {
     $cadena = (string)$num;
     return (int)$cadena[$pos-1];
 }
@@ -41,17 +41,19 @@ function digitoN(int $num, int $pos) {
 
 
 function quitaPorDetras(int $num, int $cant) {
+    $str = (string) $num;
+    // SUBSTR => EMPIEZA EN 0, DEVUELVE TODO EL STR SIN $cant 
+    return intval(substr($str, 0, strlen($str)-$cant));
 
 }
+
 // quitaPorDelante(int $num, int $cant): int → le quita por delante (izquierda) $cant dígitos.
 
 function quitaPorDelante(int $num, int $cant) {
     $str = (string)$num;
-    return substr($str,0,-$cant); 
+    return intval(substr($str,-(strlen($str)-$cant))); 
 
 }
 
-
-echo quitaPorDelante(1234567, 3);
 
 ?>
