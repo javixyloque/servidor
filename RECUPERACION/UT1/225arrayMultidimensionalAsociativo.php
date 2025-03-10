@@ -38,7 +38,7 @@ foreach ($productos as $producto) {
     array_push($arrayPrecios, $producto["Precio"]);
 }
 
-for ($i = 0; $i<=$arrayNombres; $i++) {
+for ($i = 0; $i <= $arrayNombres; $i++) {
     echo "Producto: ". $arrayNombres[$i]. "<br>";
     echo "Precio: ". $arrayPrecios[$i]. "<br><br>";
 }
