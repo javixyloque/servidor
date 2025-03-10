@@ -21,11 +21,29 @@ $productos = [
     ]
 ];
 
+$arrayNombres = [];
+$arrayPrecios = [];
+
+
 foreach ($productos as $producto) {
         echo "Producto: ". $producto["Producto"]. "<br>";
         echo "Precio: ". $producto["Precio"]. "<br><br>";
-    
+
+        
+    if ($producto["Producto"] == "Champú" ) {
+        $producto["Precio"] = 3.99;
+    }
+
+    array_push($arrayNombres, $producto["Producto"]);
+    array_push($arrayPrecios, $producto["Precio"]);
 }
+
+for ($i = 0; $i<=$arrayNombres; $i++) {
+    echo "Producto: ". $arrayNombres[$i]. "<br>";
+    echo "Precio: ". $arrayPrecios[$i]. "<br><br>";
+}
+
+
 
 
 ?>
