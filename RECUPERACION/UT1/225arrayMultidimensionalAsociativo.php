@@ -36,14 +36,35 @@ foreach ($productos as $producto) {
 
     array_push($arrayNombres, $producto["Producto"]);
     array_push($arrayPrecios, $producto["Precio"]);
+
 }
 
 for ($i = 0; $i <= $arrayNombres; $i++) {
     echo "Producto: ". $arrayNombres[$i]. "<br>";
     echo "Precio: ". $arrayPrecios[$i]. "<br><br>";
+
 }
 
 
 
 
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>225 - Formulario</title>
+</head>
+<body>
+    <form action='<?=$_SERVER["PHP_SELF"] ?>' method="post">
+        <label for=""></label>
+        <input type="text">
+        <label for=""></label>
+        <input type="text">
+        <input type="submit" value="">
+    </form>
+</body>
+</html>
