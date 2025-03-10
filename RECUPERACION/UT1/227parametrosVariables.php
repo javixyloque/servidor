@@ -22,7 +22,8 @@ echo "<br><br>";
 // Una función que concatene todos los parámetros recibidos separándolos con un espacio: function concatenar(...$palabras) : string. Utiliza el operador ....
 
 function concatenar(...$palabras): string {
-    // IMPLODE=> CREAR STRING DE ARRAY O DE OTROS STRINGS;
+    // IMPLODE => CREAR STRING DE ARRAY O DE OTROS STRINGS;
+    // EXPLODE => CREAR ARRAY DE STRINGS (SEPARADOR)
     return implode(' ', $palabras);
 }
 
