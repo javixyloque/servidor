@@ -1,0 +1,38 @@
+225 ✅
+301 SIN BASE D DATOS (NO LO PONE DE NORMAL)
+302
+REPASAR CLASES Y OBJETOS (UN POCO X ENCIMA)
+MIRAR MYSQLI (PARA MIRAR CÓDIGO MÁS QUE NADA)
+
+
+ALUMNO Y PROYECTO LOS DOS CON PDO (YA HECHO LO SEGUNDO CREO)
+HACER ESTE
+
+--------------------------------------------------------------------------------
+Director (1,1) {
+    id_director, 
+    dni, 
+    nombre, 
+    apellido, 
+    fecha_nac, 
+    foto, (Guardada en base de datos) 
+    activo [borrado lógico(sin poder volver atrás)]
+    }  
+    
+    <dirige> (1,n)
+
+Pelicula{
+    id_pelicula,
+    titulo,
+    anio,
+    cartelera [pdf] (Guardado en carpeta con acceso a URL)
+    director (id_director) [fk]
+    }
+-------------------------------------------------------------------------------
+
+
+305 NO
+HACER CRUD => ALUMNO-PROYECTO O DIRECTOR-PELICULA
+IMAGENES GUARDAR COMO DATO Y ACCEDER AL PDF
+
+MOSTRAR LISTADO DE ALUMNOS EN AGREGAR/MODIFICAR

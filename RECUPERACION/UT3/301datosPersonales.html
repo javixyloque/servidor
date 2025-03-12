@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>301 - Datos Personales</title>
+</head>
+<body>
+    <h1>301 - Datos Personales</h1>
+    <p>Escribe un programa que pida nombre, primer apellido, segundo apellido, DNI, email, fecha de nacimiento, teléfono, sexo, estudios (ESO, FP Grado Medio, Bachillerato, FP Grado Superior, Universitarios,...), idiomas, foto y currículum (se almacena con los nombres dni.png y dni.pdf en la carpeta datosPersonales) con el método POST. Pasa información "oculta" al enviar el formulario mediante un input del tipo hidden para el tamaño de ficheros. Después los mostrará por pantalla: nombre con apellidos, edad,...</p>
+
+    <form action="./301datosPersonales.php" method="post" enctype="multipart/form-data" style="display: grid; grid-template-columns: 1fr 1fr; gap:5%; justify-items: center; margin: 0px 40%; text-align: left;">
+
+        
+
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre">
+        
+        <label for="apellido1">Primer Apellido</label>
+        <input type="text" name="apellido1">
+        
+        <label for="apellido2">Segundo Apellido</label>
+        <input type="text" name="apellido2">
+        
+        <label for="dni">DNI</label>
+        <input type="text" name="dni">
+        
+        <label for="email">Correo Electrónico</label>
+        <input type="email" name="email">
+        
+        <label for="fechaNac">Fecha de Nacimiento</label>
+        <input type="date" name="fechaNac">
+        
+        <label for="telefono">Telefono</label>
+        <input type="text" name="telefono">
+
+        <label for="sexo" style="columns: auto;">Sexo</label>
+        <label for="aaa"></label>
+        <input type="radio" name="sexo" value="Hombre"> Hombre
+        <input type="radio" name="sexo" value="Mujer"> Mujer
+        <input type="radio" name="sexo" value="Otro"> Otro
+
+        <label for="estudios">Estudios</label>
+        <select name="estudios">
+            <option value="eso">ESO</option>
+            <option value="gradoMedio">FP Grado Medio</option>
+            <option value="bachillerato">Bachillerato</option>
+            <option value="gradoSuperior">FP Grado Superior</option>
+            <option value="Universitarios">Universitarios</option>
+        </select>
+        <input type="hidden" name="MAX_FILE_SIZE" value="2000000"> <!-- Tamaño máximo del fichero (en bytes) -->
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
