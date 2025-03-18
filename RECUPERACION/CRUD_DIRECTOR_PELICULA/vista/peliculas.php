@@ -21,6 +21,8 @@
         <th>CARTELERA</th>
         <th>DIRECTOR</th>
     </table>
+
+    <a href="./index.php">VOLVER AL INICIO</a>
 </body>
 </html>
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir director</title>
+</head>
+<body>
+    <form action="../controlador/anadir_director.php" method="post">
+        <h1>Añadir Director</h1>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required><br><br>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" required><br><br>
+
+        <label for="dni">DNI:</label>
+        <input type="text" name="dni" required><br><br>
+
+        <label for="fechaNac">FECHA DE NACIMIENTO</label>
+        <input type="text" name="fechaNac"><br><br>
+
+        <label for="foto">FOTO:</label>
+        <input type="file" name="foto" accept="image/jpeg, image/png"><br><br>
+
+        <input type="submit" value="Añadir Director">
+
+    </form>
+</body>
+</html>

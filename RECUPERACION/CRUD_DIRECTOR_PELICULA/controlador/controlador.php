@@ -132,14 +132,14 @@ function crearPelicula($titulo, $anio, $cartelera, $director) {
     try {
         
         $consulta = $conexion -> prepare($sql);
-        $consulta ->bindParam(':titulo', $titulo)
+        $consulta ->bindParam(':titulo', $titulo);
     } catch (PDOException $e) {
         echo "Error: ". $e->getMessage();
     }
 }
     
 // READ
-function leerPeliculas() {
+function leerPeliculas() {  
     $conexion = conectar();
     $sql = "SELECT p.*, d.nombre, d.apellido 
     FROM pelicula p JOIN director d 
