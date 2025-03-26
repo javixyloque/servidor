@@ -67,6 +67,26 @@ function insertTarea($titulo, $descripcion, $fecha, $prioridad, $img_tarea, $con
 
 }
 
+
+function updateTarea($titulo, $descripcion, $fecha, $prioridad,  $contenido_img_tarea) {
+    $conexion = conexion();
+    $insert = $conexion->prepare("INSERT INTO tareas (titulo, descripcion, fecha, prioridad, img_tarea) VALUES (:titulo, :descripcion,:fecha, :prioridad,   :img_tarea)");
+    
+    $insert->bindParam(':titulo', $titulo, PDO::PARAM_STR);
+    $insert->bindParam(':descripcion', $descripcion, PDO::PARAM_STR);
+    $insert->bindParam(':fecha', $fecha, PDO::PARAM_STR);
+    $insert->bindParam(':prioridad', $prioridad, PDO::PARAM_INT);
+    $insert->bindParam(':img_tarea', $contenido_img_tarea, PDO::PARAM_LOB);
+    
+    $resultado = $insert->execute();
+    $conexion = null;
+    return $resultado;
+
+
+}
+
+
+
 function eliminarTarea ($id) {
     $conexion = conexion();
     $sql = "DELETE FROM tareas WHERE id = :id";

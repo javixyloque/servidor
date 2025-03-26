@@ -12,7 +12,9 @@
 // CREAR CARPETA VACIA CADA VEZ QUE SE INICIE LA APLICACION
 
     session_start();
-    if ($_SESSION['user'] == 'james_bon') {
+    if (!$_SESSION['user']) {
+
+    } elseif ($_SESSION['user'] == 'james_bon') {
         $_SESSION['bool'] = true;
         header('Location:../vista/tareas.php');
         exit();

@@ -2,6 +2,10 @@
 require_once'../controlador/controlador.php';
 session_start();
 
+if (!$_SESSION['user']) {
+    header('Location: ./index.php');
+    
+}
 
 
 ?>
@@ -21,6 +25,14 @@ session_start();
             padding: 10px;
             margin: auto;
             border-collapse: collapse;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+            padding: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -44,14 +56,19 @@ session_start();
                 try {
                     $tareas = selectTareasNoRealizadas();
                     foreach ($tareas as $fila) {
+                        var_dump($fila['fecha']);
                         echo "<tr>";
                         echo "<td>". $fila['titulo']. "</td>";
                         echo "<td>". $fila['descripcion']. "</td>";
-                        echo "<td>". $fila['fecha']. "</td>";
+                        
+                        // FECHA FORMATEADA (YYYY-mm-dd -> dd / mm / YYYY) => SUBSTR
+                        echo "<td>".substr($fila['fecha'],8,2) ." / ". substr($fila['fecha'],5,2)." / ".   substr($fila['fecha'],0,4). "</td>";
                         echo "<td>". $fila['prioridad']. "</td>";
+                        
+                        // IMAGEN => BASE64_ENCODE
                         echo "<td><img height='100px' width='100px' src='data:image/jpeg;base64,".base64_encode($fila['img_tarea'])."' alt='Tipo de tarea'></td>";
-                        echo "<td><a href='../controlador/realizar.php?id=".$fila['id']"'>Terminar</a></td>";
-
+                        // REALIZAR TAREA
+                        echo "<td><a href='../controlador/realizar.php?id=".$fila['id']."'>Terminar</a></td>";
                         echo "<td><a href='./form_editar.php?id=". $fila['id']. "'><button>Modificar</button></a></td>";
                         echo "<td><a href='../controlador/eliminar_tarea.php?id=". $fila['id']. "'><button>Eliminar</button></a></td>";
 
@@ -65,8 +82,11 @@ session_start();
         </tbody>
     </table>
 
-    <a href="./form_anadir.html">
+    <a href="./form_anadir.php">
         AGREGAR NUEVA TAREA
+    </a><br><br>
+    <a href="./tareas_completadas.php">
+        VER TAREAS COMPLETADAS
     </a>
     
 </body>
