@@ -22,9 +22,11 @@ $tarea = selectTareaId(intval($id));
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MODIFICAR TAREA</title>
 </head>
 <body>
+
+input:
     <h1>MODIFICAR TAREA</h1>
     <form action="../controlador/modificar_tarea.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $tarea['id']?>">
@@ -45,7 +47,10 @@ $tarea = selectTareaId(intval($id));
         <img src="data:image/png;base64,<?= base64_encode($tarea['img_tarea']) ?>" alt="Logotipo actual" style="max-width: 150px; max-height: 150px;"></img><br><br>
     
         <label for="img_tarea">Nuevo tipo: </label>
-        <input type="file" name="img_tarea" enctype="multipart/form-data" value="data:image/png;base64,<?= base64_encode($tarea['img_tarea']) ?>"><br><br>
+        <select name="img_tarea" id="img_tarea">
+            <option value="personal">Personal</option>
+            <option value="academico">Academico</option>
+        </select><br><br>
 
 
 

@@ -50,8 +50,22 @@ function selectTareasNoRealizadas () {
     return $tareas;
 }
 
+function selectTareasRealizadas() {
+    $conexion = conexion();
+    $sql = "SELECT * FROM tareas WHERE realizada = 1 ORDER BY prioridad ASC";
+    $select = $conexion -> prepare($sql);
+    $select->execute();
+    $tareas = $select->fetchAll(PDO::FETCH_ASSOC);
+    $conexion = null;
+    return $tareas;
+
+}
+
 function insertTarea($titulo, $descripcion, $fecha, $prioridad, $img_tarea, $contenido_img_tarea) {
     $conexion = conexion();
+    if (nombreRepetido($titulo)) {
+        die("El título de la tarea ya existe. <a href='../vista/tareas.php'>VOLVER A LAS TAREAS</a>");
+    }
     $insert = $conexion->prepare("INSERT INTO tareas (titulo, descripcion, fecha, prioridad, img_tarea) VALUES (:titulo, :descripcion,:fecha, :prioridad,   :img_tarea)");
     
     $insert->bindParam(':titulo', $titulo, PDO::PARAM_STR);

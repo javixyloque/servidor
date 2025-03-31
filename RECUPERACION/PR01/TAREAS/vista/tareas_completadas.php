@@ -15,8 +15,9 @@ if (!$_SESSION['user']) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tareas</title>
+    <title>Tareas Completadas</title>
     <style>
+
         * {
             text-align: center;
         }
@@ -37,7 +38,7 @@ if (!$_SESSION['user']) {
     </style>
 </head>
 <body>
-    <h1>TAREAS SIN COMPLETAR</h1>
+<h1>TAREAS COMPLETADAS</h1>
     <table>
         <thead>
             <th>Titulo</th>
@@ -46,7 +47,6 @@ if (!$_SESSION['user']) {
             <th>Prioridad</th>
             <th>Tipo (Académica / Personal)</th>
             <th>Realizada</th>
-            <th>Modificar</th>
             <th>Eliminar</th>
         </thead>
 
@@ -54,9 +54,8 @@ if (!$_SESSION['user']) {
             <!-- CUERPO DE LA TABLA PARA MOSTRAR LOS DATOS -->
             <?php
                 try {
-                    $tareas = selectTareasNoRealizadas();
+                    $tareas = selectTareasRealizadas();
                     foreach ($tareas as $fila) {
-                        // var_dump($fila['fecha']);
                         echo "<tr>";
                         echo "<td>". $fila['titulo']. "</td>";
                         echo "<td>". $fila['descripcion']. "</td>";
@@ -68,8 +67,8 @@ if (!$_SESSION['user']) {
                         // IMAGEN => BASE64_ENCODE
                         echo "<td><img height='100px' width='100px' src='data:image/jpeg;base64,".base64_encode($fila['img_tarea'])."' alt='Tipo de tarea'></td>";
                         // REALIZAR TAREA
-                        echo "<td><a href='../controlador/realizar.php?id=".$fila['id']."'>Terminar</a></td>";
-                        echo "<td><a href='./form_editar.php?id=". $fila['id']. "'><button>Modificar</button></a></td>";
+                        echo "<td>SÍ</td>";
+                        
                         echo "<td><a href='../controlador/eliminar_tarea.php?id=". $fila['id']. "'><button>Eliminar</button></a></td>";
 
                         echo "</tr>";
@@ -81,13 +80,5 @@ if (!$_SESSION['user']) {
             ?>
         </tbody>
     </table>
-
-    <a href="./form_anadir.php">
-        AGREGAR NUEVA TAREA
-    </a><br><br>
-    <a href="./tareas_completadas.php">
-        VER TAREAS COMPLETADAS
-    </a>
-    
 </body>
 </html>

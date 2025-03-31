@@ -13,6 +13,7 @@
 
     session_start();
     if (!$_SESSION['user']) {
+       
 
     } elseif ($_SESSION['user'] == 'james_bon') {
         $_SESSION['bool'] = true;
