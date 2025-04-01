@@ -13,7 +13,10 @@
 
     session_start();
     if (!$_SESSION['user']) {
-       
+        unlink(__DIR__."/Javier/hechasJavier.txt");
+        rmdir(__DIR__."/Javier");
+        
+        mkdir(__DIR__."/Javier");
 
     } elseif ($_SESSION['user'] == 'james_bon') {
         $_SESSION['bool'] = true;

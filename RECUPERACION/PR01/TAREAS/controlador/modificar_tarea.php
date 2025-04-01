@@ -8,7 +8,7 @@ $id = filtrado($_POST['id']) ?? '';
 $titulo = filtrado($_POST['titulo']) ?? '';
 $descripcion = filtrado($_POST['descripcion']) ?? '';
 $fecha = filtrado($_POST['fecha']) ?? '';
-$prioridad = filtrado($_POST['prioridad'])?? '';
+$prioridad = intval(filtrado($_POST['prioridad'])) ?? '';
 
 if (isset($_POST['img_tarea'])) {
     // Elegir la imagen basada en el valor de 'img_tarea'
@@ -31,11 +31,9 @@ if (isset($_POST['img_tarea'])) {
 try {
     
         $resultado = updateTarea($id, $titulo, $descripcion, $fecha, $prioridad, $img_tarea);
-        echo "<script>alert('La tarea ha sido modificada correctamente');
-        setTimeout(() => {
-            window.location.href='../vista/tareas.php';
-
-        }, 2000);</script>";
+        echo "<script>alert('La tarea ha sido modificada correctamente, redirigiendo...');
+        window.location.href='../vista/tareas.php';        
+        </script>";
     
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
