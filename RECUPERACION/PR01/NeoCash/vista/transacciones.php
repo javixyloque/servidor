@@ -30,7 +30,17 @@ if (!isset($_SESSION['login'])) {
         <tbody>
             <?php
             $transacciones = transaccionesCliente($_SESSION['login']);
+                foreach ($transacciones as $transaccion) {
+                    echo "<tr>";
+                    echo "<td>" . $transaccion['concepto'] . "</td>";
+                    echo "<td>". $transaccion['cantidad']. "</td>";
+                    echo "<td>". $transaccion['tipo']. "</td>";
+                    echo "<td>". $transaccion['fecha']. "</td>";
+                    echo "<img src='images/". $transaccion['tipo'] . ".png' alt='" . $transaccion['tipo'] ."</img>";
+                    echo "</tr>";
+                    
 
+                }
             
             ?>
             <td></td>
