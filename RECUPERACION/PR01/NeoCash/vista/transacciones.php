@@ -1,11 +1,11 @@
 <?php
 session_start();
 require_once '../controlador/controlador.php';
-if (!isset($_SESSION['login'])) {
+if (!isset($_SESSION['user'])) {
     header('Location: ../index.php');
 }
 
-
+// SELECT c.*, t.* FROM cliente c JOIN transaccion t ON t.cliente = c.id;
 
 ?>
 

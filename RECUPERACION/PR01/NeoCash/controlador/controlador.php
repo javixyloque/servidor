@@ -44,10 +44,19 @@ function comprobarLogin ($usuario, $pw) {
 }
 
 function comprobarFormatoPW ($pw) {
+
+    // EXPRESIÓN REGULAR => UNA MAYUSCULA, UNA MINUSCULA, UN NUMERO Y UN CARACTER ESPECIAL
+    // ^ => COMIENZA CON
+    // (?=.*[A-Z]) => UNA MAYUSCULA
+    // (?=.*[a-z]) => UNA MINUSCULA
+    // (?=.*\d) => UN NUMERO
+    // (?=.*\+) => UN CARACTER ESPECIAL
+    // .{8,20} => 8 A 20 CARACTERES
+
     if (preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\+).{8,20}$/', $pw)) {
-        echo "La contraseña es válida.";
+        return true;
     } else {
-        echo "La contraseña no es válida.";
+        return false;
     }
 }
 
@@ -73,6 +82,15 @@ function transaccionesCliente($usuario) {
     return $transacciones;
 
 }
+
+function confirmarContrasena($pw, $confirmar_password) {
+    if ($pw === $confirmar_password) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 
 
 ?>

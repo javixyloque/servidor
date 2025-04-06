@@ -2,7 +2,7 @@
 session_start();
 require_once'../controlador/controlador.php';
 
-if (!isset($_SESSION['login'])) {
+if (!isset($_SESSION['user'])) {
     header('Location: ../vista/index.php');
 }
 
@@ -12,7 +12,7 @@ $password = filtrado($_POST['password']) ?? '';
 
 
 if (comprobarLogin($nombre, $password)) {
-    $_SESSION['login'] = $nombre;
+    $_SESSION['user'] = $nombre;
     
     header('Location: ../vista/transacciones.php');
 } else {
