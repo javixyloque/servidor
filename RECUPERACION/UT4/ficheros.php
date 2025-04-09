@@ -29,6 +29,7 @@ echo "<h3>4. Escritura con fwrite (longitud limitada)</h3>";
 $nuevoArchivo = __DIR__ . "/fwrite_prueba.txt";
 $fp = fopen($nuevoArchivo, "w");
 
+
 if ($fp) {
     $texto = "Este es un texto largo que solo escribiremos parcialmente.\n";
     fwrite($fp, substr($texto, 0, 20)); // Solo escribe los primeros 20 caracteres
