@@ -75,8 +75,8 @@ function transaccionesCliente($usuario) {
     
     $conexion = conexion();
     $select = $conexion->prepare($sql);
-    $select ->bindParam(':nombre', $usuario, PDO::PARAM_STR);
-    $select ->execute();
+    $select -> bindParam(':nombre', $usuario, PDO::PARAM_STR);
+    $select -> execute();
     $transacciones = $select->fetchAll(PDO::FETCH_ASSOC);
     $conexion = null;
     return $transacciones;
