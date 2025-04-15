@@ -3,7 +3,9 @@ session_start();
 require_once '../controlador/controlador.php';
 if (!isset($_SESSION['user'])) {
     header('Location: ../index.php');
-}
+} 
+
+
 
 // SELECT c.*, t.* FROM cliente c JOIN transaccion t ON t.cliente = c.id;
 
@@ -15,10 +17,10 @@ if (!isset($_SESSION['user'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transacciones de <?= $_SESSION['login'] ?></title>
+    <title>Transacciones de <?= $_SESSION['user'] ?></title>
 </head>
 <body>
-    <h1>Transacciones de <?= $_SESSION['login'] ?></h1>
+    <h1>Transacciones de <?= $_SESSION['user'] ?></h1>
 
     <table>
         <thead>
@@ -43,11 +45,6 @@ if (!isset($_SESSION['user'])) {
                 }
             
             ?>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
         </tbody>
     </table>
 </body>

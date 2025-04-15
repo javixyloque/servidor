@@ -71,10 +71,10 @@ function insertCliente ($usuario, $email, $pw, $img_cliente) {
 }
 
 function transaccionesCliente($usuario) {
-    $sql = "SELECT t.*, c.id as id_cliente  FROM transaccion t JOIN CLIENTE c ON t.cliente = c.id where c.nombre = :nombre";
+    $sql = "SELECT t.*, c.id as id_cliente  FROM transaccion t JOIN cliente c ON t.cliente = c.id where c.nombre = :nombre";
     
     $conexion = conexion();
-    $select = $conexion->prepare($sql);
+    $select = $conexion -> prepare($sql);
     $select -> bindParam(':nombre', $usuario, PDO::PARAM_STR);
     $select -> execute();
     $transacciones = $select->fetchAll(PDO::FETCH_ASSOC);
@@ -89,6 +89,11 @@ function confirmarContrasena($pw, $confirmar_password) {
     } else {
         return false;
     }
+}
+
+
+function generarNumeroCuenta () {
+    
 }
 
 
