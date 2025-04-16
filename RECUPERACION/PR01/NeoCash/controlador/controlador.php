@@ -62,16 +62,17 @@ function comprobarFormatoPW ($pw) {
 
 function insertCliente ($usuario, $email, $pw, $img_cliente) {
     $conexion = conexion();
-    $consulta = $conexion -> prepare("INSERT INTO cliente (usuario, email, password, img_cliente) VALUES (:usuario, :email, :password, :img_cliente)");
+    $consulta = $conexion -> prepare("INSERT INTO cliente (usuario, email, password, img_cliente, numero_cuenta) VALUES (:usuario, :email, :password, :img_cliente, :numero_cuenta)");
     $consulta ->bindParam(':usuario', $usuario, PDO::PARAM_STR);
     $consulta ->bindParam(':email', $email, PDO::PARAM_STR);
     $consulta ->bindParam(':password', password_hash($pw, PASSWORD_DEFAULT), PDO::PARAM_STR);
     $consulta ->bindParam(':img_cliente', $img_cliente, PDO::PARAM_LOB);
+    $consulta -> bindParam(':numero_cuenta' , generarNumeroCuenta());
     return $consulta->execute();
 }
 
 function transaccionesCliente($usuario) {
-    $sql = "SELECT t.*, c.id as id_cliente  FROM transaccion t JOIN cliente c ON t.cliente = c.id where c.nombre = :nombre";
+    $sql = "SELECT t.*, c.nombre as nombre_cliente  FROM transaccion t JOIN cliente c ON t.cliente = c.id where c.nombre = :nombre";
     
     $conexion = conexion();
     $select = $conexion -> prepare($sql);
@@ -93,7 +94,12 @@ function confirmarContrasena($pw, $confirmar_password) {
 
 
 function generarNumeroCuenta () {
-    
+    $str = "ES";
+    for ($i = 0; $i < 22; $i++) {
+        // CONCATENA UN DIGITO ALEATORIO
+        $str .= random_int(0, 9);
+    }
+    return $str;
 }
 
 
