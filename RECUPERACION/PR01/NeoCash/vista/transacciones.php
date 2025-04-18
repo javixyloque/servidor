@@ -31,14 +31,13 @@ if (!isset($_SESSION['user'])) {
         </thead>
         <tbody>
             <?php
-            $transacciones = transaccionesCliente($_SESSION['login']);
+            $transacciones = transaccionesCliente($_SESSION['user']);
                 foreach ($transacciones as $transaccion) {
                     echo "<tr>";
                     echo "<td>" . $transaccion['concepto'] . "</td>";
                     echo "<td>". $transaccion['cantidad']. "</td>";
-                    echo "<td>". $transaccion['tipo']. "</td>";
+                    echo "<td>". ucwords($transaccion['tipo']). "</td>";
                     echo "<td>". $transaccion['fecha']. "</td>";
-                    echo "<img src='images/". $transaccion['tipo'] . ".png' alt='" . $transaccion['tipo'] ."</img>";
                     echo "</tr>";
                     
 
@@ -47,5 +46,7 @@ if (!isset($_SESSION['user'])) {
             ?>
         </tbody>
     </table>
+
+    <h2>Saldo restante en la cuenta: <em><?= saldoEnCuenta(filtrado($_SESSION['user']));?></em></h2>
 </body>
 </html>
