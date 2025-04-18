@@ -1,4 +1,5 @@
 <?php
+session_start();
 function conexion () {
     $servidor = 'mysql:dbname=neobanco_javier;host=localhost;charset=utf8mb4';
     $usuario ='root';
@@ -50,25 +51,25 @@ function comprobarFormatoPW ($pw) {
     // (?=.*[A-Z]) => UNA MAYUSCULA
     // (?=.*[a-z]) => UNA MINUSCULA
     // (?=.*\d) => UN NUMERO
-    // (?=.*\+) => UN CARACTER ESPECIAL
+    // ((?=.*[^a-zA-Z\d]) => UN CARACTER ESPECIAL
     // .{8,20} => 8 A 20 CARACTERES
 
-    if (preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\+).{8,20}$/', $pw)) {
+    if (preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^a-zA-Z\d]).{8,20}$/', $pw)) {
         return true;
     } else {
         return false;
     }
 }
 
-function insertCliente ($usuario, $email, $pw, $img_cliente) {
+function insertCliente ($cliente) {
     $conexion = conexion();
-    $consulta = $conexion -> prepare("INSERT INTO cliente (usuario, email, password, img_cliente, numero_cuenta) VALUES (:usuario, :email, :password, :img_cliente, :numero_cuenta)");
-    $consulta ->bindParam(':usuario', $usuario, PDO::PARAM_STR);
-    $consulta ->bindParam(':email', $email, PDO::PARAM_STR);
-    $consulta ->bindParam(':password', password_hash($pw, PASSWORD_DEFAULT), PDO::PARAM_STR);
-    $consulta ->bindParam(':img_cliente', $img_cliente, PDO::PARAM_LOB);
-    $consulta -> bindParam(':numero_cuenta' , generarNumeroCuenta());
-    return $consulta->execute();
+    $consulta = $conexion -> prepare("INSERT INTO cliente (nombre, email, password, img_cliente, numero_cuenta) VALUES (:nombre, :email, :password, :img_cliente, :numero_cuenta)");
+    $consulta -> bindParam(':nombre', $cliente['nombre'], PDO::PARAM_STR);
+    $consulta -> bindParam(':email', $cliente['email'], PDO::PARAM_STR);
+    $consulta -> bindParam(':password', $cliente['password'], PDO::PARAM_STR);
+    $consulta -> bindParam(':img_cliente', $cliente['img_cliente'], PDO::PARAM_LOB);
+    $consulta -> bindParam(':numero_cuenta' , $cliente['numero_cuenta']);
+    return $consulta -> execute();
 }
 
 function transaccionesCliente($usuario) {

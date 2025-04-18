@@ -7,9 +7,9 @@ $conexion -> exec("SET GLOBAL max_allowed_packet = 200 * 1024 * 1024;"); // 200 
 
 $nombre =  filtrado($_POST['nombre']) ?? '';
 $pw = filtrado($_POST['password']) ?? '';
-$email = date($_POST['email']) ?? '';
+$email = filtrado($_POST['email']) ?? '';
 $img_cliente = $_FILES['img_cliente'] ??  '';
-$confirmar_password = $_POST['confirmar_password'] ?? '';
+$confirmar_password = filtrado($_POST['confirmar_password']) ?? '';
 
 // CHEQUEAR QUE SE SUBIÓ BIEN EL img_cliente Y EL FORMATO
 if ($img_cliente && $img_cliente['error'] == 0) {
@@ -24,7 +24,25 @@ if ($img_cliente && $img_cliente['error'] == 0) {
 }
 
 // TERNARIO => FORMATO CONTRASEÑA Y QUE SEAN IGUALES => INSERTAR USUARIO
-comprobarFormatoPW($pw) && confirmarContrasena($pw,$confirmar_password) ? insertCliente($usuario, $email, $pw, $contenido_img_cliente) : exit("Formato de contraseña no válido, o no has escrito la misma contraseña en los dos campos.<a href='../vista/index.php'>Volver</a>");
+if (!comprobarFormatoPW($pw)) {
+    exit("Formato de contraseña no valido. <a href='../vista/index.php'>Volver</a>");
+} elseif (!confirmarContrasena($pw, $confirmar_password)) {
+    exit("Escribe la misma contraseña en los dos campos, por favor. <a href='../vista/index.php'>Volver</a>");
+}
+
+$nuevoCliente = [
+    'nombre' => $nombre,
+    'email' =>  $email,
+    'password' => password_hash($pw, PASSWORD_DEFAULT),
+    'img_cliente' => $contenido_img_cliente,
+    'numero_cuenta' => generarNumeroCuenta(),
+];
+
+try {
+    insertCliente($nuevoCliente);
+} catch (PDOException $ex) {
+    echo "Error". $ex->getMessage();
+}
 
 
 echo "<script>
