@@ -38,6 +38,11 @@ $nuevoCliente = [
     'numero_cuenta' => generarNumeroCuenta(),
 ];
 
+// GENERAR NUMERO DE CUENTA SI ESTA REPETIDO
+while (comprobarRepetidoCuenta($nuevoCliente['numero_cuenta'])) {
+    $nuevoCliente['numero_cuenta'] = generarNumeroCuenta();
+}
+
 try {
     insertCliente($nuevoCliente);
 } catch (PDOException $ex) {

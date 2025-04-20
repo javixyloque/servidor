@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!$_SESSION['user']) {
-    header('Location: ../vista/index.php');
+    header('Location: ../vista');
     
 }
 

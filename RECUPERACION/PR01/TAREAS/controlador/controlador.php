@@ -61,7 +61,7 @@ function selectTareasRealizadas() {
 
 }
 
-function insertTarea($titulo, $descripcion, $fecha, $prioridad, $img_tarea, $contenido_img_tarea) {
+function insertTarea($titulo, $descripcion, $fecha, $prioridad, $contenido_img_tarea) {
     $conexion = conexion();
     if (nombreRepetido($titulo)) {
         die("El título de la tarea ya existe. <a href='../vista/tareas.php'>VOLVER A LAS TAREAS</a>");

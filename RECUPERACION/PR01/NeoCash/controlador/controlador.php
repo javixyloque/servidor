@@ -23,6 +23,21 @@ function filtrado ($data) {
     return $data;
 }
 
+function formatearFecha ($fecha) {
+    $fechaFormat = substr($fecha,8,2) ." / ". substr($fecha,5,2)." / ".   substr($fecha , 0,4);
+    return $fechaFormat;
+}
+function comprobarRepetidoCuenta($numero) {
+    $sql = 'SELECT COUNT(*) FROM cliente WHERE numero_cuenta = :numero';
+    $conexion = conexion();
+    $consulta = $conexion -> prepare($sql);
+    $consulta -> bindParam(':numero', $numero);
+    $consulta -> execute();
+    $contador = $consulta -> fetchColumn();
+    $conexion = null;
+    return $contador > 0;
+}
+
 
 function comprobarLogin ($nombre, $pw) {
     try {
@@ -72,17 +87,93 @@ function insertCliente ($cliente) {
     return $consulta -> execute();
 }
 
-function transaccionesCliente($nombre) {
-    $sql = "SELECT t.*, c.nombre as nombre_cliente  FROM transaccion t JOIN cliente c ON t.cliente = c.id where c.nombre = :nombre";
-    
-    $conexion = conexion();
-    $select = $conexion -> prepare($sql);
-    $select -> bindParam(':nombre', $nombre, PDO::PARAM_STR);
-    $select -> execute();
-    $transacciones = $select->fetchAll(PDO::FETCH_ASSOC);
-    $conexion = null;
-    return $transacciones;
+function selectCliente ($nombre) {
+    try {
+        $sql = "SELECT c.* FROM cliente c WHERE c.nombre = :nombre";
+        $conexion = conexion();
+        $select = $conexion -> prepare($sql);
+        $select -> bindParam(':nombre', $nombre, PDO::PARAM_STR);
+        $select -> execute();
+        $cliente = $select -> fetchAll(PDO::FETCH_ASSOC);
+        $conexion = null;
+        return $cliente;
+    } catch (PDOException) {
+        $conexion = null;
+        return false;
+    }
+}
 
+function selectIdCliente($nombre) {
+    try {
+        $sql = "SELECT c.id FROM cliente c WHERE c.nombre = :nombre";
+        $conexion = conexion();
+        $select = $conexion -> prepare($sql);
+        $select -> bindParam(':nombre', $nombre, PDO::PARAM_STR);
+        $select -> execute();
+        $id = $select -> fetch(PDO::FETCH_ASSOC);
+        $conexion = null;
+        return $id['id'];
+    } catch (PDOException) {
+        $conexion = null;
+        return false;
+    }
+}
+
+function transaccionesCliente($nombre) {
+    try {
+        
+        $sql = "SELECT t.*, c.nombre as nombre_cliente  FROM transaccion t JOIN cliente c ON t.cliente = c.id where c.nombre = :nombre";
+        
+        $conexion = conexion();
+        $select = $conexion -> prepare($sql);
+        $select -> bindParam(':nombre', $nombre, PDO::PARAM_STR);
+        $select -> execute();
+        $transacciones = $select->fetchAll(PDO::FETCH_ASSOC);
+        $conexion = null;
+        return $transacciones;
+    } catch (PDOException) {
+        $conexion = null;
+        return false;
+    }
+
+}
+
+
+
+
+function insertarTransaccion($concepto, $cantidad, $tipo, $fecha, $cliente) {
+    
+    $sql = "INSERT INTO transaccion (concepto, cantidad, tipo, fecha, cliente) VALUES (:concepto, :cantidad, :tipo, :fecha, :cliente)";
+    $conexion = conexion();
+    $insert = $conexion->prepare($sql);
+    $insert->bindParam(':concepto', $concepto, PDO::PARAM_STR);
+    $insert->bindParam(':cantidad', $cantidad, PDO::PARAM_STR);
+    $insert->bindParam(':tipo', $tipo, PDO::PARAM_STR);
+    $insert->bindParam(':fecha', $fecha, PDO::PARAM_STR);
+    $insert->bindParam(':cliente', $cliente, PDO::PARAM_INT);
+    return $insert->execute();
+    $conexion = null;
+}
+
+function eliminarTransaccion($id) {
+    $sql = "DELETE FROM transaccion WHERE id = :id";
+
+    $conexion = conexion();
+    $delete = $conexion->prepare($sql);
+    $delete->bindParam(':id', $id, PDO::PARAM_INT);
+    $conexion = null;
+    return $delete->execute();
+
+    
+}
+function updateConcepto($id, $concepto) {
+    $sql = "UPDATE transaccion SET concepto = :concepto WHERE id = :id";
+    $conexion = conexion();
+    $update = $conexion->prepare($sql);
+    $update->bindParam(':concepto', $concepto, PDO::PARAM_STR);
+    $update->bindParam(':id', $id, PDO::PARAM_INT);
+    return $update->execute();
+    $conexion = null;
 }
 
 function confirmarContrasena($pw, $confirmar_password) {
@@ -117,13 +208,57 @@ function saldoEnCuenta($nombre) {
     foreach($transacciones as $movimiento) {
         // CONDICIONALES => CERTIFICAR NATURALEZA MOVIMIENTO
         if ($movimiento['tipo'] == 'ingreso') {
-            $saldo+=floatval($movimiento['cantidad']);
+            $saldo+=floatval($movimiento['cantidad'])*1.05;
         } elseif ($movimiento['tipo'] == 'retirada') {
-            $saldo -= floatval($movimiento['cantidad']);
+            $saldo -= (floatval($movimiento['cantidad'])+1);
         }
     }
-    return $saldo;
+    return number_format($saldo, 2, ',', '.');
 }
+
+function listadoGastosFecha($nombre) {
+    $sql = "SELECT t.*, c.nombre FROM transaccion t JOIN cliente c ON c.id = t.cliente WHERE t.tipo = 'retirada' ORDER BY t.fecha ASC";
+    $conexion = conexion();
+    $select = $conexion -> prepare($sql);
+    $select -> execute();
+    $gastos = $select->fetchAll(PDO::FETCH_ASSOC);
+    $conexion = null;
+    return $gastos;
+}
+
+function listadoIngresosFecha($nombre) {
+
+    $sql = "SELECT t.*, c.nombre FROM transaccion t JOIN cliente c ON c.id = t.cliente WHERE t.tipo = 'ingreso' ORDER BY t.fecha ASC";
+    $conexion = conexion();
+    $select = $conexion -> prepare($sql);
+    $select -> execute();
+    $ingresos = $select->fetchAll(PDO::FETCH_ASSOC);
+    $conexion = null;
+    return $ingresos;
+}
+
+function totalGastado($nombre) {
+
+    $sql = "SELECT SUM(t.cantidad) as total FROM transaccion t JOIN cliente c ON c.id = t.cliente WHERE t.tipo = 'retirada'";
+    $conexion = conexion();
+    $select = $conexion -> prepare($sql);
+    $select -> execute();
+    $resultado = $select->fetch(PDO::FETCH_ASSOC);
+    $conexion = null;
+    return $resultado['total'];
+
+}
+
+function totalIngresado($nombre) {
+    $sql = "SELECT SUM(t.cantidad) as total FROM transaccion t JOIN cliente c ON c.id = t.cliente WHERE t.tipo = 'ingreso'";
+    $conexion = conexion();
+    $select = $conexion -> prepare($sql);
+    $select -> execute();
+    $resultado = $select->fetch(PDO::FETCH_ASSOC);
+    $conexion = null;
+    return $resultado['total'];
+}
+
 
 
 

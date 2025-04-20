@@ -4,7 +4,7 @@ session_start();
 
 if ($_SESSION['user']) {
     echo "<script>
-    alert('Bienvenido de nuevo, <strong>" . $_SESSION['user'] . "</strong>!');
+    alert('Bienvenido de nuevo, " . $_SESSION['user'] . "!');
     window.location.href = '../vista/transacciones.php';
     </script>";
 }
