@@ -1,9 +1,10 @@
 <?php
+session_start(); // Añadir esto al inicio
 
 $carrito = $_SESSION['carrito'] ?? [];
 
 $nombre = $_POST['nombre'] ?? '';
-$precio  = $_POST['precio'] ?? '';
+$precio = $_POST['precio'] ?? '';
 
 $encontrado = false;
 
@@ -26,7 +27,7 @@ if (!$encontrado) {
 // Guardamos en sesión
 $_SESSION['carrito'] = $carrito;
 
-// Redirigimos
-header("Location: ../vista/");
-
+// Redirigimos (corregir la ruta)
+header("Location: ../vista/index.php");
+exit(); // Añadir exit después de header
 ?>

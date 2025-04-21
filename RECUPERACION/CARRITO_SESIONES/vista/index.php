@@ -18,39 +18,28 @@ if (!isset($_SESSION['carrito'])) {
     $_SESSION['carrito'] = [];
 }
 
-
-
-
-
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            display: flex;
-        }
-    </style>
+    <title>Tienda</title>
+    
 </head>
 <body>
+    <a href="carrito.php" >Ver carrito</a>
+    
     <?php foreach ($productos as $producto) { ?>
         <fieldset>
-            <h3><?= $producto[0] ?></h3>
-            <h4>Precio: <?= $producto[1] ?></h4>
+            <h3><?= htmlspecialchars($producto[0]) ?></h3>
+            <h4>Precio: <?= number_format($producto[1], 2) ?> €</h4>
             <form action="../scripts/anadir_producto.php" method="post">
-                <input type="hidden" name="nombre" value="<?= $producto[0] ?>">
+                <input type="hidden" name="nombre" value="<?= htmlspecialchars($producto[0]) ?>">
                 <input type="hidden" name="precio" value="<?= $producto[1] ?>">
                 <input type="submit" value="Añadir">
             </form>
         </fieldset>
     <?php } ?>
-
-    <a href="./carrito.php">Ver carrito</a>
 </body>
 </html>
