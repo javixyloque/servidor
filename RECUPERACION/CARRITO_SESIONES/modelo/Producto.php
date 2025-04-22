@@ -1,16 +1,16 @@
 <?php
 
-
+// EL CONSTRUCTOR
 class Producto {
     private String $nombre;
     private float $precio;
     private int $cantidad;
 
-    
+    // CONSTRUCTOR => CUANDO ES LLAMADO LA CANTIDAD SE FIJA A 1
     public function __construct ($nom, $pre) {
         $this->nombre = $nom;
         $this->precio = $pre;
-        
+        $this->cantidad = 1;
     }
 
 

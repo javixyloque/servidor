@@ -1,33 +1,48 @@
 <?php
 session_start(); // Añadir esto al inicio
+require_once'../modelo/Producto.php';
+require_once'../controlador/controlador.php';
 
-$carrito = $_SESSION['carrito'] ?? [];
 
+$carrito = json_decode($_SESSION['carrito']) ?? [];
+if (!is_array($carrito)) {
+    $carrito = json_decode($_SESSION['carrito']);
+}
 $nombre = $_POST['nombre'] ?? '';
 $precio = $_POST['precio'] ?? '';
-
 $encontrado = false;
 
 // Recorremos el carrito
 foreach ($carrito as &$producto) {
-    if ($producto[0] === $nombre) {
-        $producto[2]++; // Sumamos cantidad
+    // SI ENCUENTRA => SUMAMOS 1 DE CANTIDAD AL PRODUCTO Y SALIMOS
+    if ($producto->getNombre() === $nombre) {
+        $cantidad = $producto->getCantidad();
+        $cantidad++;
+        $producto->setCantidad($cantidad); 
         $encontrado = true;
         break;
     }
 }
-unset($producto); // Rompemos referencia
+// unset($producto); 
 
-// Si no se encontró, añadimos nuevo producto
+// SI NO ENCONTRADO => AÑADIMOS NUEVO PRODUCTO
 if (!$encontrado) {
-    $nuevoProducto = [$nombre, $precio, 1]; // nombre, precio, cantidad
-    $carrito[] = $nuevoProducto;
+    $nuevoProducto = new Producto($nombre, $precio); 
+    array_push($carrito, $nuevoProducto);
 }
 
-// Guardamos en sesión
-$_SESSION['carrito'] = $carrito;
 
-// Redirigimos (corregir la ruta)
+// GUARDAR => JSON_PRETTY_PRINT FORMATEA JSON
+$_SESSION['carrito'] = json_encode($carrito);
+print_r($_SESSION['carrito']);
+
 header("Location: ../vista/index.php");
-exit(); // Añadir exit después de header
+exit(); 
+
+
+
+
+
+
+
 ?>
