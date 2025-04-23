@@ -6,6 +6,7 @@ class Producto {
     private float $precio;
     private int $cantidad;
 
+
     // CONSTRUCTOR => CUANDO ES LLAMADO LA CANTIDAD SE FIJA A 1
     public function __construct ($nom, $pre) {
         $this->nombre = $nom;
@@ -39,6 +40,7 @@ class Producto {
     {
         return $this->precio;
     }
+    
 
     /**
      * Set the value of precio

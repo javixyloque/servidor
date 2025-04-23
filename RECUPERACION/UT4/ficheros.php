@@ -44,4 +44,6 @@ if (file_exists($archivo)) {
 } else {
     echo "No se pudo obtener el tamaño del archivo.";
 }
+
+
 ?>

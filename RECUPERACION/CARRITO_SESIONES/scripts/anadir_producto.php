@@ -1,5 +1,5 @@
 <?php
-session_start(); // Añadir esto al inicio
+// Añadir esto al inicio
 require_once'../modelo/Producto.php';
 require_once'../controlador/controlador.php';
 
@@ -12,17 +12,29 @@ $nombre = $_POST['nombre'] ?? '';
 $precio = $_POST['precio'] ?? '';
 $encontrado = false;
 
-// Recorremos el carrito
-foreach ($carrito as &$producto) {
+// BUSCAMOS PRODUCTO EN EL CARRITO
+
+for ($i= 0; $i < count($carrito); $i++) {
     // SI ENCUENTRA => SUMAMOS 1 DE CANTIDAD AL PRODUCTO Y SALIMOS
-    if ($producto->getNombre() === $nombre) {
-        $cantidad = $producto->getCantidad();
-        $cantidad++;
-        $producto->setCantidad($cantidad); 
+    if ($carrito[$i]->getNombre() === $nombre) {
         $encontrado = true;
+        $cantidad = $carrito[$i]->getCantidad();
+        // CREO UNA NUEVA INSTANCIA DEL PRODUCTO EN LUGAR DE MODIFICAR LA REFERENCIA
+        $productoNuevo = new Producto($producto->getNombre(), $producto->getPrecio());
+        $cantidad++;
+        $productoNuevo->setCantidad($cantidad);
+        $carrito[$i]->setCantidad($cantidad);
         break;
     }
+
 }
+
+
+
+
+
+
+
 // unset($producto); 
 
 // SI NO ENCONTRADO => AÑADIMOS NUEVO PRODUCTO
@@ -37,7 +49,7 @@ $_SESSION['carrito'] = json_encode($carrito);
 print_r($_SESSION['carrito']);
 
 header("Location: ../vista/index.php");
-exit(); 
+exit();
 
 
 
