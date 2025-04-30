@@ -13,7 +13,7 @@ final class LibroController extends AbstractController
     public function main(): Response {
         return $this->render('libro/main.html.twig', [
             'user' => 'Yeyby'
-
+             
                   
         ]);
     }
