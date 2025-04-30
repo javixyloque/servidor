@@ -33,6 +33,7 @@ foreach ($carrito as $key => $producto) {
     }
 }
 
+
 // AÑADIR NUEVO
 if (!$productoEncontrado) {
     $nuevoProducto = [
