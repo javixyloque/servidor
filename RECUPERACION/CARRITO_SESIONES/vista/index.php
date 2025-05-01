@@ -12,7 +12,6 @@ require_once'../controlador/controlador.php';
 // 0 => NOMBRE // 1 => PRECIO // 2 => CANTIDAD
 $carrito = [];
 $productos = [
-    
     ['nombre' => 'Jabon', 'precio' => 3.85, 'cantidad' => 1],
     ['nombre' => 'Maíz', 'precio' => 4.50, 'cantidad' => 1],
     ['nombre' => 'Gofio', 'precio' => 0.90, 'cantidad' => 1],
