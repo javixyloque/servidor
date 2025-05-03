@@ -1,0 +1,17 @@
+{
+    "name": "javixyloque/equipo-jugador",
+    "description": "BD equipos y jugadores liga española",
+    "type": "project",
+    "require": {
+        "doctrine/orm": "^2.17",
+        "doctrine/cache": "^1.1",
+        "doctrine/annotations": "^2.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Javixyloque\\EquipoJugador\\": "src/",
+            "Javixyloque\\EquipoJugador\\Entity\\": "src/Entity"        }
+    },
+    "minimum-stability": "stable"
+}
