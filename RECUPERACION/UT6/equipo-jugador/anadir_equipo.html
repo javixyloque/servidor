@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir equipo</title>
+</head>
+<body>
+    <form action="./anadir_equipo.php" method="post">
+        <label for="nombre">NOMBRE: </label>
+        <input type="text" name="nombre"><br>
+
+        <label for="socios">SOCIOS: </label>
+        <input type="number" min="1" name="socios"><br>
+
+        <label for="fundacion">FUNDACIÓN: </label>
+        <input type="text"min="1800" max="2025" name="fundacion"><br>
+
+        <label for="ciudad">CIUDAD</label>
+        <input type="text" name="ciudad" ><br>
+        
+        <input type="submit" value="Añadir equipo">
+    </form>
+</body>
+</html>

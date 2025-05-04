@@ -50,4 +50,94 @@ class Equipo
     private $ciudad;
 
 
+
+    /**
+     * Get the value of idEquipo
+     */
+    public function getIdEquipo(): int
+    {
+        return $this->idEquipo;
+    }
+
+    /**
+     * Set the value of idEquipo
+     */
+    public function setIdEquipo(int $idEquipo): self
+    {
+        $this->idEquipo = $idEquipo;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of nombre
+     */
+    public function getNombre(): string
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set the value of nombre
+     */
+    public function setNombre(string $nombre): self
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of socios
+     */
+    public function getSocios(): ?int
+    {
+        return $this->socios;
+    }
+
+    /**
+     * Set the value of socios
+     */
+    public function setSocios(?int $socios): self
+    {
+        $this->socios = $socios;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of fundacion
+     */
+    public function getFundacion(): ?int
+    {
+        return $this->fundacion;
+    }
+
+    /**
+     * Set the value of fundacion
+     */
+    public function setFundacion(?int $fundacion): self
+    {
+        $this->fundacion = $fundacion;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ciudad
+     */
+    public function getCiudad(): ?string
+    {
+        return $this->ciudad;
+    }
+
+    /**
+     * Set the value of ciudad
+     */
+    public function setCiudad(?string $ciudad): self
+    {
+        $this->ciudad = $ciudad;
+
+        return $this;
+    }
 }
