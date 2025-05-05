@@ -47,15 +47,16 @@ $carrito = $_SESSION['carrito'];
                     </form>
                 </td>
                 <td>
+                    <?= $producto['precio'] * $producto['cantidad'] ?>
+                </td>
+            </tr>
+        <?php }?>
+    </table>
                     <?php $total = 0;
                         foreach ($carrito as $producto) {
                             $total += $producto['precio'] * $producto['cantidad'];
                         }
                         echo $total;
                     ?>
-                </td>
-            </tr>
-        <?php }?>
-    </table>
 </body>
 </html>

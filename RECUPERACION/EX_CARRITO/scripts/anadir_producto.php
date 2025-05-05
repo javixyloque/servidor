@@ -1,47 +1,43 @@
 <?php
 session_start();
-require_once'../modelo/Producto.php';
+require_once '../modelo/Producto.php';
+
 if (!isset($_SESSION['carrito'])) {
     $_SESSION['carrito'] = [];
 }
 
-if ($_SERVER['REQUEST_METHOD'] != 'POST' || !isset($_POST['nombre'], $_POST['precio'])) {
-    
+if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     header('Location: ../vista');
+    exit;
 }
+
 $carrito = $_SESSION['carrito'];
 $nombre = strval($_POST['nombre']) ?? '';
 $precio = floatval($_POST['precio']) ?? 0;
 $verprods = boolval($_POST['verprods']) ?? false;
 
-
-
-$productoEncontrado = false;
-
-foreach ($carrito as $producto) {
+foreach ($carrito as &$producto) {
     if ($producto['nombre'] == $nombre) {
         $productoEncontrado = true;
         break;
     }
 }
-if ($productoEncontrado) {
-    // PASAR POR REFERENCIA PARA ACTUALIZAR EL ARRAY
-    foreach ( $carrito as  &$producto) {
+if (!$productoEncontrado) {
+    $carrito[] = [
+        'nombre' => $nombre,
+        'precio' => $precio,
+        'cantidad' => 1
+    ];
+} else {
+    foreach ($carrito as &$producto) {
         if ($producto['nombre'] == $nombre) {
             $producto['cantidad']++;
             break;
         }
     }
-    unset($producto);
-} else {
-    $carrito[] = [
-        'nombre' => $nombre,
-        'precio' => $precio,
-        'cantidad' => 1
-    ] ;
-    
-    $_SESSION['carrito'] = $carrito;
 }
+
+$_SESSION['carrito'] = $carrito;
 
 if ($verprods) {
     header('Location: ../vista/vista_carrito.php');
