@@ -1,6 +1,5 @@
 <?php
 require_once'../modelo/Producto.php';
-
 $productos = [
     new Producto("Camisa blanca", 15.99),
     new Producto("Pantalones negros", 29.99),
@@ -23,10 +22,10 @@ $productos = [
     <?php foreach ($productos as $producto) { ?>
         <form action="../scripts/anadir_producto.php" method="POST">
             <label for="nombre"><?= $producto->getNombre() ?></label>
-            <input type="hidden" name="nombre" value="<?= $producto->getNombre() ?>">
+            <input type="hidden" name="nombre" value="<?= strval($producto->getNombre()) ?>">
 
             <label for="precio"><?= $producto->getPrecio() ?> €</label> 
-            <input type="hidden" name="precio" value="<?= $producto->getPrecio() ?>"> 
+            <input type="hidden" name="precio" value="<?= floatval($producto->getPrecio()) ?>"> 
             
             <input type="submit" value="Añadir a la cesta">
         </form>

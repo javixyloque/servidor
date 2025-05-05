@@ -1,28 +1,26 @@
 <?php
 session_start();
 require_once'../modelo/Producto.php';
-
 if (!isset($_SESSION['carrito'])) {
-    $_SESSION['carrito'] = json_encode(array());
+    $_SESSION['carrito'] = [];
 }
-var_dump($_SESSION['carrito']);
 
-if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+if ($_SERVER['REQUEST_METHOD'] != 'POST' || !isset($_POST['nombre'], $_POST['precio'])) {
+    
     header('Location: ../vista');
 }
-
-$carrito = json_decode($_SESSION['carrito']);
+$carrito = $_SESSION['carrito'];
 $nombre = strval($_POST['nombre']) ?? '';
 $precio = floatval($_POST['precio']) ?? 0;
+echo $nombre." ".$precio;
 var_dump($carrito);
-echo"<br>".$nombre."<br>".$precio;
-return;
+
 
 
 $productoEncontrado = false;
 
 foreach ($carrito as $producto) {
-    if ($producto ->getNombre() == $nombre) {
+    if ($producto['nombre'] == $nombre) {
         $productoEncontrado = true;
         break;
     }
@@ -30,15 +28,20 @@ foreach ($carrito as $producto) {
 
 if ($productoEncontrado) {
     foreach ( $carrito as &$producto) {
-        if ($producto -> getNombre() == $nombre) {
-            $producto -> setCantidad(($producto->getCantidad())+1);
+        if ($producto['nombre'] == $nombre) {
+            $producto['cantidad']++;
             break;
         }
     }
 } else {
-    $carrito[] = new Producto($nombre, $precio);
-    $_SESSION['carrito'] = json_encode($carrito);
+    $carrito[] = [
+        'nombre' => $nombre,
+        'precio' => $precio,
+        'cantidad' => 1
+    ] ;
+    
+    $_SESSION['carrito'] = $carrito;
 }
 
 
-header('Location: ../vista');
+    header('Location: ../vista');
