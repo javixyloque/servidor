@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once'../modelo/Producto.php';
+require_once'../controlador/controlador.php';
 
 if (!isset($_SESSION['carrito']) || empty($_SESSION['carrito'])) {
     echo "El carrito esta vacío<br><a href='./index.php'>SEGUIR COMPRANDO</a>";
@@ -34,12 +35,14 @@ $carrito = $_SESSION['carrito'];
                     <form action="../scripts/eliminar1.php" method="post">
                         <input type="hidden" name="nombre" value="<?=$producto['nombre']?>">
                         <input type="hidden" name="precio" value="<?=$producto['precio']?>">
+                        <input type="hidden" name="verprods" value="true">
                         <input type="submit" value="-1">
                     </form>
                     <?=$producto['cantidad']?>
                     <form action="../scripts/anadir_producto.php" method="post">
                         <input type="hidden" name="nombre" value="<?=$producto['nombre']?>">
                         <input type="hidden" name="precio" value="<?=$producto['precio']?>">
+                        <input type="hidden" name="verprods" value="true">
                         <input type="submit" value="+1">
                     </form>
                 </td>

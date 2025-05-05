@@ -12,8 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST' || !isset($_POST['nombre'], $_POST['pre
 $carrito = $_SESSION['carrito'];
 $nombre = strval($_POST['nombre']) ?? '';
 $precio = floatval($_POST['precio']) ?? 0;
-echo $nombre." ".$precio;
-var_dump($carrito);
+$verprods = boolval($_POST['verprods']) ?? false;
 
 
 
@@ -25,14 +24,15 @@ foreach ($carrito as $producto) {
         break;
     }
 }
-
 if ($productoEncontrado) {
-    foreach ( $carrito as &$producto) {
+    // PASAR POR REFERENCIA PARA ACTUALIZAR EL ARRAY
+    foreach ( $carrito as  &$producto) {
         if ($producto['nombre'] == $nombre) {
             $producto['cantidad']++;
             break;
         }
     }
+    unset($producto);
 } else {
     $carrito[] = [
         'nombre' => $nombre,
@@ -43,5 +43,8 @@ if ($productoEncontrado) {
     $_SESSION['carrito'] = $carrito;
 }
 
-
+if ($verprods) {
+    header('Location: ../vista/vista_carrito.php');
+} else {
     header('Location: ../vista');
+}
