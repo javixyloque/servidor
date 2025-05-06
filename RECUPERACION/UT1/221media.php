@@ -60,6 +60,7 @@ $habComp = 0;
             } else {
                 echo "<p>El pais $nomPais tiene $habComp millones de habitantes y está en o por encima de la media.</p>";
             }
+            echo "Hola mundo";
         ?>
 
 
