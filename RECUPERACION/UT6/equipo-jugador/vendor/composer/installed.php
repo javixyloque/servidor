@@ -3,7 +3,7 @@
         'name' => 'javixyloque/equipo-jugador',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '82d716de81aaad5a0b5e6ae8a003218a9c11b192',
+        'reference' => 'cfa19e3d91e9e98652fbe1765ecd29b5561df10b',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -121,7 +121,7 @@
         'javixyloque/equipo-jugador' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '82d716de81aaad5a0b5e6ae8a003218a9c11b192',
+            'reference' => 'cfa19e3d91e9e98652fbe1765ecd29b5561df10b',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

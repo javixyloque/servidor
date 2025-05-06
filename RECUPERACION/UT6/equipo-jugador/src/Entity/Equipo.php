@@ -15,11 +15,11 @@ class Equipo
     /**
      * @var int
      *
-     * @ORM\Column(name="id_equipo", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idEquipo;
+    private $id;
 
     /**
      * @var string
@@ -52,19 +52,19 @@ class Equipo
 
 
     /**
-     * Get the value of idEquipo
+     * Get the value of id
      */
-    public function getIdEquipo(): int
+    public function getId(): int
     {
-        return $this->idEquipo;
+        return $this->id;
     }
 
     /**
-     * Set the value of idEquipo
+     * Set the value of id
      */
-    public function setIdEquipo(int $idEquipo): self
+    public function setId(int $id): self
     {
-        $this->idEquipo = $idEquipo;
+        $this->id = $id;
 
         return $this;
     }

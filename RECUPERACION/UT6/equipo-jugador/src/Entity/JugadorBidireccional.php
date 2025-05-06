@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="jugador", indexes={@ORM\Index(name="equipo_fk", columns={"equipo"})})
  * @ORM\Entity
  */
-class Jugador
+class JugadorBidireccional
 {
     /**
      * @var int
@@ -47,7 +47,7 @@ class Jugador
      *
      * @ORM\ManyToOne(targetEntity="EquipoBidireccional" inversedBy="jugadores")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="equipo", referencedColumnName="id_equipo")
+     *   @ORM\JoinColumn(name="equipo", referencedColumnName="id")
      * })
      */
     private $equipo;

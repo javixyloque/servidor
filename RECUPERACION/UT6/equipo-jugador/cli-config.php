@@ -1,15 +1,14 @@
 <?php
-//Carga tu fichero project bootstrap
-require_once "bootstrap.php";
- 
+// CARGAR FICHERO PROJECT BOOSTRAP
+
+require_once './bootstrap.php';
+
 use Doctrine\ORM\Tools\Console\ConsoleRunner;
- 
-/*
-Obtiene el EntityManager que se lo pasa a la consola
-Podriamos crear una funcion en bootstrap y llamarla aqui
-$entityManager = GetEntityManager();
-o directamente usar los datos definidos en bootstrap
-*/
- 
+
+// CARGAR ENTITY MANAGER, PASARLO A LA CONSOLA Y DEVOLVER ESA CONSOLA 
+
+
 return ConsoleRunner::createHelperSet($entityManager);
+
+
 ?>
