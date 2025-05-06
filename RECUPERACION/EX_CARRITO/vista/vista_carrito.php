@@ -26,37 +26,46 @@ $carrito = $_SESSION['carrito'];
             <th>Precio</th>
             <th>Cantidad</th>
             <th>Subtotal</th>
+            <th>Eliminar producto</th>
         </thead>
-        <?php foreach($carrito as $producto) {?>
+        <?php foreach($carrito as $nombre => $producto) {?>
             <tr>
-                <td><?= $producto['nombre'];?></td>
-                <td><?= $producto['precio'] ?></td>
-                <td> 
+                <td><?= $nombre;?></td>
+                <td><?= $producto['precio'] ?> &euro;</td>
+                <td style="display:flex; align-items: center; Justify-content: space-between"> 
                     <form action="../scripts/eliminar1.php" method="post">
-                        <input type="hidden" name="nombre" value="<?=$producto['nombre']?>">
+                        <input type="hidden" name="nombre" value="<?=$nombre?>">
                         <input type="hidden" name="precio" value="<?=$producto['precio']?>">
                         <input type="hidden" name="verprods" value="true">
                         <input type="submit" value="-1">
                     </form>
-                    <?=$producto['cantidad']?>
+                    &nbsp;<?=$producto['cantidad']?> &nbsp;
                     <form action="../scripts/anadir_producto.php" method="post">
-                        <input type="hidden" name="nombre" value="<?=$producto['nombre']?>">
+                        <input type="hidden" name="nombre" value="<?=$nombre?>">
                         <input type="hidden" name="precio" value="<?=$producto['precio']?>">
                         <input type="hidden" name="verprods" value="true">
                         <input type="submit" value="+1">
                     </form>
                 </td>
                 <td>
-                    <?= $producto['precio'] * $producto['cantidad'] ?>
+                    <?= $producto['precio'] * $producto['cantidad'] ?> &euro;
+                </td>
+                <td>
+                    <a href="../scripts/eliminar_cantidad_producto.php?nombre=<?=$nombre?>">
+                        Eliminar
+                    </a>
                 </td>
             </tr>
         <?php }?>
     </table>
-                    <?php $total = 0;
-                        foreach ($carrito as $producto) {
-                            $total += $producto['precio'] * $producto['cantidad'];
-                        }
-                        echo $total;
-                    ?>
+    <?php $total = 0;
+        foreach ($carrito as $producto) {
+            $total += $producto['precio'] * $producto['cantidad'];
+        }
+        echo "Precio total: ". $total." &euro;";
+    ?>
+    
+    <a href="../scripts/vaciar_carrito.php">VACIAR CARRITO</a>
+    <a href="./pago.php">PAGAR</a>
 </body>
 </html>

@@ -3,7 +3,7 @@
 
 function precioTotal($carrito) {
     $total = 0;
-    foreach ($carrito as $producto) {
+    foreach ($carrito as $nombre => $producto) {
         $total += $producto['precio'] * $producto['cantidad'];
     }
     return $total;

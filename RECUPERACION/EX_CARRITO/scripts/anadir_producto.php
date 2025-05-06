@@ -16,21 +16,22 @@ $nombre = strval($_POST['nombre']) ?? '';
 $precio = floatval($_POST['precio']) ?? 0;
 $verprods = boolval($_POST['verprods']) ?? false;
 
-foreach ($carrito as &$producto) {
-    if ($producto['nombre'] == $nombre) {
+
+
+foreach ($carrito as $nomProd => $producto) {
+    if ($nombre == $nomProd) {
         $productoEncontrado = true;
         break;
     }
 }
 if (!$productoEncontrado) {
-    $carrito[] = [
-        'nombre' => $nombre,
+    $carrito[$nombre] = [
         'precio' => $precio,
         'cantidad' => 1
     ];
 } else {
-    foreach ($carrito as &$producto) {
-        if ($producto['nombre'] == $nombre) {
+    foreach ($carrito as $nomProd => &$producto) {
+        if ($nomProd == $nombre) {
             $producto['cantidad']++;
             break;
         }

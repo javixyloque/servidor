@@ -15,15 +15,16 @@ $carrito = $_SESSION['carrito'];
 $nombre = strval($_POST['nombre']) ?? '';
 $precio = floatval($_POST['precio']) ?? 0;
 
-for ($i = 0; $i < count($carrito); $i++) {
-    if ($carrito[$i]['nombre'] == $nombre && $carrito[$i]['cantidad']>1) {
-        $carrito[$i]['cantidad']--;
-        break;
-    } else if ($carrito[$i]['nombre'] == $nombre && $carrito[$i]['cantidad']==1) {
-        unset($carrito[$i]);
-        break;
+
+foreach($carrito as $nomProd => &$producto) {
+    if ($nomProd === $nombre && $producto['cantidad']>1) {
+        $producto['cantidad']--;
+
+    } else if ($nomProd === $nombre && $producto['cantidad'] === 1 ) {
+        unset($carrito[$nombre]);
     }
 }
+
 
 
 $_SESSION['carrito'] = $carrito;
