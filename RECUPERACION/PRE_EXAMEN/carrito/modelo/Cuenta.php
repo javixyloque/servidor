@@ -1,32 +1,33 @@
 <?php
 
-
 class Cuenta {
-    private String $titular;
-    private  float $saldo;
+    private string $nombre;
+    private int $saldo;
     private bool $negativo;
+    private array $movimientos;
 
-    public function __construct($tit, $sal=0, $neg=false) {
-        $this->titular = $tit;
-        $this->saldo = $sal;
-        $this->negativo = $neg;
-    }
-    
-
-    /**
-     * Get the value of titular
-     */
-    public function getTitular()
-    {
-        return $this->titular;
+    public function __construct(string $nombre, bool $negativo) {
+        $this->nombre = $nombre;
+        $this->negativo = $negativo;
+        $this->movimientos = [];
+        $this->saldo = 0;
     }
 
+
     /**
-     * Set the value of titular
+     * Get the value of nombre
      */
-    public function setTitular($titular): self
+    public function getNombre(): string
     {
-        $this->titular = $titular;
+        return $this->nombre;
+    }
+
+    /**
+     * Set the value of nombre
+     */
+    public function setNombre(string $nombre): self
+    {
+        $this->nombre = $nombre;
 
         return $this;
     }
@@ -34,7 +35,7 @@ class Cuenta {
     /**
      * Get the value of saldo
      */
-    public function getSaldo()
+    public function getSaldo(): int
     {
         return $this->saldo;
     }
@@ -42,7 +43,7 @@ class Cuenta {
     /**
      * Set the value of saldo
      */
-    public function setSaldo($saldo): self
+    public function setSaldo(int $saldo): self
     {
         $this->saldo = $saldo;
 
@@ -52,7 +53,7 @@ class Cuenta {
     /**
      * Get the value of negativo
      */
-    public function getNegativo()
+    public function getNegativo(): bool
     {
         return $this->negativo;
     }
@@ -60,9 +61,27 @@ class Cuenta {
     /**
      * Set the value of negativo
      */
-    public function setNegativo($negativo): self
+    public function setNegativo(bool $negativo): self
     {
         $this->negativo = $negativo;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of movimientos
+     */
+    public function getMovimientos(): array
+    {
+        return $this->movimientos;
+    }
+
+    /**
+     * Set the value of movimientos
+     */
+    public function setMovimientos(array $movimientos): self
+    {
+        $this->movimientos = $movimientos;
 
         return $this;
     }

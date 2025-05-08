@@ -1,21 +1,44 @@
 <?php
 
-require_once'../modelo/Movimiento.php';
-if (!isset($_SESSION['movimientos'])) {
-    session_start();
-}
-
-// Inicia la sesión de forma segura
 session_start();
+require_once'../modelo/Cuenta.php';
 
-$negativo = boolval($_GET['negativo']);
-
-if ($negativo) { // Elimina el else y usa un simple if
-    $movimiento = new Movimiento(true);
-} else {
-    $movimiento = new Movimiento(false);
-    
+if (!isset($_SESSION['cuenta'])) {
+    header('Location:../vista');
+    exit;
 }
-$_SESSION['movimientos'][] = $movimiento;
-var_dump($_SESSION['movimientos']);
+
+$cuenta = unserialize($_SESSION['cuenta']);
+$movimiento = htmlspecialchars($_GET['movimiento']) ?? '';
+
+$movsCuenta = $cuenta->getMovimientos();
+
+if ($movimiento == 'suma') {
+    $movsCuenta[] = [
+        'tipo' => 'suma',
+        'cantidad' => 10
+    ]; 
+    $cuenta ->setMovimientos($movsCuenta);
+    $cuenta->setSaldo($cuenta->getSaldo() + 10);
+    if ($cuenta->getSaldo() >= 0) {
+        $cuenta->setNegativo(false);
+    }
+    $_SESSION['cuenta'] = serialize($cuenta);
+
+} else if ($movimiento == 'resta') {
+    
+    $movsCuenta[] = [
+        'tipo' => 'resta',
+        'cantidad' => 10
+    ];
+    $cuenta ->setMovimientos($movsCuenta);
+    $cuenta->setSaldo($cuenta->getSaldo() - 10);
+    if ($cuenta->getSaldo() < 0) {
+        $cuenta->setNegativo(true);
+    }
+    $_SESSION['cuenta'] = serialize($cuenta);
+
+} 
+header('Location:../vista');
+
 ?>
