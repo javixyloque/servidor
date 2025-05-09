@@ -1,10 +1,13 @@
+
 <?php
-require_once'./bootstrap.php';
+require_once './bootstrap.php';
+use Jugador;
+
 
 try {
     $id = $_GET['id'];
-    $jugador = $entityManager->find(Jugador::class, intval($id));
-    echo $jugador;
+    $jugador = $entityManager->getRepository(Jugador::class)->find($id);
+    echo $jugador->getEquipo()->getNombre();
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
 }

@@ -5,23 +5,26 @@ require_once "./src/Entity/EquipoBidireccional.php";
 require_once "./src/Entity/JugadorBidireccional.php";
 require_once "./src/Entity/Equipo.php";
 require_once "./src/Entity/Jugador.php";
+require_once "./src/Entity/EquipoRepository.php";
 
 
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
-$paths = array("./src");
+$paths = array(__DIR__."/src");
 $isDevMode = true;
 
 
 // CONFIGURACION DE LA BASE DE DATOS
-$dbParams = array(
+$dbParams = [
     'driver' => 'pdo_mysql',
     'user' => 'root',
     'password' => '',
     'dbname' => 'equipo_jugador',
-    'host' => '127.0.0.1',
-);
+    'host' => '127.0.0.1', // 👈 usa esto, no 'localhost'
+    'port' => 3306
+];
+
 
 
 // UTILIZARA ANOTACIONES COMO RUTAS A ENTIDADES, DEPURACION, DIRECTORIO TEMPORAL CON CACHÉ...
