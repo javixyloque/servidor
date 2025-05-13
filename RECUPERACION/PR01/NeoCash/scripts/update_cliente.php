@@ -16,8 +16,7 @@ $nombre = filtrado($_POST['nombre']) ?? null;
 $email = filtrado($_POST['email']) ?? null;
 $pw = filtrado($_POST['password']) ?? null;
 
-// echo "<img src='data:image/jpeg;base64," . base64_encode($img_cliente) . "'>";
-// exit;
+
 
 $contenido_img_cliente = null;
 
