@@ -1,6 +1,8 @@
 <?php
 require_once'../controlador/controlador.php';
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 $conexion = conexion();
 //SUBIR EL TAMAÑO MAXIMO PERMITIDO (200 MB)
 $conexion -> exec("SET GLOBAL max_allowed_packet = 200 * 1024 * 1024;"); // 200 MB
@@ -45,15 +47,15 @@ while (comprobarRepetidoCuenta($nuevoCliente['numero_cuenta'])) {
 
 try {
     insertCliente($nuevoCliente);
+    echo "<script>
+        alert('Usuario registrado correctamente'); 
+        window.location.href = '../vista/index.php';
+    </script>";
 } catch (PDOException $ex) {
     echo "Error". $ex->getMessage();
 }
 
 
-echo "<script>
-    alert('Usuario registrado correctamente'); 
-    window.location.href = '../vista/index.php';
-</script>";
 
 
 

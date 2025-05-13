@@ -1,5 +1,7 @@
 <?php
-session_start();
+
+use phpDocumentor\Reflection\Types\Null_;
+
 function conexion () {
     $servidor = 'mysql:dbname=neobanco_javier;host=localhost;charset=utf8mb4';
     $nombre ='root';
@@ -31,7 +33,7 @@ function comprobarRepetidoCuenta($numero) {
     $sql = 'SELECT COUNT(*) FROM cliente WHERE numero_cuenta = :numero';
     $conexion = conexion();
     $consulta = $conexion -> prepare($sql);
-    $consulta -> bindParam(':numero', $numero);
+    $consulta -> bindParam(':numero', $numero, PDO::PARAM_STR);
     $consulta -> execute();
     $contador = $consulta -> fetchColumn();
     $conexion = null;
@@ -83,7 +85,7 @@ function insertCliente ($cliente) {
     $consulta -> bindParam(':email', $cliente['email'], PDO::PARAM_STR);
     $consulta -> bindParam(':password', $cliente['password'], PDO::PARAM_STR);
     $consulta -> bindParam(':img_cliente', $cliente['img_cliente'], PDO::PARAM_LOB);
-    $consulta -> bindParam(':numero_cuenta' , $cliente['numero_cuenta']);
+    $consulta -> bindParam(':numero_cuenta' , $cliente['numero_cuenta'], PDO::PARAM_STR);
     return $consulta -> execute();
 }
 
@@ -103,6 +105,23 @@ function selectCliente ($nombre) {
     }
 }
 
+function selectClientePorId($id) {
+    
+    try{
+        $sql = "SELECT c.* FROM cliente c WHERE c.id = :id";
+        $conexion = conexion();
+        $select = $conexion ->prepare($sql);
+        $select->bindParam(':id', $id, PDO::PARAM_INT);
+        $select -> execute();
+        $cliente = $select -> fetchAll(PDO::FETCH_ASSOC);
+        $conexion = null;
+        return $cliente;
+    }catch(PDOException){
+        $conexion = null;
+        return false;
+    }
+}
+
 function selectIdCliente($nombre) {
     try {
         $sql = "SELECT c.id FROM cliente c WHERE c.nombre = :nombre";
@@ -110,10 +129,34 @@ function selectIdCliente($nombre) {
         $select = $conexion -> prepare($sql);
         $select -> bindParam(':nombre', $nombre, PDO::PARAM_STR);
         $select -> execute();
-        $id = $select -> fetch(PDO::FETCH_ASSOC);
+        $id = $select -> fetchAll(PDO::FETCH_ASSOC);
         $conexion = null;
         return $id['id'];
     } catch (PDOException) {
+        $conexion = null;
+        return false;
+    }
+}
+
+function updateCliente($nombre, $email, $img_cliente, $pw = null) {
+    try {
+        $sql = "UPDATE cliente SET email = :email, img_cliente = :img_cliente";
+        if ($pw) {
+            $sql .= ", password = :password";
+        }
+        $sql .= " WHERE nombre = :nombre";
+        $conexion = conexion();
+        $update = $conexion -> prepare($sql);
+        $update -> bindParam(':email', $email, PDO::PARAM_STR);
+        $update -> bindParam(':img_cliente', $img_cliente, PDO::PARAM_LOB);
+        if ($pw) {
+            $update -> bindParam(':password', $pw, PDO::PARAM_STR);
+        }
+        $update -> bindParam(':nombre', $nombre, PDO::PARAM_STR);
+        $update -> execute();
+        $conexion = null;
+        return true;
+    } catch (PDOException ) {
         $conexion = null;
         return false;
     }
@@ -217,9 +260,10 @@ function saldoEnCuenta($nombre) {
 }
 
 function listadoGastosFecha($nombre) {
-    $sql = "SELECT t.*, c.nombre FROM transaccion t JOIN cliente c ON c.id = t.cliente WHERE t.tipo = 'retirada' ORDER BY t.fecha ASC";
+    $sql = "SELECT t.*, c.nombre FROM transaccion t JOIN cliente c ON c.id = t.cliente WHERE t.tipo = 'retirada' AND c.nombre = :nombre ORDER BY t.fecha ASC";
     $conexion = conexion();
     $select = $conexion -> prepare($sql);
+    $select -> bindParam(':nombre', $nombre, PDO::PARAM_STR);
     $select -> execute();
     $gastos = $select->fetchAll(PDO::FETCH_ASSOC);
     $conexion = null;

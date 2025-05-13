@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 require_once '../controlador/controlador.php';
 //  CHECK   =>  INICIO SESIÓN
@@ -6,7 +9,8 @@ if (!isset($_SESSION['user'])) {
     header('Location: ../vista');
 } 
 
-
+$cliente = selectCliente($_SESSION['user']);
+// var_dump($cliente);
 
 // SELECT c.*, t.* FROM cliente c JOIN transaccion t ON t.cliente = c.id;
 $transacciones = transaccionesCliente($_SESSION['user']);
@@ -35,9 +39,12 @@ $transacciones = transaccionesCliente($_SESSION['user']);
 </head>
 <body>
     <h1>Transacciones de <?= $_SESSION['user'] ?></h1>
+    <!-- MOSTRAR IMAGEN CLIENTE -->
+     <img  height="100" width="100" src="data:image/jpeg;base64,<?= base64_encode($cliente[0]['img_cliente']) ?>" />
         <form action="./cerrar_sesion.php" method="get">
             <button type="submit">Cerrar Sesión</button>
         </form>
+    <a href="./form_update_cliente.php?id=<?=$cliente[0]['id']?>">Acutalizar datos del cliente</a>
     <table>
         <thead>
             <th>Concepto</th>

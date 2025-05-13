@@ -15,6 +15,7 @@ function sumar10($cuenta) {
     $cuenta->setMovimientos($movs);
     return $cuenta;
 }
+
 function restar10($cuenta) {
     $saldo = $cuenta->getSaldo();
     $movs = $cuenta->getMovimientos();
