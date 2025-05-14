@@ -129,7 +129,7 @@ function selectIdCliente($nombre) {
         $select = $conexion -> prepare($sql);
         $select -> bindParam(':nombre', $nombre, PDO::PARAM_STR);
         $select -> execute();
-        $id = $select -> fetchAll(PDO::FETCH_ASSOC);
+        $id = $select -> fetch(PDO::FETCH_ASSOC);
         $conexion = null;
         return $id['id'];
     } catch (PDOException) {
