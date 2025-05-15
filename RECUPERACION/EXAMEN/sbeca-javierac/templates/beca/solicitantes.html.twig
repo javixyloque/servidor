@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Solicitante{% endblock %}
+
+{% block body %}
+    <h1>Solicitante</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ beca.solicitante.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ beca.solicitante.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Dni</th>
+                <td>{{ beca.solicitante.dni }}</td>
+            </tr>
+            <tr>
+                <th>Fecha_nac</th>
+                <td>{{ beca.solicitante.fechaNac ? beca.solicitante.fechaNac|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nomina</th>
+                <td>{{ beca.solicitante.nomina }}</td>
+            </tr>
+            <tr>
+                <th>Concedida</th>
+                <td>{{ beca.solicitante.concedida ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_solicitante_index') }}">back to list</a>
+
+    <a href="{{ path('app_solicitante_edit', {'id': solicitante.id}) }}">edit</a>
+
+    {{ include('solicitante/_delete_form.html.twig') }}
+{% endblock %}

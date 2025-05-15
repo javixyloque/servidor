@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Solicitante index{% endblock %}
+
+{% block body %}
+    <h1>Solicitante index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Dni</th>
+                <th>Fecha_nac</th>
+                <th>Nomina</th>
+                <th>Concedida</th>
+                <th>Tipo de beca</th>
+                <th>cantidad</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for solicitante in solicitantes %}
+            <tr>
+                <td>{{ solicitante.id }}</td>
+                <td>{{ solicitante.nombre }}</td>
+                <td>{{ solicitante.dni }}</td>
+                <td>{{ solicitante.fechaNac ? solicitante.fechaNac|date('Y-m-d') : '' }}</td>
+                <td>{{ solicitante.nomina }}</td>
+                <td>{{ solicitante.concedida ? 'Sí' : 'No' }}</td>
+                <td>{{ solicitante.beca.descripcion }}</td>
+                <td>{{ solicitante.beca.cantidad }}</td>
+                <td>
+                    <a href="{{ path('app_solicitante_show', {'id': solicitante.id}) }}">show</a>
+                    <a href="{{ path('app_solicitante_edit', {'id': solicitante.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_solicitante_new') }}">Create new</a>
+{% endblock %}

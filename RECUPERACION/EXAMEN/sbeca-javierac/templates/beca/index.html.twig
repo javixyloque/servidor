@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Beca index{% endblock %}
+
+{% block body %}
+    <h1>Beca index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descripcion</th>
+                <th>Cantidad</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for beca in becas %}
+            <tr>
+                <td>{{ beca.id }}</td>
+                <td>{{ beca.descripcion }}</td>
+                <td>{{ beca.cantidad }}</td>
+                <td>
+                    <a href="{{ path('app_beca_show', {'id': beca.id}) }}">show</a>
+                    <a href="{{ path('app_beca_edit', {'id': beca.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_beca_new') }}">Create new</a>
+{% endblock %}
